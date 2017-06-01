@@ -1,0 +1,4 @@
+include README.rst
+include docs/*.txt
+include Restcomm_Python_SDK/data.json
+
