@@ -1,0 +1,7 @@
+"Enter the Account Sid here"
+"Enter the Authentication Token here"
+"Enter the Base Url here"
+"Enter the UserName"
+"Enter the Password here"
+"Enter the Client Sid here"
+"Enter the New Password here"

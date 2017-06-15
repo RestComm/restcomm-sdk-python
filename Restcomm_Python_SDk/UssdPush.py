@@ -16,6 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  '''
+
 import requests
 import json
 
@@ -27,20 +28,38 @@ class client(object):
         self.AuthToken = AuthToken
         self.BaseUrl = BaseUrl
 
-class NumberAvailablity(object):
+class UssdPush(object):
 
-    def __init__(self, AreaCode, client):
+    def __init__(self, From, To, AppName, client):
 
+        self.From = From
+        self.To = To
+        self.AppName = AppName
         self.Sid = client.Sid
         self.AuthToken = client.AuthToken
         self.BaseUrl = client.BaseUrl
-        self.AreaCode = AreaCode
 
-    def Availability(self):
+    def Push(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/AvailablePhoneNumbers.json/US/Local'
-        param = {'AreaCode':self.AreaCode}
-        r1 = requests.get(Url, params=param, auth=(self.Sid, self.AuthToken))
+        PushUrl = 'https://cloud.restcomm.com/restcomm-rvd/services/apps/'+self.AppName+'controller'
+        Url = self.BaseUrl+'/Accounts/'+self.Sid+'UssdPush'
+        data = {'From':self.From, 'To':self.To, 'Url':PushUrl}
 
-        content = json.loads(r1.text)
+        r = requests.post(Url, data=data, auth=(self.Sid,self.AuthToken))
+        content = json.loads(r.text)
         return content
+
+def main():
+
+    AccountSid = input("Enter your AccountID")
+    Token = input("Enter your Account Token")
+    data = client(AccountSid, Token)
+    From = input("Enter the from data")
+    To = input("Enter the To data")
+    AppName = input("Enter the USSD app name")
+
+    details = UssdPush(From, To, AppName, data)
+    details.Push()
+
+if __name__=="__main__":
+    main()

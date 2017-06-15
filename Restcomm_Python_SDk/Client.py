@@ -16,70 +16,84 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  '''
+
 import requests
-import xml.etree.ElementTree as ET
+import json
 
-class RestcommClient(object):
+class client(object):
 
-    def __init__(self,Sid,AuthToken,Uri):
-        self.Sid=Sid
-        self.AuthToken=AuthToken
-        self.Uri=Uri
+    def __init__(self, Sid, AuthToken, BaseUrl):
 
-    def CreateClient(self):
+        self.Sid = Sid
+        self.AuthToken = AuthToken
+        self.BaseUrl = BaseUrl
 
-        Url=self.Uri+self.Sid+'/Clients'
-        Login=input("Enter the new client Username")
-        Password=input("Enter the new client password")
-        data={'Login':Login,'Password':Password}
-        r1=requests.post(Url,data=data,auth=(self.Sid,self.AuthToken))
+class CreateClient(object):
 
-        root = ET.fromstring(r1.content)
-        for details in root.findall('Client'):
-            Sid = details.find('Sid').text
-            Status = details.find('Status').text
-            DateCreated = details.find('DateCreated').text
-            DateUpdated = details.find('DateUpdated').text
-            ApiVersion = details.find('ApiVersion').text
+    def __init__(self, Login, Password, client):
 
-        print(r1.content)
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.Login = Login
+        self.Password = Password
 
-    def DeleteClient(self):
+    def Create(self):
 
-        ClientSid=input("Enter the client Sid")
-        Url = self.Uri + self.Sid + '/Clients/'+ClientSid
-        r2=requests.delete(Url,auth=(self.Sid,self.AuthToken))
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Clients.json'
+        data = {'Login': self.Login, 'Password': self.Password}
+        r1 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
 
-        print(r2.content)
+        content = json.loads(r1.text)
+        return content
+
+class DeleteClient(object):
+
+    def __init__(self, ClientSid, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.ClientSid = ClientSid
+
+    def Delete(self):
+
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Clients.json/'+self.ClientSid
+        r2 = requests.delete(Url, auth=(self.Sid, self.AuthToken))
+        content = json.loads(r2.text)
+        return content
+
+class ChangeClientPassword(object):
+
+    def __init__(self, ClientSid, Password, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.ClientSid = ClientSid
+        self.Password = Password
 
     def ChangePassword(self):
 
-        ClientSid = input("Enter the client Sid")
-        Password = input("Enter the new client password")
-        Url = self.Uri + self.Sid + '/Clients/' + ClientSid
-        data = {'Password': Password}
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Clients.json/'+self.ClientSid
+        data = {'Password': self.Password}
         r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
 
-        print(r3.content)
+        content = json.loads(r3.text)
+        return content
 
-    def ClientList(self):
+class ClientList(object):
 
-        Url = self.Uri + self.Sid + '/Clients/'
-        r4=requests.get(Url,auth=(self.Sid,self.AuthToken))
+    def __init__(self, client):
 
-        print(r4.content)
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
 
-def main():
+    def GetList(self):
 
-    AccountSid=input("Enter your AccountID")
-    Token=input("Enter your Account Token")
-    Ur='https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/'
-    details=RestcommClient(AccountSid,Token,Ur)
-    details.CreateClient()
-    details.ChangePassword()
-    details.ClientList()
-    details.DeleteClient()
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Clients.json'
+        r4 = requests.get(Url, auth=(self.Sid, self.AuthToken))
 
-
-if __name__=="__main__":
-    main()
+        content = json.loads(r4.text)
+        return content

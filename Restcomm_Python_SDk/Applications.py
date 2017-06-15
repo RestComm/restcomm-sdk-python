@@ -28,27 +28,64 @@ class client(object):
         self.AuthToken = AuthToken
         self.BaseUrl = BaseUrl
 
-class SendSms(object):
+class CreateApplication(object):
 
-    def __init__(self, To, From, Body, client):
+    def __init__(self, FriendlyName, kind, client):
 
         self.Sid = client.Sid
         self.AuthToken = client.AuthToken
         self.BaseUrl = client.BaseUrl
-        self.To = To
-        self.From = From
-        self.Body = Body
+        self.FriendlyName = FriendlyName
+        self.kind = kind
 
-    def Send(self):
+    def Create(self):
 
-        BaseUrl = self.BaseUrl+'/Accounts/'+self.Sid+'/SMS/Messages.json'
-        data = {'To': self.To, 'From': self.From, 'Body': self.Body}
-        r1 = requests.post(BaseUrl, data=data, auth=(self.Sid, self.AuthToken))
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json'
+        RcmUrl = 'cloud.restcomm.com/restcomm-rvd/services/apps/foobar/controller'
+        data = {'FriendlyName': self.FriendlyName, 'ApiVersion': '2012-04-24', 'HasVoiceCallerIdLookup': 'false',
+                'RcmUrl': RcmUrl, 'Kind': self.kind}
+        r1 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
 
         content = json.loads(r1.text)
         return content
 
-class SmsList(object):
+class DeleteApplication(object):
+
+    def __init__(self, AppSid, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.AppSid = AppSid
+
+    def Delete(self):
+
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/'+self.AppSid
+        r2 = requests.delete(Url, auth=(self.Sid, self.AuthToken))
+
+        content = json.loads(r2.text)
+        return content
+
+class UpdateApplication(object):
+
+    def __init__(self, AppSid, FriendlyName, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.AppSid = AppSid
+        self.FriendlyName = FriendlyName
+
+    def Update(self):
+
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/' + self.AppSid
+        data = {'FriendlyName': self.FriendlyName}
+        r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+
+        content = json.loads(r3.text)
+        return content
+
+class GetApplicationList(object):
 
     def __init__(self, client):
 
@@ -58,44 +95,8 @@ class SmsList(object):
 
     def GetList(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        r2 = requests.get(Url, auth=(self.Sid, self.AuthToken))
-
-        content = json.loads(r2.text)
-        return content
-
-class FilterSmsList(object):
-
-    def __init__(self, FilterNumber, client):
-
-        self.Sid = client.Sid
-        self.AuthToken = client.AuthToken
-        self.BaseUrl = client.BaseUrl
-        self.FilterNumber = FilterNumber
-
-    def GetFilterlist(self):
-
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        params = {'From': self.FilterNumber}
-        r3 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
-
-        content = json.loads(r3.text)
-        return content
-
-class SmsPagingInformation(object):
-
-    def __init__(self, PageSize, client):
-
-        self.Sid = client.Sid
-        self.AuthToken = client.AuthToken
-        self.BaseUrl = client.BaseUrl
-        self.PageSize = PageSize
-
-    def PageInfo(self):
-
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        params = {'PageSize': self.PageSize}
-        r4 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/'
+        r4 = requests.get(Url, auth = (self.Sid, self.AuthToken))
 
         content = json.loads(r4.text)
         return content

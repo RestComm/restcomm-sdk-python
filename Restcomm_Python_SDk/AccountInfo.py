@@ -28,27 +28,76 @@ class client(object):
         self.AuthToken = AuthToken
         self.BaseUrl = BaseUrl
 
-class SendSms(object):
+class AccountDetails(object):
 
-    def __init__(self, To, From, Body, client):
+    def __init__(self,client):
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+
+    def Details(self):
+
+        Url=self.BaseUrl+'/Accounts.json/'+self.Sid
+        r1=requests.get(Url, auth=(self.Sid,self.AuthToken))
+        content = json.loads(r1.text)
+
+        return content
+
+class ChangeAccountPassword(object):
+
+    def __init__(self, Password, client):
 
         self.Sid = client.Sid
         self.AuthToken = client.AuthToken
         self.BaseUrl = client.BaseUrl
-        self.To = To
-        self.From = From
-        self.Body = Body
+        self.Password = Password
 
-    def Send(self):
+    def ChangePassword(self):
 
-        BaseUrl = self.BaseUrl+'/Accounts/'+self.Sid+'/SMS/Messages.json'
-        data = {'To': self.To, 'From': self.From, 'Body': self.Body}
-        r1 = requests.post(BaseUrl, data=data, auth=(self.Sid, self.AuthToken))
-
-        content = json.loads(r1.text)
+        Url = self.BaseUrl+'/Accounts.json/'+self.Sid
+        data = {'AccountSid': self.Sid, 'Password': self.Password}
+        r2 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+        content = json.loads(r2.text)
         return content
 
-class SmsList(object):
+class CreateSubAccount(object):
+
+    def __init__(self, FriendlyName, EmailAddress, Password, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.Password = Password
+        self.FriendlyName = FriendlyName
+        self.EmailAddress = EmailAddress
+
+    def Create(self):
+
+        Url = self.BaseUrl+'/Accounts.json/'
+        data = {'FriendlyName': self.FriendlyName, 'EmailAddress': self.EmailAddress, 'Password': self.Password}
+        r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+
+        content = json.loads(r3.text)
+        return content
+
+class CloseSubAccount(object):
+
+    def __init__(self, SubSid, client):
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.SubSid = SubSid
+
+    def Close(self):
+
+        Url = self.BaseUrl+'/Accounts.json/'+self.SubSid
+        data = {'Status': 'closed'}
+        r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+
+        content = json.loads(r3.text)
+        return content
+
+class SubAccountDetails(object):
 
     def __init__(self, client):
 
@@ -56,46 +105,9 @@ class SmsList(object):
         self.AuthToken = client.AuthToken
         self.BaseUrl = client.BaseUrl
 
-    def GetList(self):
+    def Details(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        r2 = requests.get(Url, auth=(self.Sid, self.AuthToken))
-
-        content = json.loads(r2.text)
-        return content
-
-class FilterSmsList(object):
-
-    def __init__(self, FilterNumber, client):
-
-        self.Sid = client.Sid
-        self.AuthToken = client.AuthToken
-        self.BaseUrl = client.BaseUrl
-        self.FilterNumber = FilterNumber
-
-    def GetFilterlist(self):
-
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        params = {'From': self.FilterNumber}
-        r3 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
-
-        content = json.loads(r3.text)
-        return content
-
-class SmsPagingInformation(object):
-
-    def __init__(self, PageSize, client):
-
-        self.Sid = client.Sid
-        self.AuthToken = client.AuthToken
-        self.BaseUrl = client.BaseUrl
-        self.PageSize = PageSize
-
-    def PageInfo(self):
-
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        params = {'PageSize': self.PageSize}
-        r4 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
-
+        Url = self.BaseUrl+'/Accounts.json/'
+        r4 = requests.get(Url, auth=(self.Sid, self.AuthToken))
         content = json.loads(r4.text)
         return content

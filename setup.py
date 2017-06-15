@@ -4,14 +4,14 @@ def readme():
     with open('README.rst') as f:
         return f.read()
 
-setup(name='Restcomm_Python_SDK',
+setup(name='Restcomm_Python_SDk',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     #  https://packaging.python.org/en/latest/single_source_version.html
 
-      version='0.1',
-      description='Restcomm SDK for Python user',
+      version='1.2.0a2',
+      description='Restcomm SDk for Python user',
       long_description=readme(),
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
@@ -29,7 +29,7 @@ setup(name='Restcomm_Python_SDK',
 
     # What does your project relate to?
 
-      keywords='Restcomm SDK for python',
+      keywords='Restcomm SDk for python',
     # The project's main homepage.
       url='http://github.com/',
     # Author details
@@ -43,10 +43,9 @@ setup(name='Restcomm_Python_SDK',
     # "scripts" keyword. Entry points provide cross-platform support and allow
     # pip to create the appropriate form of executable for the target platform.
 
-      entry_points = {'console_scripts': ['Restcomm_Python_SDK=Restcomm_Python_SDK.command_line:main']},
       packages=['Restcomm_Python_SDk'],
       install_requires=[
-          'requests','xml.etree.ElementTree'
+          'requests',
       ],
       include_package_data=True,
       zip_safe=False)

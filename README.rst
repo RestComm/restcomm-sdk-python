@@ -1,4 +1,4 @@
-Restcomm_Python_SDK
+Restcomm_Python_SDk
 --------------------
 To use (with caution), simply do::
->>> import Restcomm_Python_SDK
+>>> import Restcomm_Python_SDk

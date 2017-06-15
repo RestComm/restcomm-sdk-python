@@ -17,33 +17,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  '''
 import requests
+import json
 
-class RestcommEmail(object):
+class client(object):
 
-    def __init__(self,Sid,AuthToken,Uri):
+    def __init__(self,Sid,AuthToken, BaseUrl):
+
         self.Sid=Sid
         self.AuthToken=AuthToken
-        self.Uri=Uri
+        self.BaseUrl = BaseUrl
 
-    def SendEmail(self):
+class SendEmail(object):
 
-        Url=self.Uri+self.Sid+'/Email/Messages'
-        To = input("Enter the Email ID of Receiver")
-        From = input("Enter the Email ID of Sender")
-        Subject = input("Enter the Subject of an Email")
-        Body = input("Enter the message")
-        data = {'To':To,'From':From,'Body':Body,'Subject':Subject}
-        r1=requests.post(Url,data=data,auth=(self.Sid,self.AuthToken))
+    def __init__(self,To, From, Subject, Body, client):
 
-        print(r1.text)
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.To = To
+        self.From = From
+        self.Subject = Subject
+        self.Body = Body
 
-def main():
+    def Send(self):
 
-    AccountSid=input("Enter your AccountID")
-    Token=input("Enter your Account Token")
-    Ur='https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/'
-    details=RestcommEmail(AccountSid,Token,Ur)
-    details.SendEmail()
+        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Email/Messages.json'
+        data = {'To':self.To,'From':self.From,'Body':self.Body,'Subject':self.Subject}
+        r1=requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
 
-if __name__=="__main__":
-    main()
+        content = json.loads(r1.text)
+        return content

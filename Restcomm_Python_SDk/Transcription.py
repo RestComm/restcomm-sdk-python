@@ -28,27 +28,7 @@ class client(object):
         self.AuthToken = AuthToken
         self.BaseUrl = BaseUrl
 
-class SendSms(object):
-
-    def __init__(self, To, From, Body, client):
-
-        self.Sid = client.Sid
-        self.AuthToken = client.AuthToken
-        self.BaseUrl = client.BaseUrl
-        self.To = To
-        self.From = From
-        self.Body = Body
-
-    def Send(self):
-
-        BaseUrl = self.BaseUrl+'/Accounts/'+self.Sid+'/SMS/Messages.json'
-        data = {'To': self.To, 'From': self.From, 'Body': self.Body}
-        r1 = requests.post(BaseUrl, data=data, auth=(self.Sid, self.AuthToken))
-
-        content = json.loads(r1.text)
-        return content
-
-class SmsList(object):
+class TranscriptionList(object):
 
     def __init__(self, client):
 
@@ -58,44 +38,35 @@ class SmsList(object):
 
     def GetList(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        r2 = requests.get(Url, auth=(self.Sid, self.AuthToken))
+        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Transcriptions.json'
+        r1 = requests.get(Url , auth=(self.Sid, self.AuthToken))
+
+        content = json.loads(r1.text)
+        return content
+
+class TranscriptionFilter(object):
+
+    def __init__(self, TranscriptionText, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.text = TranscriptionText
+
+    def FilterText(self):
+
+        params = {'TranscriptionText':self.text}
+        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Transcriptions.json?'
+        r2 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
 
         content = json.loads(r2.text)
         return content
 
-class FilterSmsList(object):
+    def FilterPage(self):
 
-    def __init__(self, FilterNumber, client):
-
-        self.Sid = client.Sid
-        self.AuthToken = client.AuthToken
-        self.BaseUrl = client.BaseUrl
-        self.FilterNumber = FilterNumber
-
-    def GetFilterlist(self):
-
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        params = {'From': self.FilterNumber}
+        params = {'PageSize' : self.text}
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Transcriptions.json?'
         r3 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
 
         content = json.loads(r3.text)
-        return content
-
-class SmsPagingInformation(object):
-
-    def __init__(self, PageSize, client):
-
-        self.Sid = client.Sid
-        self.AuthToken = client.AuthToken
-        self.BaseUrl = client.BaseUrl
-        self.PageSize = PageSize
-
-    def PageInfo(self):
-
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        params = {'PageSize': self.PageSize}
-        r4 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
-
-        content = json.loads(r4.text)
         return content

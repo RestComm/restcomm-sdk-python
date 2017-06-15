@@ -18,99 +18,124 @@
  '''
 
 import requests
-import xml.etree.ElementTree as ET
+import json
 
-class RestcommCall(object):
+class client(object):
 
-    def __init__(self,Sid,AuthToken,Uri):
-        self.Sid=Sid
-        self.AuthToken=AuthToken
-        self.Uri=Uri
+    def __init__(self, Sid, AuthToken, BaseUrl):
 
-    def MakeCalls(self):
+        self.Sid = Sid
+        self.AuthToken = AuthToken
+        self.BaseUrl = BaseUrl
 
-        From=input("Enter the number to call from")
-        To=input("Enter the client name to call")
-        Url=self.Uri+self.Sid+'/Calls'
-        Urls = 'cloud.restcomm.com/restcomm/demos/hello-Play.xml'
-        data = {'From': From, 'To':To, 'Url': Urls}
+class Makecall(object):
+
+    def __init__(self, From, To, Url, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.From = From
+        self.To = To
+        self.Url = Url
+
+    def Call(self):
+
+        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Calls.json'
+        data = {'From': self.From, 'To': self.To, 'Url': self.Url}
 
         r1 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
-        root = ET.fromstring(r1.content)
-        for details in root.findall('Call'):
-            StartTime=details.find('StartTime').text
-            EndTime=details.find('EndTime').text
-            Duration=details.find('Duration').text
-            Price=details.find('Price').text
-            Direction=details.find('Direction').text
-            AnsweredBy=details.find('AnsweredBy').text
-            ApiVersion=details.find('ApiVersion').text
-            ForwardedFrom=details.find('ForwardedFrom').text
-            CallerName=details.find('CallerName').text
-            Sid = details.find('Sid').text
-            Status = details.find('Status').text
-            DateCreated = details.find('DateCreated').text
-            DateUpdated = details.find('DateUpdated').text
 
+        content = json.loads(r1.text)
+        return content
 
-    def GetCallDetail(self):\
+class GetCallDetail(object):
 
-        Url = self.Uri + self.Sid + '/Calls'
+    def __init__(self, client):
 
-        r2=requests.get(Url,auth=(self.Sid,self.AuthToken))
-        print(r2.content)
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
 
-    def RedirectCall(self):
+    def GetDetails(self):
 
-        Sid2=''
-        Url=self.Uri+self.Sid+'/Calls'+'/'+Sid2
-        Url2='cloud.restcomm.com/restcomm/demos/dial­alice.xml'
-        data={'Url':Url2}
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Calls.json'
+        r2 = requests.get(Url, auth=(self.Sid, self.AuthToken))
 
-        r3=requests.post(Url,data=data,auth=(self.Sid,self.AuthToken))
-        print(r3.content)
+        content = json.loads(r2.text)
+        return content
 
-    def ConferenceCall(self):
+class RedirectCall(object):
 
-        Sid2 = ''
-        Url = self.Uri + self.Sid + '/Calls' + '/' + Sid2
-        Url3='cloud.restcomm.com/restcomm/demos/conference.xml'
-        data={'Url':Url3,'MoveConnectedCallLeg':'true'}
+    def __init__(self, Url, SubSid, client):
 
-        r4=requests.post(Url,data=data,auth=(self.Sid,self.AuthToken))
-        print(r4.content)
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.Url = Url
+        self.SubSid = SubSid
 
-    def MuteParticipant(self):
+    def Redirect(self):
 
-        ParticipantSid=input("Enter the Participant SID")
-        ConferenceSid=input("Enter the Conference SID")
-        Url = self.Uri + self.Sid +'/Conferences/'+ConferenceSid+'/Participants/'+ParticipantSid
-        data={'Mute':'true'}
+        data = {'Url': self.Url}
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Calls.json/'+self.SubSid
+        r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
 
-        r5=requests.post(Url,data=data,auth=(self.Sid,self.AuthToken))
-        print(r5.content)
+        content = json.loads(r3.text)
+        return content
 
-    def UnMuteParticipant(self):
-        ParticipantSid = input("Enter the Participant SID")
-        ConferenceSid = input("Enter the Conference SID")
-        Url = self.Uri + self.Sid + '/Conferences/' + ConferenceSid + '/Participants/' + ParticipantSid
+class ConferenceCall(object):
+
+    def __init__(self, sig_Url, SubSid, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.SubSid = SubSid
+        self.sig_Url = sig_Url
+
+    def Conference(self):
+
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Calls.json/' + self.SubSid
+        data = {'Url': self.sig_Url, 'MoveConnectedCallLeg': 'true'}
+
+        r4 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+        content = json.loads(r4.text)
+        return content
+
+class MuteParticipant(object):
+
+    def __init__(self, ParticipantSid, ConferenceSid, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.ParticipantSid = ParticipantSid
+        self.ConferenceSid = ConferenceSid
+
+    def Mute(self):
+
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Conferences.json/' + self.ConferenceSid + '/Participants/' + self.ParticipantSid
+        data = {'Mute': 'true'}
+
+        r5 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+        content = json.loads(r5.text)
+        return content
+
+class UnMuteParticipant(object):
+
+    def __init__(self, ParticipantSid, ConferenceSid, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.ParticipantSid = ParticipantSid
+        self.ConferenceSid = ConferenceSid
+
+    def UnMute(self):
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Conferences.json/' + self.ConferenceSid + '/Participants/' + self.ParticipantSid
         data = {'Mute': 'false'}
 
         r6 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
-        print(r6.content)
-
-def main():
-
-    AccountSid=input("Enter your AccountID")
-    Token=input("Enter your Account Token")
-    Ur='https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/'
-    details=RestcommCall(AccountSid,Token,Ur)
-    details.MakeCalls()
-    #details.GetCallDetail()
-    #details.ConferenceCall()
-    #details.MuteParticipant()
-    #details.RedirectCall()
-    #details.UnMuteParticipant()
-
-if __name__=="__main__":
-    main()
+        content = json.loads(r6.text)
+        return content

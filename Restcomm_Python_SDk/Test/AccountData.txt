@@ -1,0 +1,7 @@
+"Enter the Account Sid here"
+"Enter the Authentication Token here"
+http://192.168.1.76:8000
+"Enter the Password here"
+"Enter the Friendly Name here"
+"Enter the Email Address here"
+"Enter the Sub Account Sid here"
