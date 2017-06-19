@@ -44,6 +44,6 @@ from Restcomm_Python_SDk.Transcription import TranscriptionList
 from Restcomm_Python_SDk.Transcription import client
 from Restcomm_Python_SDk.Transcription import TranscriptionFilter
 from Restcomm_Python_SDk.Usage import client
-from Restcomm_Python_SDk.Usage import Usage
+from Restcomm_Python_SDk.Usage import Usages
 from Restcomm_Python_SDk.UssdPush import client
 from Restcomm_Python_SDk.UssdPush import UssdPush

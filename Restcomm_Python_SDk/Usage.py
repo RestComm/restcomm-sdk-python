@@ -28,7 +28,7 @@ class client(object):
         self.AuthToken = AuthToken
         self.BaseUrl = BaseUrl
 
-class Usage(object):
+class Usages(object):
 
     def __init__(self, client):
 

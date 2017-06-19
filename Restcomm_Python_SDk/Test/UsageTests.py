@@ -1,62 +1,45 @@
 '''
  * TeleStax, Open Source Cloud Communications
- * Copyright 2011-2017, Telestax Inc and individual contributors
+ * Copyright 2011-2016, Telestax Inc and individual contributors
  * by the @authors tag.
  *
- * This program is free software: you can redistribute it and/or modify
- * under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation; either version 3 of
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
  * the License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
+ * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  '''
 
 from Restcomm_Python_SDk import Usage
 import unittest
-import requests
-from unittest.mock import Mock, patch
+import vcr
 
 class TestUsage(unittest.TestCase):
 
+    @vcr.use_cassette(record_mode='new_episodes')
     def test_GetList(self):
 
         try:
 
-            with patch.object(requests, 'get')as get_mock:
-
-                file2 = open('index.html', 'w')
-
-                message = """<Usage>
-                <sid>QW21b4d94a9b2b1862342a1978b70d26f2</sid>
-                <status>Active</status>
-                <Role>Administrator</Role>
-                <DateCreated>12/06/2017</DateCreated>
-                <DateUpdated>15/06/2017</DateUpdated>
-                </Usage>"""
-
-                file2.write(message)
-                file2.close()
-
-                file2 = open('index.html', 'r')
                 file = open("UsageData.txt", "r")
                 Sid = file.readline()
                 AuthToken = file.readline()
                 BaseUrl = file.readline()
-                get_mock.return_value = mock_response = Mock()
-                mock_response = file2.read()
 
                 data = Usage.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
                 content = Usage.Usages(data).GetList()
-                self.assertEqual(content, file2.read())
+
                 self.assertIsNotNone(content)
                 file.close()
-                file2.close()
 
         except SyntaxError:
             print("Oops! Syntax Error: it seems your AccountSid or AuthToken is incorrect")
