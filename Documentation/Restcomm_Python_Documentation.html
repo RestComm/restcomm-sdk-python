@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Asciidoctor 1.5.4">
+  <title>Restcomm-Python</title>
+  <link rel="stylesheet" href="https://asciidoclive.com/assets/asciidoctor.js/css/asciidoctor.css">
+</head>
+
+<body class="article">
+  <div id="header">
+    <h1><strong>Restcomm-Python</strong><br></h1>
+  </div>
+  <div id="content">
+    <div id="preamble">
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>A module for using the <strong>Restcomm Rest API</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_installation_strong"><strong>Installation</strong></h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>Install from PyPi using <strong>pip</strong>, a package manager for Python.
+            Go to the terminal and type:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ pip install Restcomm_Python_SDk</code></p>
+        </div>
+        <div class="paragraph">
+          <p>if it doesn’t work, try using:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ sudo pip install Restcomm_Python_SDk</code></p>
+        </div>
+        <div class="paragraph">
+          <p>Don’t have pip installed? Try installing it, by running this from the command
+            line:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ curl <a href="https://raw.github.com/pypa/pip/master/contrib/get-pip.py" class="bare">https://raw.github.com/pypa/pip/master/contrib/get-pip.py</a> | python</code></p>
+        </div>
+        <div class="paragraph">
+          <p>Or, you can <strong>download the source code (ZIP)</strong> for Restcomm-Python,
+            and then run in the terminal:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ python setup.py install</code></p>
+        </div>
+        <div class="paragraph">
+          <p>Or, you can run it by using:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ sudo python setup.py install</code></p>
+        </div>
+        <div class="paragraph">
+          <p>if you want to install it in <strong>python 3</strong> or above, try using:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ sudo python3 setup.py install</code></p>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_feedback_strong"><strong>Feedback</strong></h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>Report any feedback or problems with this Release Candidate to the <strong><em>Github Issues</em></strong>            for Restcomm-Python</p>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_getting_started_strong"><strong>Getting Started</strong></h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>Getting started with the Restcomm API is damn easy. We basically have to
+            create a client and pass it to the required class as and when called.
+            So, now we are ready to go</p>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_api_credentials_strong"><strong>API Credentials</strong></h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>The <code>Restcomm</code> needs your <code>Restcomm credentials</code>            to use its API. If you don’t have one, first try getting it and then
+            read further. If you have Restcomm credentials, you can either pass these
+            directly to the constructor or via environment variables.</p>
+        </div>
+        <div class="paragraph">
+          <p><code>from Restcomm_Python_SDk import client</code><br></p>
+        </div>
+        <div class="paragraph">
+          <p><code>AccountSid = “XXXXXXXXXXXXXXXXXX”</code><br>
+            <code>AuthToken = “YYYYYYYYYYYYYYYY”</code><br>
+            <code>BaseUrl = “https://ZZZZZZZZZZZZZZ”</code><br>
+            <code>client = client(AccountSid, AuthToken, BaseUrl)</code><br></p>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_make_a_call_strong"><strong>Make a Call</strong></h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p><code>from Restcomm_Python_SDk import client</code><br>
+            <code>from Restcomm_Python_SDk import Makecall</code><br></p>
+        </div>
+        <div class="paragraph">
+          <p><code>AuthToken = “YYYYYYYYYYYYYYYY”</code><br>
+            <code>BaseUrl = “https://ZZZZZZZZZZZZZZ”</code><br>
+            <code>client = client(AccountSid, AuthToken, BaseUrl)</code><br></p>
+        </div>
+        <div class="paragraph">
+          <p><code>call = Makecall(from = “9840275164”, to = “8282900154”, url = “https://cloud.restcomm.com/restcomm/demos/hello-play.xml
+”, client)</code><br>
+            <code>print(call[“Sid”])</code><br></p>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_send_an_sms_strong"><strong>Send an SMS</strong></h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p><code>from Restcomm_Python_SDk import client</code><br>
+            <code>from Restcomm_Python_SDk import SendSms</code><br></p>
+        </div>
+        <div class="paragraph">
+          <p><code>AccountSid = “XXXXXXXXXXXXXXXXXX”</code><br>
+            <code>AuthToken = “YYYYYYYYYYYYYYYY”</code><br>
+            <code>BaseUrl = “https://ZZZZZZZZZZZZZZ”</code><br>
+            <code>client = client(AccountSid, AuthToken, BaseUrl)</code><br></p>
+        </div>
+        <div class="paragraph">
+          <p><code>message = SendSms(to = “9840275164”, from = “8282900154”, body = “This is a test message. Please ignore it! ”, client)</code><br></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

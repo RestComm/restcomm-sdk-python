@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  '''
 
-#import Restcomm_Python_SDK to use its features
+#import Restcomm_Python_SDk to use its features
 import Restcomm_Python_SDk
 
 #Take the AccountSid, Authentication Token & Base Url from the user
@@ -273,7 +273,7 @@ def UsageExample():
 
     #To get list of Usage, call 'Usage' class and then call 'GetList' function
 
-    getInfo = Restcomm_Python_SDk.Usage(client).GetList()
+    getInfo = Restcomm_Python_SDk.Usages(client).GetList()
     print(getInfo)
 
 if __name__ == '__main__':

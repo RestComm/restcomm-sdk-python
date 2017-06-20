@@ -45,7 +45,7 @@ setup(name='Restcomm_Python_SDk',
 
       packages=['Restcomm_Python_SDk'],
       install_requires=[
-          'requests',
+          'requests', 'vcr',
       ],
       include_package_data=True,
       zip_safe=False)

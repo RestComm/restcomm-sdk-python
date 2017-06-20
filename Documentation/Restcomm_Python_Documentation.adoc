@@ -1,0 +1,73 @@
+= *Restcomm-Python* +
+
+A module for using the *Restcomm Rest API*
+
+== *Installation*
+
+Install from PyPi using *pip*, a package manager for Python. Go to the terminal and type:
+
+`$ pip install Restcomm_Python_SDk`
+
+if it doesn’t work, try using:
+
+`$ sudo pip install Restcomm_Python_SDk`
+
+Don’t have pip installed? Try installing it, by running this from the command line:
+
+`$ curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python`
+
+Or, you can *download the source code (ZIP)* for Restcomm-Python, and then run in the terminal:
+
+`$ python setup.py install`
+
+Or, you can run it by using:
+
+`$ sudo python setup.py install`
+
+if you want to install it in *python 3* or above, try using:
+
+`$ sudo python3 setup.py install`
+
+== *Feedback*
+
+Report any feedback or problems with this Release Candidate to the *_Github Issues_* for Restcomm-Python
+
+== *Getting Started*
+
+Getting started with the Restcomm API is damn easy. We basically have to create a client and pass it to the required class as and when called. So, now we are ready to go
+
+== *API Credentials*
+
+The `Restcomm` needs your `Restcomm credentials` to use its API. If you don’t have one, first try getting it and then read further. If you have Restcomm credentials, you can either pass these directly to the constructor or via environment variables.
+
+`from Restcomm_Python_SDk import client` +
+
+`AccountSid = “XXXXXXXXXXXXXXXXXX”` +
+`AuthToken = “YYYYYYYYYYYYYYYY”` +
+`BaseUrl = “https://ZZZZZZZZZZZZZZ”` +
+`client = client(AccountSid, AuthToken, BaseUrl)` +
+
+== *Make a Call*
+
+`from Restcomm_Python_SDk import client` +
+`from Restcomm_Python_SDk import Makecall` +
+
+`AuthToken = “YYYYYYYYYYYYYYYY”` +
+`BaseUrl = “https://ZZZZZZZZZZZZZZ”` +
+`client = client(AccountSid, AuthToken, BaseUrl)` +
+
+`call = Makecall(from = “9840275164”, to = “8282900154”, url = “https://cloud.restcomm.com/restcomm/demos/hello-play.xml
+”, client)` +
+`print(call[“Sid”])` +
+
+== *Send an SMS*
+
+`from Restcomm_Python_SDk import client` +
+`from Restcomm_Python_SDk import SendSms` +
+
+`AccountSid = “XXXXXXXXXXXXXXXXXX”` +
+`AuthToken = “YYYYYYYYYYYYYYYY”` +
+`BaseUrl = “https://ZZZZZZZZZZZZZZ”` +
+`client = client(AccountSid, AuthToken, BaseUrl)` +
+
+`message = SendSms(to = “9840275164”, from = “8282900154”, body = “This is a test message. Please ignore it! ”, client)` +

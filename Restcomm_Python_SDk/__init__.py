@@ -5,6 +5,7 @@ from Restcomm_Python_SDk.AccountInfo import CreateSubAccount
 from Restcomm_Python_SDk.AccountInfo import CloseSubAccount
 from Restcomm_Python_SDk.AccountInfo import SubAccountDetails
 from Restcomm_Python_SDk.Applications import client
+from Restcomm_Python_SDk.Applications import GetApplicationList
 from Restcomm_Python_SDk.Applications import CreateApplication
 from Restcomm_Python_SDk.Applications import DeleteApplication
 from Restcomm_Python_SDk.Applications import UpdateApplication
