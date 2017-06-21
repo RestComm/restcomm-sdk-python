@@ -51,14 +51,14 @@ class PhoneNumberList(object):
 
 class AttachPhoneNumber(object):
 
-    def __init__(self, phNumber, VoiceUrl, option, client):
+    def __init__(self, phNumber, VoiceUrl, client):
 
         self.Sid = client.Sid
         self.AuthToken = client.AuthToken
         self.BaseUrl = client.BaseUrl
         self.phNumber = phNumber
         self.VoiceUrl = VoiceUrl
-        self.option = option
+
 
     def Attach(self):
 
