@@ -1,6 +1,22 @@
 = *Restcomm-Python* +
 
-A module for using the *Restcomm Rest API*
+Restcomm_Python_SDk is a module for using the *Restcomm Rest API*. This Documentation provides the basic information on the usage of this SDk in performing various operations offered by the Restcomm-Rest APIs. The Restcomm REST API allows you to query meta-data about your account, phone numbers, calls, text messages, and recordings. You can also do some communications control like initiate outbound calls and send text messages.
+
+.*Table of Content*
+
+* Installation +
+* Feedback +
+* Getting Started +
+** Api Credentials +
+** Examples +
+*** Accounts +
+**** Account Details +
+**** Change Account Password +
+**** Create Sub Account +
+**** Close Sub Account +
+**** Sub Account Details +
+*** Sms +
+*** Call +
 
 == *Installation*
 
@@ -46,6 +62,60 @@ The `Restcomm` needs your `Restcomm credentials` to use its API. If you don’t 
 `AuthToken = “YYYYYYYYYYYYYYYY”` +
 `BaseUrl = “https://ZZZZZZZZZZZZZZ”` +
 `client = client(AccountSid, AuthToken, BaseUrl)` +
+
+== *Examples*
+
+== *Accounts*
+
+=== *Get Account Details*
+
+`from Restcomm_Python_SDk import AccountDetails` +
+
+`getinfo = AccountDetails(client).Details()` +
+To get Details of the main Account Sid +
+`Sid = getinfo['Sid']` +
+To get Details of the Date when the Account was created +
+`Date_Created = getinfo['DateCreated']` +
+and similarly for 'other' details, type +
+`print(getinfo['other'])` 
+
+=== *Change Account Password*
+
+`from Restcomm_Python_SDk import ChangeAccountPassword` +
+
+`data = ChangeAccountPassword('newPassword12345', client).ChangePassword()` +
+To get new Authentication Token +
+`newAuthToken = data['AuthToken']` +
+
+NOTE: After Changing the Account Password, you need to update with new Account Sid and Authentication Token +
+To do so, Simply call client function +
+`client = client(AccountSid, newAuthToken, BaseUrl)` +
+
+=== *Create Sub Account*
+
+`from Restcomm_Python_SDk import CreateSubAccount` +
+
+`data = CreateSubAccount('friendlyName', 'friendly@gmail.com', 'newPassword321', client).Create()` +
+To get details of new Sub Account Created +
+`Status = data['Status']` +
+`SubSid = data['Sid']` +
+`Date_Created = data['DateCreated']` +
+
+=== *Close Sub Account*
+
+`from Restcomm_Python_SDk import CloseSubAccount` +
+
+`data = CloseSubAccount(SUBACCOUNTSID, client).Close()` +
+`Status = data['Status']` +
+
+=== *Sub Account Details*
+
+`from Restcomm_Python_SDk import SubAccountDetails` +
+
+To get the Details of all the Sub Accounts +
+`getDetails = SubAccountDetails(client).Details()` +
+To get the Details of SubAccount with give Sid +
+`getInfo = getDetails['Sid']` +
 
 == *Make a Call*
 
