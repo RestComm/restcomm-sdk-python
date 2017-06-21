@@ -121,7 +121,7 @@ class MuteParticipant(object):
 
     def Mute(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Conferences.json/' + self.ConferenceSid + '/Participants/' + self.ParticipantSid
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Conferences.json/' + self.ConferenceSid + '/Participants.json/' + self.ParticipantSid
         data = {'Mute': 'true'}
 
         r5 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
@@ -139,7 +139,7 @@ class UnMuteParticipant(object):
         self.ConferenceSid = ConferenceSid
 
     def UnMute(self):
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Conferences.json/' + self.ConferenceSid + '/Participants/' + self.ParticipantSid
+        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Conferences.json/' + self.ConferenceSid + '/Participants.json/' + self.ParticipantSid
         data = {'Mute': 'false'}
 
         r6 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))

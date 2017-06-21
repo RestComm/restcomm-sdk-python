@@ -15,8 +15,29 @@ Restcomm_Python_SDk is a module for using the *Restcomm Rest API*. This Document
 **** Create Sub Account +
 **** Close Sub Account +
 **** Sub Account Details +
-*** Sms +
 *** Call +
+**** Make a Call +
+**** Get Call Details +
+**** Redirect a Call +
+**** Make Conference Call +
+**** Mute a Participant +
+**** UnMute a Participant +
+*** Sms +
+**** Send Sms +
+**** Get Sms List +
+**** Filter Sms List +
+*** Applications +
+**** Create an Application +
+**** Delete an Application +
+**** Update an Application +
+**** Get Application List + 
+*** Available Phone Number +
+**** Number Availability +
+*** Client +
+**** Create a client +
+**** Delete a client +
+**** Change Client Password +
+**** Get Client List +
 
 == *Installation*
 
@@ -67,7 +88,7 @@ The `Restcomm` needs your `Restcomm credentials` to use its API. If you don’t 
 
 == *Accounts*
 
-=== *Get Account Details*
+=== Get Account Details
 
 `from Restcomm_Python_SDk import AccountDetails` +
 
@@ -79,7 +100,7 @@ To get Details of the Date when the Account was created +
 and similarly for 'other' details, type +
 `print(getinfo['other'])` 
 
-=== *Change Account Password*
+=== Change Account Password
 
 `from Restcomm_Python_SDk import ChangeAccountPassword` +
 
@@ -91,7 +112,7 @@ NOTE: After Changing the Account Password, you need to update with new Account S
 To do so, Simply call client function +
 `client = client(AccountSid, newAuthToken, BaseUrl)` +
 
-=== *Create Sub Account*
+=== Create Sub Account
 
 `from Restcomm_Python_SDk import CreateSubAccount` +
 
@@ -101,14 +122,14 @@ To get details of new Sub Account Created +
 `SubSid = data['Sid']` +
 `Date_Created = data['DateCreated']` +
 
-=== *Close Sub Account*
+=== Close Sub Account
 
 `from Restcomm_Python_SDk import CloseSubAccount` +
 
 `data = CloseSubAccount(SUBACCOUNTSID, client).Close()` +
 `Status = data['Status']` +
 
-=== *Sub Account Details*
+=== Sub Account Details
 
 `from Restcomm_Python_SDk import SubAccountDetails` +
 
@@ -117,27 +138,186 @@ To get the Details of all the Sub Accounts +
 To get the Details of SubAccount with give Sid +
 `getInfo = getDetails['Sid']` +
 
-== *Make a Call*
+== *Call*
 
-`from Restcomm_Python_SDk import client` +
+=== Make a Call
+
 `from Restcomm_Python_SDk import Makecall` +
 
-`AuthToken = “YYYYYYYYYYYYYYYY”` +
-`BaseUrl = “https://ZZZZZZZZZZZZZZ”` +
-`client = client(AccountSid, AuthToken, BaseUrl)` +
-
 `call = Makecall(from = “9840275164”, to = “8282900154”, url = “https://cloud.restcomm.com/restcomm/demos/hello-play.xml
-”, client)` +
-`print(call[“Sid”])` +
+”, client).Call()` +
+To get Call Sid +
+`CallSid = call['sid']` +
 
-== *Send an SMS*
+=== Get Call Details
 
-`from Restcomm_Python_SDk import client` +
+`from Restcomm_Python_SDk import GetCallDetail` +
+
+`getDetails = GetCallDetail(client).GetDetails()` +
+To get the required info, you can simply type +
+`startTime = getDetails['start_time']` +
+`price = getDetails['price']` +
+
+=== Redirect a Call
+
+`from Restcomm_Python_SDk import RedirectCall` +
+
+To Redirect a Call to a person, you need to have its Calling Sid +
+`redirectCall = RedirectCall(URL, CALLSID, client).Redirect()` +
+
+=== Make Conference Call
+
+`from Restcomm_Python_SDk import ConferenceCall` +
+
+To make a Conference Call, you need to have Calling Sid of the person and the Url +
+`ConCall = ConferenceCall(URL, CALLSID, client).Conference()` +
+
+=== Mute a Participant
+
+`from Restcomm_Python_SDk import MuteParticipant` +
+
+To Mute a participant during a conference call, you need to have the Participant Sid and conference Sid +
+`Mute = MuteParticipant(PARTICIPANTSID, CONFERENCESID, client).Mute()` +
+
+=== UnMute a Participant
+
+`from Restcomm_Python_SDk import UnMuteParticipant` +
+
+To UnMute a participant during a conference call, you need to have the participant sid and conference sid +
+`Unmute = UnMuteParticipant(PARTICIPANTSID, CONFERENCESID, client).UnMute()` +
+
+== *Sms*
+
+=== Send Sms
+
 `from Restcomm_Python_SDk import SendSms` +
 
-`AccountSid = “XXXXXXXXXXXXXXXXXX”` +
-`AuthToken = “YYYYYYYYYYYYYYYY”` +
-`BaseUrl = “https://ZZZZZZZZZZZZZZ”` +
-`client = client(AccountSid, AuthToken, BaseUrl)` +
-
 `message = SendSms(to = “9840275164”, from = “8282900154”, body = “This is a test message. Please ignore it! ”, client)` +
+
+=== Get Sms List
+
+`from Restcomm_Python_SDk import SmsList` +
+
+To get list of all the Sms sent and received, We need to pass the client data to the required class +
+`getlist = SmsList(client).GetList()` +
+To get price information and other details, you can simply type +
+`price = getlist['Price']` +
+`priceUnit = getlist['PriceUnit']` +
+`SmsSid = getlist['Sid']` +
+
+=== Filter Sms List
+
+To filter the list of Sms, you can either filter it by passing the page information to get list of sms according to page no. or else you can also filter it by providing the information of the person you want to view the Sms +
+To view Sms according to the information of the person +
+
+`from Restcomm_Python_SDk import FilterSmsList` +
+
+`filterinfo = FilterSmsList('alice', client).GetFilterlist()` +
+`SmsSid = filterinfo['Sid']` +
+
+To view Sms according to the number of page +
+
+`from Restcomm_Python_SDk import SmsPagingInformation` +
+
+`filterinfo = SmsPagingInformation('1', client).PageInfo()` +
+`smsSid = filterinfo['Sid']` +
+
+== *Applications*
+
+=== Create an Application
+
+To Create an application, you need to provide the Application name and the kind of application to be created +
+`from Restcomm_Python_SDk import CreateApplication` +
+
+`createApp = CreateApplication('demoApp', 'voice', client).Create()` +
+This will create an Application and all the details will be stored in createApp. You can extract the information according to your choice, for example +
+`Date_Created = createApp['DateCreated']` +
+`AppSid = createApp['Sid']` +
+`Date_Updated = createApp['DateUpdated']` +
+
+=== Delete an Application
+
+To Delete an Application, you need to provide the Application Sid +
+`from Restcomm_Python_SDk import DeleteApplication` +
+
+`deleteApp = DeleteApplication(APPSID, client).Delete()` +
+This will delete the Application with the given Sid and the details will be stored in deleteApp. You can check it by typing +
+`Date_Updated = deleteApp['DateUpdated']` +
+
+=== Update an Application
+
+If you want to update the Application name, you need to provide the Application Sid +
+`from Restcomm_Python_SDk import UpdateApplication` +
+
+`updateApp = UpdateApplication(APPSID, 'newdemoApp', client).Update()` +
+This will Update the Application with new Application name and the details will be stored in updateApp. You can check it by typing +
+`Date_Created = updateApp['DateCreated']` +
+`Date_Updated = updateApp['DateUpdated']` +
+`AppSid = updateApp['Sid']` +
+
+=== Get Application list
+
+To get the list of all Applications Created, you can simply call the GetApplicationList class and provide the authentication data to access the list +
+`from Restcomm_Python_SDk import GetApplicationList` +
+
+`getinfo = GetApplicationList(client).GetList()` +
+getinfo will contain all the data of the applications. you can simply get your desired result by typing +
+`AppSid = getinfo['Sid']` +
+`friendlyName = getinfo['FriendlyName']` +
+`kind = getinfo['Kind']` +
+
+== *Available Phone Number* 
+
+=== Number Availability
+
+To get the list of all the numbers available, you need to provide the area code for which you need to check the availability of the number +
+`from Restcomm_Python_SDk import NumberAvailability` +
+
+`getlist = NumberAvailability('305', client).Availability()` +
+This will give the list of all the numbers available. To check +
+`numbers = getlist['phNumber']` +
+`friendlyName = getlist['friendlyName']` +
+`smsCapable = getlist['smsCapable']` +
+
+== *Client*
+
+=== Create a Client
+
+To Create a client, you need to provide the client Login Id and password and pass it to CreateClient class with user Authentication +
+`from Restcomm_Python_SDk import CreateClient` +
+
+`create = CreateClient('demoId', 'demoPassword', client).Create()` +
+This will create the client with Login Id and Password as mentioned above and the details are stored in `create`. +
+`status = create['status']` +
+`clientSid = create['sid']` +
+`Date_Created = create['DateCreated']` +
+`Date_Updated = create['DateUpdated']` +
+
+=== Delete a client
+
+To Delete a client, you need to provide the client Sid and pass it to DeleteClient class with user Authentication +
+`from Restcomm_Python_SDk import DeleteClient` +
+
+`deleteclient = DeleteClient(CLIENTSID, client).Delete()` +
+This will delete the client with the Client Sid as mentioned above and the details are stored in `deleteclient`. +
+`status = deleteclient['status']` +
+
+=== Change Client Password
+
+To change the Password of a client, you need to provide the client Sid and new Password and pass it to ChangeClientPassword class along with user Authentication +
+`from Restcomm_Python_SDk import ChangeClientPassword` +
+
+`change = ChangeClientPassword(CLIENTSID, 'newPassword', client).ChangePassword()` +
+This will replace the Password with the new Password provided above and the details are stored in `change`. +
+`token = change['AuthToken']` +
+`Date_Updated = change['DateUpdated']` +
+
+=== Get Client List
+
+To get list of all the clients, you need to pass the user Authentications to the ClientList class +
+`from Restcomm_python_SDk import ClientList` +
+
+`getinfo = ClientList(client).GetList()` +
+This will store all the information of the clients in `getinfo` and you can access it by simply +
+`clientsid = getinfo['sid']` +
+

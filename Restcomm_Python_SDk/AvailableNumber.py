@@ -45,9 +45,10 @@ class NumberAvailablity(object):
 
     def Availability(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/AvailablePhoneNumbers.json/US/Local'
+        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/AvailablePhoneNumbers/US/Local.json'
         param = {'AreaCode':self.AreaCode}
         r1 = requests.get(Url, params=param, auth=(self.Sid, self.AuthToken))
 
         content = json.loads(r1.text)
+        print (content)
         return content
