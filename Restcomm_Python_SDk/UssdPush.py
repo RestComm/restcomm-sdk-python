@@ -57,15 +57,19 @@ class UssdPush(object):
 
             if r.status_code == 401:
                 print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            elif r.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
+            elif r.status_code == 400:
+                return "Invalid option"
             else:
                 content = json.loads(r.text)
                 return content
 
         except requests.HTTPError:
-            print("HTTP ERROR")
+            return ("HTTP ERROR")
         except requests.ConnectionError:
-            print("CONNECTION ERROR! Please check and try again")
+            return ("CONNECTION ERROR! Please check and try again")
         except requests.Timeout:
-            print("TIMEOUT ERROR")
+            return ("TIMEOUT ERROR")
         except requests.RequestException:
-            print("Invalid Url! Please check and try again")
+            return ("Invalid Url! Please check and try again")

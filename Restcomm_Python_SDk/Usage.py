@@ -50,18 +50,20 @@ class Usages(object):
             r1 = requests.get(Url, auth=(self.Sid, self.AuthToken))
 
             if r1.status_code == 401:
-                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+                return ("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            elif r1.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
             else:
                 content = json.loads(r1.text)
                 return content
 
         except requests.HTTPError:
-            print("HTTP ERROR")
+            return ("HTTP ERROR")
         except requests.ConnectionError:
-            print("CONNECTION ERROR! Please check and try again")
+            return ("CONNECTION ERROR! Please check and try again")
         except requests.Timeout:
-            print("TIMEOUT ERROR")
+            return ("TIMEOUT ERROR")
         except requests.RequestException:
-            print("Invalid Url! Please check and try again")
+            return ("Invalid Url! Please check and try again")
 
 

@@ -10,7 +10,7 @@ setup(name='Restcomm_Python_SDk',
     # the version across setup.py and the project code, see
     #  https://packaging.python.org/en/latest/single_source_version.html
 
-      version='1.2.0a2',
+      version='1.2.1a2',
       description='Restcomm SDk for Python user',
       long_description=readme(),
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -31,7 +31,7 @@ setup(name='Restcomm_Python_SDk',
 
       keywords='Restcomm SDk for python',
     # The project's main homepage.
-      url='http://github.com/',
+      url='https://github.com/mdsharique/restcomm-sdk-python',
     # Author details
       author='MD Sharique',
       author_email='nukles1.07@gmail.com',

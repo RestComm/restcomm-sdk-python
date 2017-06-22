@@ -47,20 +47,23 @@ class AccountDetails(object):
 
             Url=self.BaseUrl+'/Accounts.json/'+self.Sid
             r1=requests.get(Url, auth=(self.Sid,self.AuthToken))
+
             if r1.status_code == 401:
-                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+                return "Authentication Error! Please Enter Valid Account Sid and Authentication Token"
+            elif r1.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
             else:
                 content = json.loads(r1.text)
                 return content
 
         except requests.HTTPError:
-            print("HTTP ERROR")
+            return ("HTTP ERROR")
         except requests.ConnectionError:
-            print("CONNECTION ERROR! Please check and try again")
+            return ("CONNECTION ERROR! Please check and try again")
         except requests.Timeout:
-            print("TIMEOUT ERROR")
+            return ("TIMEOUT ERROR")
         except requests.RequestException:
-            print("Invalid Url! Please check and try again")
+            return ("Invalid Url! Please check and try again")
 
 class ChangeAccountPassword(object):
 
@@ -78,20 +81,25 @@ class ChangeAccountPassword(object):
             Url = self.BaseUrl+'/Accounts.json/'+self.Sid
             data = {'AccountSid': self.Sid, 'Password': self.Password}
             r2 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+
             if r2.status_code == 401:
-                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+                return ("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            elif r2.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
+            elif r2.status_code == 400:
+                return "Password is too weak"
             else:
                 content = json.loads(r2.text)
                 return content
 
         except requests.HTTPError:
-            print("HTTP ERROR")
+            return ("HTTP ERROR")
         except requests.ConnectionError:
-            print("CONNECTION ERROR! Please check and try again")
+            return ("CONNECTION ERROR! Please check and try again")
         except requests.Timeout:
-            print("TIMEOUT ERROR")
+            return ("TIMEOUT ERROR")
         except requests.RequestException:
-            print("Invalid Url! Please check and try again")
+            return ("Invalid Url! Please check and try again")
 
 class CreateSubAccount(object):
 
@@ -111,20 +119,27 @@ class CreateSubAccount(object):
             Url = self.BaseUrl+'/Accounts.json/'
             data = {'FriendlyName': self.FriendlyName, 'EmailAddress': self.EmailAddress, 'Password': self.Password}
             r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+
             if r3.status_code == 401:
-                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+                return ("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            elif r3.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
+            elif r3.status_code == 409:
+                return ("Duplicate Name not allowed")
+            elif r3.status_code == 400:
+                return ("Password is too weak!")
             else:
                 content = json.loads(r3.text)
                 return content
 
         except requests.HTTPError:
-            print("HTTP ERROR")
+            return ("HTTP ERROR")
         except requests.ConnectionError:
-            print("CONNECTION ERROR! Please check and try again")
+            return ("CONNECTION ERROR! Please check and try again")
         except requests.Timeout:
-            print("TIMEOUT ERROR")
+            return ("TIMEOUT ERROR")
         except requests.RequestException:
-            print("Invalid Url! Please check and try again")
+            return ("Invalid Url! Please check and try again")
 
 class CloseSubAccount(object):
 
@@ -141,20 +156,23 @@ class CloseSubAccount(object):
             Url = self.BaseUrl+'/Accounts.json/'+self.SubSid
             data = {'Status': 'closed'}
             r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+
             if r3.status_code == 401:
-                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+                return ("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            elif r3.status_code == 404:
+                return "Base Url is Incorrect or Invalid SubSid! Please verify and try again"
             else:
                 content = json.loads(r3.text)
                 return content
 
         except requests.HTTPError:
-            print("HTTP ERROR")
+            return ("HTTP ERROR")
         except requests.ConnectionError:
-            print("CONNECTION ERROR! Please check and try again")
+            return ("CONNECTION ERROR! Please check and try again")
         except requests.Timeout:
-            print("TIMEOUT ERROR")
+            return ("TIMEOUT ERROR")
         except requests.RequestException:
-            print("Invalid Url! Please check and try again")
+            return ("Invalid Url! Please check and try again")
 
 class SubAccountDetails(object):
 
@@ -170,17 +188,20 @@ class SubAccountDetails(object):
 
             Url = self.BaseUrl+'/Accounts.json/'
             r4 = requests.get(Url, auth=(self.Sid, self.AuthToken))
+
             if r4.status_code == 401:
-                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+                return ("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            elif r4.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
             else:
                 content = json.loads(r4.text)
                 return content
 
         except requests.HTTPError:
-            print("HTTP ERROR")
+            return ("HTTP ERROR")
         except requests.ConnectionError:
-            print("CONNECTION ERROR! Please check and try again")
+            return ("CONNECTION ERROR! Please check and try again")
         except requests.Timeout:
-            print("TIMEOUT ERROR")
+            return ("TIMEOUT ERROR")
         except requests.RequestException:
-            print("Invalid Url! Please check and try again")
+            return ("Invalid Url! Please check and try again")
