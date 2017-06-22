@@ -47,13 +47,26 @@ class Makecall(object):
 
     def Call(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Calls.json'
-        data = {'From': self.From, 'To': self.To, 'Url': self.Url}
+        try:
 
-        r1 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Calls.json'
+            data = {'From': self.From, 'To': self.To, 'Url': self.Url}
 
-        content = json.loads(r1.text)
-        return content
+            r1 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+            if r1.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r1.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class GetCallDetail(object):
 
@@ -65,11 +78,25 @@ class GetCallDetail(object):
 
     def GetDetails(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Calls.json'
-        r2 = requests.get(Url, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r2.text)
-        return content
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Calls.json'
+            r2 = requests.get(Url, auth=(self.Sid, self.AuthToken))
+
+            if r2.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r2.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class RedirectCall(object):
 
@@ -83,12 +110,26 @@ class RedirectCall(object):
 
     def Redirect(self):
 
-        data = {'Url': self.Url}
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Calls.json/'+self.SubSid
-        r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r3.text)
-        return content
+            data = {'Url': self.Url}
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Calls.json/'+self.SubSid
+            r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+
+            if r3.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r3.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class ConferenceCall(object):
 
@@ -102,12 +143,26 @@ class ConferenceCall(object):
 
     def Conference(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Calls.json/' + self.SubSid
-        data = {'Url': self.sig_Url, 'MoveConnectedCallLeg': 'true'}
+        try:
 
-        r4 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
-        content = json.loads(r4.text)
-        return content
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Calls.json/' + self.SubSid
+            data = {'Url': self.sig_Url, 'MoveConnectedCallLeg': 'true'}
+
+            r4 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+            if r4.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r4.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class MuteParticipant(object):
 
@@ -121,12 +176,26 @@ class MuteParticipant(object):
 
     def Mute(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Conferences.json/' + self.ConferenceSid + '/Participants.json/' + self.ParticipantSid
-        data = {'Mute': 'true'}
+        try:
 
-        r5 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
-        content = json.loads(r5.text)
-        return content
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Conferences.json/' + self.ConferenceSid + '/Participants.json/' + self.ParticipantSid
+            data = {'Mute': 'true'}
+
+            r5 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+            if r5.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r5.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class UnMuteParticipant(object):
 
@@ -139,9 +208,24 @@ class UnMuteParticipant(object):
         self.ConferenceSid = ConferenceSid
 
     def UnMute(self):
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Conferences.json/' + self.ConferenceSid + '/Participants.json/' + self.ParticipantSid
-        data = {'Mute': 'false'}
 
-        r6 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
-        content = json.loads(r6.text)
-        return content
+        try:
+
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Conferences.json/' + self.ConferenceSid + '/Participants.json/' + self.ParticipantSid
+            data = {'Mute': 'false'}
+
+            r6 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+            if r6.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r6.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")

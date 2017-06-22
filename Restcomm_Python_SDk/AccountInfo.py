@@ -43,11 +43,24 @@ class AccountDetails(object):
 
     def Details(self):
 
-        Url=self.BaseUrl+'/Accounts.json/'+self.Sid
-        r1=requests.get(Url, auth=(self.Sid,self.AuthToken))
-        content = json.loads(r1.text)
+        try:
 
-        return content
+            Url=self.BaseUrl+'/Accounts.json/'+self.Sid
+            r1=requests.get(Url, auth=(self.Sid,self.AuthToken))
+            if r1.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r1.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class ChangeAccountPassword(object):
 
@@ -60,11 +73,25 @@ class ChangeAccountPassword(object):
 
     def ChangePassword(self):
 
-        Url = self.BaseUrl+'/Accounts.json/'+self.Sid
-        data = {'AccountSid': self.Sid, 'Password': self.Password}
-        r2 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
-        content = json.loads(r2.text)
-        return content
+        try:
+
+            Url = self.BaseUrl+'/Accounts.json/'+self.Sid
+            data = {'AccountSid': self.Sid, 'Password': self.Password}
+            r2 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+            if r2.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r2.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class CreateSubAccount(object):
 
@@ -79,12 +106,25 @@ class CreateSubAccount(object):
 
     def Create(self):
 
-        Url = self.BaseUrl+'/Accounts.json/'
-        data = {'FriendlyName': self.FriendlyName, 'EmailAddress': self.EmailAddress, 'Password': self.Password}
-        r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r3.text)
-        return content
+            Url = self.BaseUrl+'/Accounts.json/'
+            data = {'FriendlyName': self.FriendlyName, 'EmailAddress': self.EmailAddress, 'Password': self.Password}
+            r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+            if r3.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r3.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class CloseSubAccount(object):
 
@@ -96,12 +136,25 @@ class CloseSubAccount(object):
 
     def Close(self):
 
-        Url = self.BaseUrl+'/Accounts.json/'+self.SubSid
-        data = {'Status': 'closed'}
-        r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r3.text)
-        return content
+            Url = self.BaseUrl+'/Accounts.json/'+self.SubSid
+            data = {'Status': 'closed'}
+            r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+            if r3.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r3.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class SubAccountDetails(object):
 
@@ -113,7 +166,21 @@ class SubAccountDetails(object):
 
     def Details(self):
 
-        Url = self.BaseUrl+'/Accounts.json/'
-        r4 = requests.get(Url, auth=(self.Sid, self.AuthToken))
-        content = json.loads(r4.text)
-        return content
+        try:
+
+            Url = self.BaseUrl+'/Accounts.json/'
+            r4 = requests.get(Url, auth=(self.Sid, self.AuthToken))
+            if r4.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r4.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")

@@ -45,12 +45,6 @@ class TestTranscriptionList(unittest.TestCase):
                 self.assertIsNotNone(content)
                 file.close()
 
-        except SyntaxError:
-            print("Oops! Syntax Error: it seems your AccountSid or AuthToken is incorrect")
-        except ConnectionError:
-            print("Connection Error: It seems that you have No Connection. Please try again after reconnecting")
-        except TimeoutError:
-            print("Timeout Error: Its taking too much time")
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
         except ImportError:
@@ -80,12 +74,6 @@ class TestTranscriptionFilter(unittest.TestCase):
                 self.assertIsNotNone(content)
                 file.close()
 
-        except SyntaxError:
-            print("Oops! Syntax Error: it seems your AccountSid or AuthToken is incorrect")
-        except ConnectionError:
-            print("Connection Error: It seems that you have No Connection. Please try again after reconnecting")
-        except TimeoutError:
-            print("Timeout Error: Its taking too much time")
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
         except ImportError:
@@ -113,12 +101,6 @@ class TestTranscriptionFilter(unittest.TestCase):
                 self.assertIsNotNone(content)
                 file.close()
 
-        except SyntaxError:
-            print("Oops! Syntax Error: it seems your AccountSid or AuthToken is incorrect")
-        except ConnectionError:
-            print("Connection Error: It seems that you have No Connection. Please try again after reconnecting")
-        except TimeoutError:
-            print("Timeout Error: Its taking too much time")
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
         except ImportError:

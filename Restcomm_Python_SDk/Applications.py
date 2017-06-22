@@ -46,14 +46,28 @@ class CreateApplication(object):
 
     def Create(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json'
-        RcmUrl = 'cloud.restcomm.com/restcomm-rvd/services/apps/foobar/controller'
-        data = {'FriendlyName': self.FriendlyName, 'ApiVersion': '2012-04-24', 'HasVoiceCallerIdLookup': 'false',
-                'RcmUrl': RcmUrl, 'Kind': self.kind}
-        r1 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r1.text)
-        return content
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json'
+            RcmUrl = 'cloud.restcomm.com/restcomm-rvd/services/apps/foobar/controller'
+            data = {'FriendlyName': self.FriendlyName, 'ApiVersion': '2012-04-24', 'HasVoiceCallerIdLookup': 'false',
+                    'RcmUrl': RcmUrl, 'Kind': self.kind}
+            r1 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+
+            if r1.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r1.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class DeleteApplication(object):
 
@@ -66,11 +80,25 @@ class DeleteApplication(object):
 
     def Delete(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/'+self.AppSid
-        r2 = requests.delete(Url, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r2.text)
-        return content
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/'+self.AppSid
+            r2 = requests.delete(Url, auth=(self.Sid, self.AuthToken))
+
+            if r2.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r2.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class UpdateApplication(object):
 
@@ -84,12 +112,26 @@ class UpdateApplication(object):
 
     def Update(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/' + self.AppSid
-        data = {'FriendlyName': self.FriendlyName}
-        r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r3.text)
-        return content
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/' + self.AppSid
+            data = {'FriendlyName': self.FriendlyName}
+            r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+
+            if r3.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r3.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class GetApplicationList(object):
 
@@ -101,8 +143,22 @@ class GetApplicationList(object):
 
     def GetList(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/'
-        r4 = requests.get(Url, auth = (self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r4.text)
-        return content
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/'
+            r4 = requests.get(Url, auth = (self.Sid, self.AuthToken))
+
+            if r4.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r4.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")

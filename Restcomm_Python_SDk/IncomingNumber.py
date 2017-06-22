@@ -44,10 +44,24 @@ class PhoneNumberList(object):
 
     def GetList(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/IncomingPhoneNumbers.json'
-        r1 = requests.get(Url, auth=(self.Sid, self.AuthToken))
-        content = json.loads(r1.text)
-        return content
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/IncomingPhoneNumbers.json'
+            r1 = requests.get(Url, auth=(self.Sid, self.AuthToken))
+
+            if r1.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r1.text)
+                return content
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class AttachPhoneNumber(object):
 
@@ -62,11 +76,26 @@ class AttachPhoneNumber(object):
 
     def Attach(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/IncomingPhoneNumbers.json'
-        data = {'PhoneNumber': self.phNumber, 'VoiceUrl': self.VoiceUrl, 'isSIP': 'true'}
-        r2 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
-        content = json.loads(r2.text)
-        return content
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/IncomingPhoneNumbers.json'
+            data = {'PhoneNumber': self.phNumber, 'VoiceUrl': self.VoiceUrl, 'isSIP': 'true'}
+            r2 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+
+            if r2.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r2.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class DeletePhoneNumber(object):
 
@@ -79,7 +108,22 @@ class DeletePhoneNumber(object):
 
     def Delete(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/IncomingPhoneNumbers.json/'+self.CallSid
-        r3 = requests.delete(Url, auth=(self.Sid, self.AuthToken))
-        content = json.loads(r3.text)
-        return content
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/IncomingPhoneNumbers.json/'+self.CallSid
+            r3 = requests.delete(Url, auth=(self.Sid, self.AuthToken))
+
+            if r3.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r3.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")

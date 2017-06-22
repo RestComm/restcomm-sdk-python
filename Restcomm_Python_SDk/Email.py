@@ -48,9 +48,23 @@ class SendEmail(object):
 
     def Send(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Email/Messages.json'
-        data = {'To':self.To,'From':self.From,'Body':self.Body,'Subject':self.Subject}
-        r1=requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r1.text)
-        return content
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Email/Messages.json'
+            data = {'To':self.To,'From':self.From,'Body':self.Body,'Subject':self.Subject}
+            r1=requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
+
+            if r1.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r1.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")

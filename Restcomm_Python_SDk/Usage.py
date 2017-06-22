@@ -44,7 +44,24 @@ class Usages(object):
 
     def GetList(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Usage/Records/Daily.json'
-        r1 = requests.get(Url, auth=(self.Sid, self.AuthToken))
-        content = json.loads(r1.text)
-        return content
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Usage/Records/Daily.json'
+            r1 = requests.get(Url, auth=(self.Sid, self.AuthToken))
+
+            if r1.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r1.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
+
+

@@ -45,10 +45,23 @@ class NumberAvailablity(object):
 
     def Availability(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/AvailablePhoneNumbers/US/Local.json'
-        param = {'AreaCode':self.AreaCode}
-        r1 = requests.get(Url, params=param, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r1.text)
-        print (content)
-        return content
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/AvailablePhoneNumbers/US/Local.json'
+            param = {'AreaCode':self.AreaCode}
+            r1 = requests.get(Url, params=param, auth=(self.Sid, self.AuthToken))
+
+            if r1.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r1.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")

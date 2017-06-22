@@ -47,12 +47,26 @@ class SendSms(object):
 
     def Send(self):
 
-        BaseUrl = self.BaseUrl+'/Accounts/'+self.Sid+'/SMS/Messages.json'
-        data = {'To': self.To, 'From': self.From, 'Body': self.Body}
-        r1 = requests.post(BaseUrl, data=data, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r1.text)
-        return content
+            BaseUrl = self.BaseUrl+'/Accounts/'+self.Sid+'/SMS/Messages.json'
+            data = {'To': self.To, 'From': self.From, 'Body': self.Body}
+            r1 = requests.post(BaseUrl, data=data, auth=(self.Sid, self.AuthToken))
+
+            if r1.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r1.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class SmsList(object):
 
@@ -64,11 +78,25 @@ class SmsList(object):
 
     def GetList(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        r2 = requests.get(Url, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r2.text)
-        return content
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
+            r2 = requests.get(Url, auth=(self.Sid, self.AuthToken))
+
+            if r2.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r2.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class FilterSmsList(object):
 
@@ -81,12 +109,26 @@ class FilterSmsList(object):
 
     def GetFilterlist(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        params = {'From': self.FilterNumber}
-        r3 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r3.text)
-        return content
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
+            params = {'From': self.FilterNumber}
+            r3 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
+
+            if r3.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r3.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class SmsPagingInformation(object):
 
@@ -99,9 +141,23 @@ class SmsPagingInformation(object):
 
     def PageInfo(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
-        params = {'PageSize': self.PageSize}
-        r4 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
+        try:
 
-        content = json.loads(r4.text)
-        return content
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/SMS/Messages.json'
+            params = {'PageSize': self.PageSize}
+            r4 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
+
+            if r4.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r4.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")

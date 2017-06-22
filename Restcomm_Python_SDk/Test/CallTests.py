@@ -49,12 +49,6 @@ class TestMakeCall(unittest.TestCase):
                 file.close()
 
 
-        except SyntaxError:
-            print("Oops! Syntax Error: it seems your AccountSid or AuthToken is incorrect or you are not logged in!")
-        except ConnectionError:
-            print("Connection Error: It seems that you have No Connection. Please try again after reconnecting")
-        except TimeoutError:
-            print("Timeout Error: Its taking too much time")
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
         except ImportError:
@@ -82,12 +76,6 @@ class TestGetCallDetails(unittest.TestCase):
                 self.assertIsNotNone(content)
                 file.close()
 
-        except SyntaxError:
-            print("Oops! Syntax Error: it seems your AccountSid or AuthToken is incorrect or you are not logged in!")
-        except ConnectionError:
-            print("Connection Error: It seems that you have No Connection. Please try again after reconnecting")
-        except TimeoutError:
-            print("Timeout Error: Its taking too much time")
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
         except ImportError:
@@ -120,12 +108,6 @@ class TestRedirectCall(unittest.TestCase):
                 self.assertIsNotNone(content)
                 file.close()
 
-        except SyntaxError:
-            print("Oops! Syntax Error: it seems your AccountSid or AuthToken is incorrect or you are not logged in!")
-        except ConnectionError:
-            print("Connection Error: It seems that you have No Connection. Please try again after reconnecting")
-        except TimeoutError:
-            print("TimeoutError: Its taking too much time")
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
         except ImportError:
@@ -158,12 +140,6 @@ class TestConferenceCall(unittest.TestCase):
                 self.assertIsNotNone(content)
                 file.close()
 
-        except SyntaxError:
-            print("Oops! Syntax Error: it seems your AccountSid or AuthToken is incorrect or you are not logged in!")
-        except ConnectionError:
-            print("Connection Error: It seems that you have No Connection. Please try again after reconnecting")
-        except TimeoutError:
-            print("Timeout Error: Its taking too much time")
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
         except ImportError:
@@ -198,12 +174,6 @@ class TestMuteCall(unittest.TestCase):
                 self.assertIsNotNone(content)
                 file.close()
 
-        except SyntaxError:
-            print("Oops! Syntax Error: it seems your AccountSid or AuthToken is incorrect or you are not logged in!")
-        except ConnectionError:
-            print("Connection Error: It seems that you have No Connection. Please try again after reconnecting")
-        except TimeoutError:
-            print("Timeout Error: Its taking too much time")
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
         except ImportError:
@@ -239,12 +209,6 @@ class TestUnMuteCall(unittest.TestCase):
                 self.assertIsNotNone(content)
                 file.close()
 
-        except SyntaxError:
-            print("Oops! Syntax Error: it seems your AccountSid or AuthToken is incorrect or you are not logged in!")
-        except ConnectionError:
-            print("Connection Error: It seems that you have No Connection. Please try again after reconnecting")
-        except TimeoutError:
-            print("Timeout Error: Its taking too much time")
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
         except ImportError:

@@ -44,12 +44,25 @@ class RecordingList(object):
 
     def GetList(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Recordings.json'
+        try:
 
-        r1 = requests.get(Url, auth=(self.Sid,self.AuthToken))
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Recordings.json'
+            r1 = requests.get(Url, auth=(self.Sid,self.AuthToken))
 
-        content = json.loads(r1.text)
-        return content
+            if r1.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r1.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
 class RecordingFilter(object):
 
@@ -62,20 +75,47 @@ class RecordingFilter(object):
 
     def FilterCallSid(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Recordings.json?'
-        params = {'CallSid':self.CallSid}
+        try:
 
-        r2 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Recordings.json?'
+            params = {'CallSid':self.CallSid}
 
-        content = json.loads(r2.text)
-        return content
+            r2 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
+
+            if r2.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r2.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
 
     def FilterPage(self):
 
-        Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Recordings.json?'
-        params = {'PageSize': self.CallSid}
+        try:
 
-        r3 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Recordings.json?'
+            params = {'PageSize': self.CallSid}
+            r3 = requests.get(Url, params=params, auth=(self.Sid, self.AuthToken))
 
-        content = json.loads(r3.text)
-        return content
+            if r3.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r3.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")

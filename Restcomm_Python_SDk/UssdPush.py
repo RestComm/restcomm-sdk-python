@@ -47,10 +47,25 @@ class UssdPush(object):
 
     def Push(self):
 
-        PushUrl = 'https://cloud.restcomm.com/restcomm-rvd/services/apps/'+self.AppName+'controller'
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'UssdPush'
-        data = {'From':self.From, 'To':self.To, 'Url':PushUrl}
+        try:
 
-        r = requests.post(Url, data=data, auth=(self.Sid,self.AuthToken))
-        content = json.loads(r.text)
-        return content
+            PushUrl = 'https://cloud.restcomm.com/restcomm-rvd/services/apps/'+self.AppName+'controller'
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'UssdPush'
+            data = {'From':self.From, 'To':self.To, 'Url':PushUrl}
+
+            r = requests.post(Url, data=data, auth=(self.Sid,self.AuthToken))
+
+            if r.status_code == 401:
+                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            else:
+                content = json.loads(r.text)
+                return content
+
+        except requests.HTTPError:
+            print("HTTP ERROR")
+        except requests.ConnectionError:
+            print("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            print("TIMEOUT ERROR")
+        except requests.RequestException:
+            print("Invalid Url! Please check and try again")
