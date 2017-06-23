@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="02b78915-7a14-428b-8d8d-330dd4f78a09" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.rst" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/AccountInfo.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Account/AccountInfo.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Applications.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Applications/Applications.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/AvailableNumber.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/AvailableNumber/AvailableNumber.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Client.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Client/Client.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Email.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Email/Email.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Gateway.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Gateway/Gateway.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/IncomingNumber.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/IncomingNumber/IncomingNumber.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Notification.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Notification/Notification.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Recording.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Recording/Recording.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Sms.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Sms/Sms.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AccountData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AccountTest/AccountData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AccountTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AccountTest/AccountTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ApplicationData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ApplicationTest/ApplicationData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ApplicationTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ApplicationTest/ApplicationTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AvailableNumberData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AvailableNumber/AvailableNumberData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AvailableNumberTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AvailableNumber/AvailableNumberTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/CallData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/CallTest/CallData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/CallTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/CallTest/CallTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ClientData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ClientTest/ClientData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ClientTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ClientTest/ClientTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/EmailData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/EmailTest/EmailData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/EmailTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/EmailTest/EmailTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/GatewayData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/GatewayTest/GatewayData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/GatewayTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/GatewayTest/GatewayTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/IncomingNumberData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/IncomingNumberTest/IncomingNumberData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/IncomingNumberTest.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/IncomingNumberTest/IncomingNumberTest.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/NotificationData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/NotificationTest/NotificationData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/NotificationTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/NotificationTest/NotificationTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/RecordingData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/RecordingTest/RecordingData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/RecordingTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/RecordingTest/RecordingTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/SmsData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/SmsTest/SmsData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/SmsTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/SmsTest/SmsTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/TranscriptionData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/TranscriptionTest/TranscriptionData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/TranscriptionTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/TranscriptionTest/TranscriptionTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UsageData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UsageTest/UsageData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UsageTests.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UsageTest/UsageTests.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UssdPushData.txt" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UssdPushTest/UssdPushData.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UssdPushTest.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UssdPushTest/UssdPushTest.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/createServer.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/CreateLocalServer/createServer.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/index.html" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Test/CreateLocalServer/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Transcription.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Transcription/Transcription.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/Usage.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Usage/Usage.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/UssdPush.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/UssdPush/UssdPush.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/call.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/call/call.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Restcomm_Python_SDk/__init__.py" afterPath="$PROJECT_DIR$/Restcomm_Python_SDk/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="README.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Examples/README.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="20" column="60" lean-forward="false" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AccountData.txt" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/IncomingNumberData.txt" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Geolocation.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/__init__.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AccountTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ApplicationTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/CallTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ClientTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/createServer.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/EmailTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/GatewayTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/NotificationTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/RecordingTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/SmsTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/TranscriptionTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UsageTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UssdPushTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/ExceptionHandler.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AvailableNumberTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ApplicationTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AvailableNumberTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/CallTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/ClientTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/EmailTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/GatewayTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/IncomingNumberTest.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/NotificationTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/RecordingTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/SmsTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/TranscriptionTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UsageTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Applications.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/AvailableNumber.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Client.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Email.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Gateway.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/IncomingNumber.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Notification.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Recording.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Transcription.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Usage.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/UssdPush.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Sms.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/call.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AccountTests.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Examples/Basic_Usage.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/AccountInfo.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Examples/trial.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/__init__.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/Restcomm_Python_SDk/Examples/README.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1301" />
+    <option name="height" value="772" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restcomm-sdk-python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restcomm-sdk-python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restcomm-sdk-python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restcomm-sdk-python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Restcomm_Python_SDk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restcomm-sdk-python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restcomm-sdk-python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Restcomm_Python_SDk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Restcomm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restcomm-sdk-python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restcomm-sdk-python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Restcomm_Python_SDk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="add_unversioned_files" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Restcomm_Python_SDk/Test/CreateLocalServer" />
+      <recent name="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UssdPushTest" />
+      <recent name="$PROJECT_DIR$/Restcomm_Python_SDk/Test/UsageTest" />
+      <recent name="$PROJECT_DIR$/Restcomm_Python_SDk/Test/TranscriptionTest" />
+      <recent name="$PROJECT_DIR$/Restcomm_Python_SDk/Test/SmsTest" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.Basic_Usage">
+    <configuration default="false" name="createServer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Restcomm_Python_SDk/Test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="restcomm-sdk-python" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/CreateLocalServer/createServer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Geolocation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Restcomm_Python_SDk" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="restcomm-sdk-python" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Restcomm_Python_SDk/Geolocation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="AccountTests" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Restcomm_Python_SDk/Test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="restcomm-sdk-python" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Restcomm_Python_SDk/Test/AccountTest/AccountTests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="AvailableNumber" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Restcomm_Python_SDk" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="restcomm-sdk-python" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/AvailableNumber/AvailableNumber.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Basic_Usage" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Restcomm_Python_SDk/Examples" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="restcomm-sdk-python" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Restcomm_Python_SDk/Examples/Basic_Usage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="restcomm-sdk-python" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="restcomm-sdk-python" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="restcomm-sdk-python" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="restcomm-sdk-python" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Account" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Restcomm_Python_SDk/Account" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="restcomm-sdk-python" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Restcomm_Python_SDk/Account/Account.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Python.Account" />
+      <item index="1" class="java.lang.String" itemvalue="Python.createServer" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Geolocation" />
+      <item index="3" class="java.lang.String" itemvalue="Python.AccountTests" />
+      <item index="4" class="java.lang.String" itemvalue="Python.AvailableNumber" />
+      <item index="5" class="java.lang.String" itemvalue="Python.Basic_Usage" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.Basic_Usage" />
+        <item index="1" class="java.lang.String" itemvalue="Python.createServer" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Geolocation" />
+        <item index="3" class="java.lang.String" itemvalue="Python.AvailableNumber" />
+        <item index="4" class="java.lang.String" itemvalue="Python.AccountTests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="02b78915-7a14-428b-8d8d-330dd4f78a09" name="Default" comment="" />
+      <created>1496296076017</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1496296076017</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="-4" width="1301" height="772" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19521913" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3513932" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39910313" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.623839" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23027888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39910313" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="9" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/ExceptionHandler.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/AccountTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/ApplicationTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/AvailableNumberTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/CallTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/ClientTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/EmailTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/GatewayTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/NotificationTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/RecordingTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/SmsTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/TranscriptionTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/UsageTest.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/ApplicationTest/ApplicationTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/AvailableNumber/AvailableNumberTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/CallTest/CallTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="210" column="0" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/ClientTest/ClientTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/EmailTest/EmailTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/GatewayTest/GatewayTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2502">
+          <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/IncomingNumberTest/IncomingNumberTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/NotificationTest/NotificationTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/RecordingTest/RecordingTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/SmsTest/SmsTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/TranscriptionTest/TranscriptionTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/UsageTest/UsageTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/UssdPushTest/UssdPushTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Applications/Applications.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1692">
+          <caret line="95" column="17" lean-forward="false" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/AvailableNumber/AvailableNumber.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="68" column="19" lean-forward="false" selection-start-line="68" selection-start-column="19" selection-end-line="68" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Client/Client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="173" column="62" lean-forward="true" selection-start-line="173" selection-start-column="62" selection-end-line="173" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Gateway/Gateway.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="64" column="17" lean-forward="false" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/IncomingNumber/IncomingNumber.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2178">
+          <caret line="122" column="44" lean-forward="false" selection-start-line="122" selection-start-column="44" selection-end-line="122" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Notification/Notification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2232">
+          <caret line="125" column="62" lean-forward="true" selection-start-line="125" selection-start-column="62" selection-end-line="125" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Recording/Recording.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="127" column="62" lean-forward="true" selection-start-line="127" selection-start-column="62" selection-end-line="127" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Transcription/Transcription.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Usage/Usage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="66" column="19" lean-forward="false" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Email/Email.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="61" column="40" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="61" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/UssdPush/UssdPush.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="61" column="18" lean-forward="true" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Sms/Sms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="172" column="62" lean-forward="true" selection-start-line="172" selection-start-column="62" selection-end-line="172" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/call/call.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="245" column="0" lean-forward="true" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Geolocation.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Examples/try.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Examples/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Examples/trial.py" />
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-126">
+          <caret line="11" column="65" lean-forward="false" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="65" />
+          <folding>
+            <element signature="e#1001#1076#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/AccountTest/AccountData.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Test/AccountTest/AccountTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="e#1002#1017#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Account/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Examples/Basic_Usage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="31" column="57" lean-forward="false" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Restcomm/Account/AccountInfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#1002#1017#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Restcomm_Python_SDk/Examples/README.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="60" lean-forward="false" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

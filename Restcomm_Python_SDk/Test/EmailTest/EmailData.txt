@@ -1,0 +1,7 @@
+"Enter the Account Sid here"
+"Enter the Authentication Token here"
+"Enter the Base Url here"
+"Enter the Email ID of the user to send mail"
+"Enter your Email ID here "
+"Enter the Subject here"
+"Enter the Message here"

@@ -1,0 +1,8 @@
+"Enter the Account Sid here"
+"Enter the Authentication Token here"
+"Enter the Base Url here"
+"Enter the number to Send Sms"
+"Enter your Number"
+"Enter the Message"
+"Enter the Filter Data"
+"Enter the Page Size"

@@ -1,0 +1,8 @@
+"Enter the Account Sid here"
+"Enter the Authentication Token here"
+"Enter the BaseUrl here"
+"Enter the Friendly Name here"
+"Enter the User Name here"
+"Enter the Password here"
+"Enter the Proxy here"
+"Enter the Gateway Sid here"

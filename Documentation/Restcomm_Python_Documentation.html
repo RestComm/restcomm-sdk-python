@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Asciidoctor 1.5.4">
+  <title>Restcomm-Python</title>
+  <link rel="stylesheet" href="https://asciidoclive.com/assets/asciidoctor.js/css/asciidoctor.css">
+</head>
+
+<body class="article">
+  <div id="header">
+    <h1><strong>Restcomm-Python</strong><br></h1>
+  </div>
+  <div id="content">
+    <div id="preamble">
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>Restcomm_Python_SDk is a module for using the <strong>Restcomm Rest API</strong>.
+            This Documentation provides the basic information on the usage of this
+            SDk in performing various operations offered by the Restcomm-Rest APIs.
+            The Restcomm REST API allows you to query meta-data about your account,
+            phone numbers, calls, text messages, and recordings. You can also do
+            some communications control like initiate outbound calls and send text
+            messages.</p>
+        </div>
+        <div class="ulist">
+          <div class="title"><strong>Table of Content</strong></div>
+          <ul>
+            <li>
+              <p>Installation<br></p>
+            </li>
+            <li>
+              <p>Feedback<br></p>
+            </li>
+            <li>
+              <p>Getting Started<br></p>
+              <div class="ulist">
+                <ul>
+                  <li>
+                    <p>Api Credentials<br></p>
+                  </li>
+                  <li>
+                    <p>Examples<br></p>
+                    <div class="ulist">
+                      <ul>
+                        <li>
+                          <p>Accounts<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Account Details<br></p>
+                              </li>
+                              <li>
+                                <p>Change Account Password<br></p>
+                              </li>
+                              <li>
+                                <p>Create Sub Account<br></p>
+                              </li>
+                              <li>
+                                <p>Close Sub Account<br></p>
+                              </li>
+                              <li>
+                                <p>Sub Account Details<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Call<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Make a Call<br></p>
+                              </li>
+                              <li>
+                                <p>Get Call Details<br></p>
+                              </li>
+                              <li>
+                                <p>Redirect a Call<br></p>
+                              </li>
+                              <li>
+                                <p>Make Conference Call<br></p>
+                              </li>
+                              <li>
+                                <p>Mute a Participant<br></p>
+                              </li>
+                              <li>
+                                <p>UnMute a Participant<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Sms<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Send Sms<br></p>
+                              </li>
+                              <li>
+                                <p>Get Sms List<br></p>
+                              </li>
+                              <li>
+                                <p>Filter Sms List<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Applications<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Create an Application<br></p>
+                              </li>
+                              <li>
+                                <p>Delete an Application<br></p>
+                              </li>
+                              <li>
+                                <p>Update an Application<br></p>
+                              </li>
+                              <li>
+                                <p>Get Application List<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Available Phone Number<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Number Availability<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Client<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Create a client<br></p>
+                              </li>
+                              <li>
+                                <p>Delete a client<br></p>
+                              </li>
+                              <li>
+                                <p>Change Client Password<br></p>
+                              </li>
+                              <li>
+                                <p>Get Client List<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Email<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Send an Email<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Gateway<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Create Gateway<br></p>
+                              </li>
+                              <li>
+                                <p>Get Gateway list<br></p>
+                              </li>
+                              <li>
+                                <p>Update Gateway<br></p>
+                              </li>
+                              <li>
+                                <p>Delete Gateway<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Incoming Number<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Get Incoming Number List<br></p>
+                              </li>
+                              <li>
+                                <p>Attach a phone Number<br></p>
+                              </li>
+                              <li>
+                                <p>Delete a phone Number<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Notifications<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Get Notification List<br></p>
+                              </li>
+                              <li>
+                                <p>Filter Notification List<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Recordings<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Get Recording List<br></p>
+                              </li>
+                              <li>
+                                <p>Filter Recording List<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Transcriptions<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Get Transcription List<br></p>
+                              </li>
+                              <li>
+                                <p>Filter Transcription List<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Usage<br></p>
+                          <div class="ulist">
+                            <ul>
+                              <li>
+                                <p>Get Usage List<br></p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_installation_strong"><strong>Installation</strong></h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>Install from PyPi using <strong>pip</strong>, a package manager for Python.
+            Go to the terminal and type:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ pip install Restcomm_Python_SDk</code></p>
+        </div>
+        <div class="paragraph">
+          <p>if it doesn’t work, try using:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ sudo pip install Restcomm_Python_SDk</code></p>
+        </div>
+        <div class="paragraph">
+          <p>Don’t have pip installed? Try installing it, by running this from the command
+            line:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ curl <a href="https://raw.github.com/pypa/pip/master/contrib/get-pip.py" class="bare">https://raw.github.com/pypa/pip/master/contrib/get-pip.py</a> | python</code></p>
+        </div>
+        <div class="paragraph">
+          <p>Or, you can <strong>download the source code (ZIP)</strong> for Restcomm-Python,
+            and then run in the terminal:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ python setup.py install</code></p>
+        </div>
+        <div class="paragraph">
+          <p>Or, you can run it by using:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ sudo python setup.py install</code></p>
+        </div>
+        <div class="paragraph">
+          <p>if you want to install it in <strong>python 3</strong> or above, try using:</p>
+        </div>
+        <div class="paragraph">
+          <p><code>$ sudo python3 setup.py install</code></p>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_feedback_strong"><strong>Feedback</strong></h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>Report any feedback or problems with this Release Candidate to the <strong><em>Github Issues</em></strong>            for Restcomm-Python</p>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_getting_started_strong"><strong>Getting Started</strong></h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>Getting started with the Restcomm API is damn easy. We basically have to
+            create a client and pass it to the required class as and when called.
+            So, now we are ready to go</p>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_api_credentials_strong"><strong>API Credentials</strong></h2>
+      <div class="sectionbody">
+        <div class="paragraph">
+          <p>The <code>Restcomm</code> needs your <code>Restcomm credentials</code>            to use its API. If you don’t have one, first try getting it and then
+            read further. If you have Restcomm credentials, you can either pass these
+            directly to the constructor or via environment variables.</p>
+        </div>
+        <div class="paragraph">
+          <p><code>from Restcomm_Python_SDk import client</code><br></p>
+        </div>
+        <div class="paragraph">
+          <p><code>AccountSid = “XXXXXXXXXXXXXXXXXX”</code><br>
+            <code>AuthToken = “YYYYYYYYYYYYYYYY”</code><br>
+            <code>BaseUrl = “https://ZZZZZZZZZZZZZZ”</code><br>
+            <code>client = client(AccountSid, AuthToken, BaseUrl)</code><br></p>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_examples_strong"><strong>Examples</strong></h2>
+      <div class="sectionbody">
+
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_accounts_strong"><strong>Accounts</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_get_account_details">Get Account Details</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import AccountDetails</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getinfo = AccountDetails(client).Details()</code><br> To get Details
+              of the main Account Sid<br>
+              <code>Sid = getinfo['Sid']</code><br> To get Details of the Date when
+              the Account was created<br>
+              <code>Date_Created = getinfo['DateCreated']</code><br> and similarly
+              for 'other' details, type<br>
+              <code>print(getinfo['other'])</code></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_change_account_password">Change Account Password</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import ChangeAccountPassword</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>data = ChangeAccountPassword('newPassword12345', client).ChangePassword()</code><br>              To get new Authentication Token<br>
+              <code>newAuthToken = data['AuthToken']</code><br></p>
+          </div>
+          <div class="admonitionblock note">
+            <table>
+              <tr>
+                <td class="icon">
+                  <div class="title">Note</div>
+                </td>
+                <td class="content">
+                  After Changing the Account Password, you need to update with new Account Sid and
+                  Authentication Token<br> To do so, Simply call
+                  client function<br>
+                  <code>client = client(AccountSid, newAuthToken, BaseUrl)</code><br>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_create_sub_account">Create Sub Account</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import CreateSubAccount</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>data = CreateSubAccount('friendlyName', '<a href="mailto:friendly@gmail.com">friendly@gmail.com</a>', 'newPassword321', client).Create()</code><br>              To get details of new Sub Account Created<br>
+              <code>Status = data['Status']</code><br>
+              <code>SubSid = data['Sid']</code><br>
+              <code>Date_Created = data['DateCreated']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_close_sub_account">Close Sub Account</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import CloseSubAccount</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>data = CloseSubAccount(SUBACCOUNTSID, client).Close()</code><br>
+              <code>Status = data['Status']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_sub_account_details">Sub Account Details</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import SubAccountDetails</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p>To get the Details of all the Sub Accounts<br>
+              <code>getDetails = SubAccountDetails(client).Details()</code><br> To
+              get the Details of SubAccount with give Sid<br>
+              <code>getInfo = getDetails['Sid']</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_call_strong"><strong>Call</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_make_a_call">Make a Call</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import Makecall</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>call = Makecall(from = “9840275164”, to = “8282900154”, url = “https://cloud.restcomm.com/restcomm/demos/hello-play.xml
+”, client).Call()</code><br> To get Call Sid<br>
+              <code>CallSid = call['sid']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_get_call_details">Get Call Details</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import GetCallDetail</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getDetails = GetCallDetail(client).GetDetails()</code><br> To get
+              the required info, you can simply type<br>
+              <code>startTime = getDetails['start_time']</code><br>
+              <code>price = getDetails['price']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_redirect_a_call">Redirect a Call</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import RedirectCall</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p>To Redirect a Call to a person, you need to have its Calling Sid<br>
+              <code>redirectCall = RedirectCall(URL, CALLSID, client).Redirect()</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_make_conference_call">Make Conference Call</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import ConferenceCall</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p>To make a Conference Call, you need to have Calling Sid of the person
+              and the Url<br>
+              <code>ConCall = ConferenceCall(URL, CALLSID, client).Conference()</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_mute_a_participant">Mute a Participant</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import MuteParticipant</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p>To Mute a participant during a conference call, you need to have the
+              Participant Sid and conference Sid<br>
+              <code>Mute = MuteParticipant(PARTICIPANTSID, CONFERENCESID, client).Mute()</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_unmute_a_participant">UnMute a Participant</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import UnMuteParticipant</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p>To UnMute a participant during a conference call, you need to have the
+              participant sid and conference sid<br>
+              <code>Unmute = UnMuteParticipant(PARTICIPANTSID, CONFERENCESID, client).UnMute()</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_sms_strong"><strong>Sms</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_send_sms">Send Sms</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import SendSms</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>message = SendSms(to = “9840275164”, from = “8282900154”, body = “This is a test message. Please ignore it! ”, client)</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_get_sms_list">Get Sms List</h3>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import SmsList</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p>To get list of all the Sms sent and received, We need to pass the client
+              data to the required class<br>
+              <code>getlist = SmsList(client).GetList()</code><br> To get price information
+              and other details, you can simply type<br>
+              <code>price = getlist['Price']</code><br>
+              <code>priceUnit = getlist['PriceUnit']</code><br>
+              <code>SmsSid = getlist['Sid']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_filter_sms_list">Filter Sms List</h3>
+          <div class="paragraph">
+            <p>To filter the list of Sms, you can either filter it by passing the page
+              information to get list of sms according to page no. or else you can
+              also filter it by providing the information of the person you want
+              to view the Sms<br> To view Sms according to the information of the
+              person<br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import FilterSmsList</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>filterinfo = FilterSmsList('alice', client).GetFilterlist()</code><br>
+              <code>SmsSid = filterinfo['Sid']</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p>To view Sms according to the number of page<br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>from Restcomm_Python_SDk import SmsPagingInformation</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>filterinfo = SmsPagingInformation('1', client).PageInfo()</code><br>
+              <code>smsSid = filterinfo['Sid']</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_applications_strong"><strong>Applications</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_create_an_application">Create an Application</h3>
+          <div class="paragraph">
+            <p>To Create an application, you need to provide the Application name and
+              the kind of application to be created<br>
+              <code>from Restcomm_Python_SDk import CreateApplication</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>createApp = CreateApplication('demoApp', 'voice', client).Create()</code><br>              This will create an Application and all the details will be stored
+              in createApp. You can extract the information according to your choice,
+              for example<br>
+              <code>Date_Created = createApp['DateCreated']</code><br>
+              <code>AppSid = createApp['Sid']</code><br>
+              <code>Date_Updated = createApp['DateUpdated']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_delete_an_application">Delete an Application</h3>
+          <div class="paragraph">
+            <p>To Delete an Application, you need to provide the Application Sid<br>
+              <code>from Restcomm_Python_SDk import DeleteApplication</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>deleteApp = DeleteApplication(APPSID, client).Delete()</code><br>              This will delete the Application with the given Sid and the details
+              will be stored in deleteApp. You can check it by typing<br>
+              <code>Date_Updated = deleteApp['DateUpdated']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_update_an_application">Update an Application</h3>
+          <div class="paragraph">
+            <p>If you want to update the Application name, you need to provide the Application
+              Sid<br>
+              <code>from Restcomm_Python_SDk import UpdateApplication</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>updateApp = UpdateApplication(APPSID, 'newdemoApp', client).Update()</code><br>              This will Update the Application with new Application name and the
+              details will be stored in updateApp. You can check it by typing<br>
+              <code>Date_Created = updateApp['DateCreated']</code><br>
+              <code>Date_Updated = updateApp['DateUpdated']</code><br>
+              <code>AppSid = updateApp['Sid']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_get_application_list">Get Application list</h3>
+          <div class="paragraph">
+            <p>To get the list of all Applications Created, you can simply call the
+              GetApplicationList class and provide the authentication data to access
+              the list<br>
+              <code>from Restcomm_Python_SDk import GetApplicationList</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getinfo = GetApplicationList(client).GetList()</code><br> getinfo
+              will contain all the data of the applications. you can simply get your
+              desired result by typing<br>
+              <code>AppSid = getinfo['Sid']</code><br>
+              <code>friendlyName = getinfo['FriendlyName']</code><br>
+              <code>kind = getinfo['Kind']</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_available_phone_number_strong"><strong>Available Phone Number</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_number_availability">Number Availability</h3>
+          <div class="paragraph">
+            <p>To get the list of all the numbers available, you need to provide the
+              area code for which you need to check the availability of the number<br>
+              <code>from Restcomm_Python_SDk import NumberAvailability</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getlist = NumberAvailability('305', client).Availability()</code><br>              This will give the list of all the numbers available. To check<br>
+              <code>numbers = getlist['phNumber']</code><br>
+              <code>friendlyName = getlist['friendlyName']</code><br>
+              <code>smsCapable = getlist['smsCapable']</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_client_strong"><strong>Client</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_create_a_client">Create a Client</h3>
+          <div class="paragraph">
+            <p>To Create a client, you need to provide the client Login Id and password
+              and pass it to CreateClient class with user Authentication<br>
+              <code>from Restcomm_Python_SDk import CreateClient</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>create = CreateClient('demoId', 'demoPassword', client).Create()</code><br>              This will create the client with Login Id and Password as mentioned
+              above and the details are stored in <code>create</code>.<br>
+              <code>status = create['status']</code><br>
+              <code>clientSid = create['sid']</code><br>
+              <code>Date_Created = create['DateCreated']</code><br>
+              <code>Date_Updated = create['DateUpdated']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_delete_a_client">Delete a client</h3>
+          <div class="paragraph">
+            <p>To Delete a client, you need to provide the client Sid and pass it to
+              DeleteClient class with user Authentication<br>
+              <code>from Restcomm_Python_SDk import DeleteClient</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>deleteclient = DeleteClient(CLIENTSID, client).Delete()</code><br>              This will delete the client with the Client Sid as mentioned above
+              and the details are stored in <code>deleteclient</code>.<br>
+              <code>status = deleteclient['status']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_change_client_password">Change Client Password</h3>
+          <div class="paragraph">
+            <p>To change the Password of a client, you need to provide the client Sid
+              and new Password and pass it to ChangeClientPassword class along with
+              user Authentication<br>
+              <code>from Restcomm_Python_SDk import ChangeClientPassword</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>change = ChangeClientPassword(CLIENTSID, 'newPassword', client).ChangePassword()</code><br>              This will replace the Password with the new Password provided above
+              and the details are stored in <code>change</code>.<br>
+              <code>token = change['AuthToken']</code><br>
+              <code>Date_Updated = change['DateUpdated']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_get_client_list">Get Client List</h3>
+          <div class="paragraph">
+            <p>To get list of all the clients, you need to pass the user Authentications
+              to the ClientList class<br>
+              <code>from Restcomm_python_SDk import ClientList</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getinfo = ClientList(client).GetList()</code><br> This will store
+              all the information of the clients in <code>getinfo</code> and you
+              can access it by simply<br>
+              <code>clientsid = getinfo['sid']</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_email_strong"><strong>Email</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_send_an_email">Send an Email</h3>
+          <div class="paragraph">
+            <p>To send an Email, you need to provide the sender and receivers email
+              address and pass it to SendEmail class along with user Authentication<br>              You also need to provide Subject of the Email along with the message<br>
+              <code>from Restcomm_Python_SDk import SendEmail</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>sendmail = SendEmail('<a href="mailto:demo1@gmail.com">demo1@gmail.com</a>', '<a href="mailto:demo2@gmail.com">demo2@gmail.com</a>', 'testMail', 'This is the test mail. Please ignore it!', client).Send()</code><br>              This will send the Email to the respective person and the details are
+              stored in <code>sendmail</code><br>
+              <code>Date_Sent = sendmail['DateSent']</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_gateway_strong"><strong>Gateway</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_create_gateway">Create Gateway</h3>
+          <div class="paragraph">
+            <p>To create a Gateway, you need to provide the gateway friendly name, user
+              name, gateway password and the proxy in which the gateway are working
+              and pass it to CreateGateway class along with the user Authentications<br>
+              <code>from Restcomm_Python_SDk import CreateGateway</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>create = CreateGateway('myGateway', 'username', 'userpassword', 'my.gateway.com', client).Create()</code><br>              This will create the required Gateway with the friendly name, username,
+              password and proxy as provided above and the details are stored in
+              <code>create</code>. To access it, type`<br>
+              <code>Date_Created = create['DateCreated']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_get_gateway_list">Get Gateway List</h3>
+          <div class="paragraph">
+            <p>To get the list of all the Gateway created, you need to provide user
+              Authentication and pass it to GetListGateway class<br>
+              <code>from Restcomm_Python_SDk import GetListGateway</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getinfo = GetListGateway(client).GetList()</code><br> This will
+              store all the details of the Gateway created, in <code>getinfo</code>.
+              To get the required details, type<br>
+              <code>GatewaySid = getinfo['sid']</code><br>
+              <code>Date_Created = getinfo['DateCreated']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_update_gateway">Update Gateway</h3>
+          <div class="paragraph">
+            <p>To update the Gateway, you need to provide the Gateway Sid and the required
+              changes which you want to make like change friendly name and username
+              and pass it to UpdateGateway class along with user Authentication
+              <code>from Restcomm_Python_SDk import UpdateGateway</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>updategateway = UpdateGateway(GATEWAYSID, 'newGateway', 'newUsername', client).Update()</code><br>              This will update the Gateway with the new friendly name and username
+              as provided above and the details are stored in <code>updategateway</code>.
+              To access it, type<br>
+              <code>Date_Updated = updategateway['DateUpdated']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_delete_gateway">Delete Gateway</h3>
+          <div class="paragraph">
+            <p>To Delete the Gateway, you need to provide the Gateway Sid and pass it
+              to the DeleteGateway class along with user Authentication<br>
+              <code>from Restcomm_Python_SDk import DeleteGateway</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>DeleteGateway(GATEWAYSID, client).Delete()</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_incoming_number_strong"><strong>Incoming Number</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_get_incoming_number_list">Get Incoming Number List</h3>
+          <div class="paragraph">
+            <p>To get the list of all Incoming Numbers, you need to pass user Authentication
+              to PhoneNumberList class<br>
+              <code>from Restcomm_Python_SDk import PhoneNumberList</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getlist = PhoneNumberList(client).GetList()</code><br> This will
+              store all the Incoming Phone Numbers in <code>getlist</code>. you can
+              access it to get your required data<br>
+              <code>callSid = getlist['sid']</code><br>
+              <code>phoneNumber = getlist['phone_number']</code><br>
+              <code>friendlyname = getlist['friendly_name']</code><br>
+              <code>capable = getlist['capabilities']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_attach_a_phone_number">Attach a Phone Number</h3>
+          <div class="paragraph">
+            <p>To attach a Phone Number to an application, you need to provide the Phone
+              Number and voice Url and pass it to the AttachPhoneNumber class along
+              with user Authentication
+              <code>from Restcomm_Python_SDk import AttachPhoneNumber</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>AttachPhoneNumber(PHONENUMBER, VOICEURL, client).Attach()</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_delete_a_phone_number">Delete a Phone Number</h3>
+          <div class="paragraph">
+            <p>To delete a phone Number, you need to provide the calling sid and pass
+              it to the DeletePhoneNumber class along with user Authentication
+              <code>from Restcomm_Python_SDk import DeletePhoneNumber</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>DeletePhoneNumber(CALLSID, client).Delete()</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_notifications_strong"><strong>Notifications</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_get_notification_list">Get Notification List</h3>
+          <div class="paragraph">
+            <p>To get list of Notifications, call the NotificationList class and pass
+              user Authentication<br>
+              <code>from Restcomm_Python_SDk import NotificationList</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getlist = NotificationList(client).GetList()</code><br> This will
+              store all the details of the notifications in <code>getlist</code>.
+              you can access it similarly by<br>
+              <code>notificationsid = getlist['sid']</code><br>
+              <code>Date_Created = getlist['DateCreated']</code><br>
+              <code>Date_Updated = getlist['DateUpdated']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_filter_notification_list">Filter Notification List</h3>
+          <div class="paragraph">
+            <p>You can filter the list of notifications by two way. One way is to filter
+              it by using error code or the second way is to provide page information.
+              To Filter it by using Error Code, you need to provide the error code
+              and pass it to NotificationFilter class along with user Authentications
+              or else if you want to filter it using page information, then provide
+              page information and pass it to NotificationFilter class along with
+              user Authentications.<br>
+              <code>from Restcomm_Python_SDk import NotificationFilter</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getlist = NotificationFilter(ERRORCODE, client).FilterErrorCode()</code><br>              or else
+              <code>getlist = NotificationFilter('1', client).FilterPage()</code><br>              These will store the details as per filter option in <code>getlist</code>.
+              You can access it by typing<br>
+              <code>notificationsid = getlist['sid']</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_recordings_strong"><strong>Recordings</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_get_recording_list">Get Recording List</h3>
+          <div class="paragraph">
+            <p>To get list of Recordings, call the RecordingList class and pass user
+              Authentication<br>
+              <code>from Restcomm_Python_SDk import RecordingList</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getlist = RecordingList(client).GetList()</code><br> This will
+              store all the details of the Recording in <code>getlist</code>. you
+              can access it similarly by<br>
+              <code>Recordingsid = getlist['sid']</code><br>
+              <code>Date_Created = getlist['DateCreated']</code><br>
+              <code>Date_Updated = getlist['DateUpdated']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_filter_recording_list">Filter Recording List</h3>
+          <div class="paragraph">
+            <p>You can filter the list of Recordings by two way. One way is to filter
+              it by using calling Sid or the second way is to provide page information.
+              To Filter it by using calling Sid, you need to provide the Call Sid
+              and pass it to RecordingFilter class along with user Authentications
+              or else if you want to filter it using page information, then provide
+              page information and pass it to RecordingFilter class along with user
+              Authentications.<br>
+              <code>from Restcomm_Python_SDk import RecordingFilter</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getlist = RecordingFilter(CALLSID, client).FilterCallSid()</code><br>              or else
+              <code>getlist = RecordingFilter('1', client).FilterPage()</code><br>              These will store the details as per filter option in <code>getlist</code>.
+              You can access it by typing<br>
+              <code>recordingsid = getlist['sid']</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_transcriptions_strong"><strong>Transcriptions</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_get_transcription_list">Get Transcription List</h3>
+          <div class="paragraph">
+            <p>To get list of Transcriptions, call the TranscriptionList class and pass
+              user Authentication<br>
+              <code>from Restcomm_Python_SDk import TranscriptionList</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getlist = TranscriptionList(client).GetList()</code><br> This will
+              store all the details of the Transcriptions in <code>getlist</code>.
+              you can access it similarly by<br>
+              <code>transcriptionsid = getlist['sid']</code><br>
+              <code>Date_Created = getlist['DateCreated']</code><br>
+              <code>Date_Updated = getlist['DateUpdated']</code><br></p>
+          </div>
+        </div>
+        <div class="sect2">
+          <h3 id="_filter_transcription_list">Filter Transcription List</h3>
+          <div class="paragraph">
+            <p>You can filter the list of transcriptions by two way. One way is to filter
+              it by using Transcription Text or the second way is to provide page
+              information. To Filter it by using Transcription Text, you need to
+              provide the Transcription Text and pass it to TranscriptionFilter class
+              along with user Authentications or else if you want to filter it using
+              page information, then provide page information and pass it to TranscriptionFilter
+              class along with user Authentications.<br>
+              <code>from Restcomm_Python_SDk import TranscriptionFilter</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getlist = TranscriptionFilter(TRANSCRIPTIONTEXT, client).FilterText()</code><br>              or else
+              <code>getlist = TranscriptionFilter('1', client).FilterPage()</code><br>              These will store the details as per filter option in <code>getlist</code>.
+              You can access it by typing<br>
+              <code>Transcriptionsid = getlist['sid']</code><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sect1">
+      <h2 id="__strong_usage_strong"><strong>Usage</strong></h2>
+      <div class="sectionbody">
+        <div class="sect2">
+          <h3 id="_get_usage_list">Get Usage List</h3>
+          <div class="paragraph">
+            <p>To get list of Usage, you need to pass user authentications to the Usages
+              class<br>
+              <code>from Restcomm_Python_SDk import Usages</code><br></p>
+          </div>
+          <div class="paragraph">
+            <p><code>getinfo = Usages(client).GetList()</code><br> This will store the
+              details of all usages in <code>getinfo</code>. To access it, simply
+              type<br>
+              <code>sid = getinfo['sid']</code></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

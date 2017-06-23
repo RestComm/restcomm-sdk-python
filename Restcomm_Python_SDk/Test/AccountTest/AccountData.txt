@@ -1,0 +1,7 @@
+"Enter the Account Sid here"
+"Enter the Authentication Token here"
+"Enter the Base Url here"
+"Enter the new Password here"
+"Enter the Friendly Name here"
+"Enter the Email Address here"
+"Enter the Sub Account Sid here"
