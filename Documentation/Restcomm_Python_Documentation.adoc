@@ -1138,6 +1138,29 @@ This will store the details of all the send USSD messages in `sendsms`.
 
 |===
 
+The Supervisor API will provide the following metrics: +
+
+* Real Time metrics
+** Live incoming calls
+** Live outgoing calls
+** Live calls (total)
+** Live call details array. An array with call details for each of the live calls
+** Registered users
+* Accumulated metrics
+** Total calls since uptime
+** Incoming calls since uptime
+** Outgoing calls since uptime
+** No Answered calls
+** Busy calls
+** Failed calls
+** Not found calls
+** Canceled calls
+** Inbound Text messages to RMCL applications
+** Inbound Text messages to Restcomm clients
+** Inbound Text messages to outbound proxy
+** Inbound Text messages with Not Found error
+** Outgoing Text messages
+
 === Get Metric
 
 To get the monitoring service metrics, call the Monitoring class and pass the user Authentication +
