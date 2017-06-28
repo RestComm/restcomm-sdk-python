@@ -49,18 +49,20 @@ class UssdPush(object):
 
         try:
 
-            PushUrl = 'https://cloud.restcomm.com/restcomm-rvd/services/apps/'+self.AppName+'controller'
-            Url = self.BaseUrl+'/Accounts/'+self.Sid+'UssdPush'
-            data = {'From':self.From, 'To':self.To, 'Url':PushUrl}
-
+            PushUrl = 'https://cloud.restcomm.com/restcomm-rvd/services/apps/'+self.AppName+'/controller.json'
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/UssdPush'
+            data = {'From': self.From, 'To': self.To, 'Url': PushUrl}
+            #headers = {"Content-Type": "application/json"}
             r = requests.post(Url, data=data, auth=(self.Sid,self.AuthToken))
 
             if r.status_code == 401:
-                print("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+                return("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
             elif r.status_code == 404:
                 return "Base Url is Incorrect! Please verify and try again"
             elif r.status_code == 400:
                 return "Invalid option"
+            elif r.status_code == 500:
+                return "Internal Server Error"
             else:
                 content = json.loads(r.text)
                 return content

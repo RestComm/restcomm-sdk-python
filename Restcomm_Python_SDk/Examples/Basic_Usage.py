@@ -282,7 +282,25 @@ def UsageExample():
     getInfo = Restcomm_Python_SDk.Usages(client).GetList()
     print(getInfo)
 
+def UssdPushExample():
+
+    #To send a USSD message to USSD gateway, call 'UssdPush' class and then call 'Push' function
+
+    From = input("Enter the From Data")
+    To = input("Enter the To Data")
+    AppName = input("Enter the USSD App Name")
+    sendMessage = Restcomm_Python_SDk.UssdPush(From, To, AppName, client).Push()
+    print(sendMessage)
+
+def SupervisorExample():
+
+    #To get the monitoring service metrics, call 'Monitoring' class and then call 'GetMetrics' function
+
+    getinfo = Restcomm_Python_SDk.Monitoring(client).GetMetric()
+    print(getinfo)
+
 if __name__ == '__main__':
+
     AccountExamples()
     ApplicationExample()
     AvailableNumberExample()
@@ -295,3 +313,5 @@ if __name__ == '__main__':
     SmsExample()
     TranscriptionExample()
     UsageExample()
+    UssdPushExample()
+    SupervisorExample()
