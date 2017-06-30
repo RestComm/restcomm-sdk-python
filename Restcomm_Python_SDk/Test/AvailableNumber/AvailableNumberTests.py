@@ -36,18 +36,16 @@ class TestAvailableNumber(unittest.TestCase):
     def test_Availability(self):
 
         try:
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                AreaCode = '305'
 
-                file = open("AvailableNumberData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                AreaCode = file.readline()
-
-                data = AvailableNumber.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = AvailableNumber.NumberAvailablity(AreaCode.strip(), data).Availability()
+                data = AvailableNumber.client(Sid, AuthToken, BaseUrl)
+                content = AvailableNumber.NumberAvailablity(AreaCode, data).Availability()
 
                 self.assertIsNotNone(content)
-                file.close()
+
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")

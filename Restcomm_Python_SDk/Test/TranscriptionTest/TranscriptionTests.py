@@ -37,16 +37,14 @@ class TestTranscriptionList(unittest.TestCase):
 
         try:
 
-                file = open("TranscriptionData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                data = Transcription.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
+                data = Transcription.client(Sid, AuthToken, BaseUrl)
                 content = Transcription.TranscriptionList(data).GetList()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -65,17 +63,15 @@ class TestTranscriptionFilter(unittest.TestCase):
 
         try:
 
-                file = open("TranscriptionData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                TransText = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                TransText = 'Restcomm'
 
-                data = Transcription.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Transcription.TranscriptionFilter(TransText.strip(), data).FilterText()
+                data = Transcription.client(Sid, AuthToken, BaseUrl)
+                content = Transcription.TranscriptionFilter(TransText, data).FilterText()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -91,18 +87,15 @@ class TestTranscriptionFilter(unittest.TestCase):
 
         try:
 
-                file = open("TranscriptionData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                Page = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                Page = '1'
 
-                data = Transcription.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Transcription.TranscriptionFilter(Page.strip(), data).FilterPage()
+                data = Transcription.client(Sid, AuthToken, BaseUrl)
+                content = Transcription.TranscriptionFilter(Page, data).FilterPage()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")

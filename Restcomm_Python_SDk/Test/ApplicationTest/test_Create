@@ -1,0 +1,26 @@
+interactions:
+- request:
+    body: HasVoiceCallerIdLookup=false&FriendlyName=dummy&ApiVersion=2012-04-24&Kind=voice&RcmUrl=mockServer.com%2Fmock-rvd%2Fservices%2Fapps%2Ffoobar%2Fcontroller
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      Content-Length: ['161']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.9.1]
+    method: POST
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications.json
+  response:
+    body: {string: "{\n  \"sid\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\",\n  \"date_created\":
+        \"Thu, 29 Jun 2017 08:57:51 +0000\",\n  \"date_updated\": \"Thu, 29 Jun 2017
+        08:57:51 +0000\",\n  \"friendly_name\": \"dummy\",\n  \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \ \"api_version\": \"2012-04-24\",\n  \"voice_caller_id_lookup\": false,\n
+        \ \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.json\",\n
+        \ \"kind\": \"voice\"\n}"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 29 Jun 2017 08:57:51 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

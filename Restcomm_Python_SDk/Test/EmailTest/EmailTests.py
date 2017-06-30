@@ -36,21 +36,17 @@ class TestEmail(unittest.TestCase):
     def test_SendMail(self):
 
         try:
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                To = 'sma23ze@gmail.com'
+                From = 'hunwqqd@gmail.com'
+                Subject = 'Demo'
+                Body = 'Hey! how r u?'
 
-                file = open("EmailData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                To = file.readline()
-                From = file.readline()
-                Subject = file.readline()
-                Body = file.readline()
-
-                data = Email.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Email.SendEmail(To.strip(), From.strip(), Subject.strip(), Body.strip(), data).Send()
+                data = Email.client(Sid, AuthToken, BaseUrl)
+                content = Email.SendEmail(To, From, Subject, Body, data).Send()
                 self.assertIsNotNone(content)
-
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")

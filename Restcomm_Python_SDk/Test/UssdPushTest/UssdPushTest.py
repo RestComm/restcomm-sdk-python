@@ -34,19 +34,17 @@ class TestUssdPush(unittest.TestCase):
 
         try:
 
-            file = open("UssdPushData.txt", "r")
-            Sid = file.readline()
-            AuthToken = file.readline()
-            BaseUrl = file.readline()
-            From = file.readline()
-            To = file.readline()
-            AppName = file.readline()
+            Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+            From = 'friendlyName'
+            To = 'mygateway'
+            AppName = 'yes'
 
-            data = UssdPush.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-            content = UssdPush.UssdPush(From.strip(), To.strip(), AppName.strip(), data).Push()
+            data = UssdPush.client(Sid, AuthToken, BaseUrl)
+            content = UssdPush.UssdPush(From, To, AppName, data).Push()
 
             self.assertIsNotNone(content)
-            file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. Please verify and try again!")

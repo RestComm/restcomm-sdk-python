@@ -1,0 +1,32 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.9.1]
+    method: GET
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json?PageSize=1
+  response:
+    body: {string: "{\n  \"page\": 0,\n  \"num_pages\": 18,\n  \"page_size\": 1,\n
+        \ \"total\": 18,\n  \"start\": \"0\",\n  \"end\": \"0\",\n  \"uri\": \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json\",\n
+        \ \"first_page_uri\": \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json?Page\\u003d0\\u0026PageSize\\u003d1\",\n
+        \ \"previous_page_uri\": \"null\",\n  \"next_page_uri\": \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json?Page\\u003d1\\u0026PageSize\\u003d1\\u0026AfterSid\\u003dNO679deb42a7f14899aeef1c98d52ced46\",\n
+        \ \"last_page_uri\": \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json?Page\\u003d18\\u0026PageSize\\u003d1\",\n
+        \ \"notifications\": [\n    {\n      \"sid\": \"NO679deb42a7f14899aeef1c98d52ced46\",\n
+        \     \"date_created\": \"Thu, 18 May 2017 05:47:33 +0000\",\n      \"date_updated\":
+        \"Thu, 18 May 2017 05:47:33 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:paras is not registered or does not exist\",\n      \"message_date\":
+        \"2017-05-18T05:47:33.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO679deb42a7f14899aeef1c98d52ced46.json\"\n
+        \   }\n  ]\n}"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Fri, 30 Jun 2017 05:36:52 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

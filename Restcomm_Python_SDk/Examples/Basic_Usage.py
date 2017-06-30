@@ -130,6 +130,18 @@ def callExample():
     RedirectCall = Restcomm_Python_SDk.RedirectCall(Url, SubSid, client).Redirect()
     print(RedirectCall)
 
+    #To terminate a ringing call, call 'TerminateCall' class and then call 'Terminate' function
+
+    SubSid2 = input("Enter the Sid of the client to Terminate the call")
+    TerminateCall1 = Restcomm_Python_SDk.TerminateCall("canceled", SubSid2, client).Terminate()
+    print(TerminateCall1)
+
+    #To terminate a Ongoing Call, call 'TerminateCall' class and then call 'Terminate' function
+
+    SubSid2 = input("Enter the Sid of the client to Terminate the call")
+    TerminateCall2 = Restcomm_Python_SDk.TerminateCall("completed", SubSid2, client).Terminate()
+    print(TerminateCall2)
+
     #To make a conference Call, call 'ConferenceCall' class and then call 'Conference' function
 
     sig_Url = input("Enter the value")
@@ -150,6 +162,18 @@ def callExample():
     ConfSid2 = input("Enter the Conference Sid")
     UnMute = Restcomm_Python_SDk.UnMuteParticipant(PartSid2, ConfSid2, client).UnMute()
     print(UnMute)
+
+    #To filter the call list according to sender, call 'CallFilter' class and then call 'FilterFrom' function
+
+    FromParam = input("Enter the From data to filter")
+    filterdata = Restcomm_Python_SDk.CallFilter(FromParam, client).FilterFrom()
+    print(filterdata)
+
+    # To filter the call list according to page number, call 'CallFilter' class and then call 'Filterpage' function
+
+    PageSize = input("enter the Page no. to filter the call list")
+    filterdata2 = Restcomm_Python_SDk.CallFilter(PageSize, client).FilterPage()
+    print(filterdata2)
 
 def clientExample():
 

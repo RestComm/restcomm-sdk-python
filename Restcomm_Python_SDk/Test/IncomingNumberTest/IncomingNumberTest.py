@@ -37,16 +37,14 @@ class TestPhoneNumberList(unittest.TestCase):
 
         try:
 
-                file = open("IncomingNumberData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                data = IncomingNumber.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
+                data = IncomingNumber.client(Sid, AuthToken, BaseUrl)
                 content = IncomingNumber.PhoneNumberList(data).GetList()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -62,19 +60,16 @@ class TestAttachPhoneNumber(unittest.TestCase):
 
         try:
 
-            file = open("IncomingNumberData.txt", "r")
-            Sid = file.readline()
-            AuthToken = file.readline()
-            BaseUrl = file.readline()
-            phNumber = file.readline()
-            VoiceUrl = file.readline()
-            option = file.readline()
+            Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+            phNumber = '5065'
+            VoiceUrl = 'https://mockServer.com/mock/demos/hello-play.xml'
 
-            data = IncomingNumber.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-            content = IncomingNumber.AttachPhoneNumber(phNumber.strip(), VoiceUrl.strip(), option.strip(), data).Attach()
+            data = IncomingNumber.client(Sid, AuthToken, BaseUrl)
+            content = IncomingNumber.AttachPhoneNumber(phNumber, VoiceUrl, data).Attach()
 
             self.assertIsNotNone(content)
-            file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -91,20 +86,16 @@ class TestDeletePhoneNumber(unittest.TestCase):
 
         try:
 
-            file = open("IncomingNumberData.txt", "r")
-            Sid = file.readline()
-            AuthToken = file.readline()
-            BaseUrl = file.readline()
-            file.readline()
-            file.readline()
-            file.readline()
-            CallSid = file.readline()
+            Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+            CallSid = 'PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP'
 
-            data = IncomingNumber.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-            content = IncomingNumber.DeletePhoneNumber(CallSid.strip(), data).Delete()
+            data = IncomingNumber.client(Sid, AuthToken, BaseUrl)
+            content = IncomingNumber.DeletePhoneNumber(CallSid, data).Delete()
 
             self.assertIsNotNone(content)
-            file.close()
+            self.assertEqual(content, "Deleted")
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -112,3 +103,6 @@ class TestDeletePhoneNumber(unittest.TestCase):
             print("Import Error: Please Import proper library!")
         except TypeError:
             print("Type Error: the value is of wrong type")
+
+if __name__ == '__main__':
+    unittest.main()

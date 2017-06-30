@@ -86,7 +86,7 @@ class DeleteApplication(object):
 
         try:
 
-            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/'+self.AppSid
+            Url = self.BaseUrl + '/Accounts/' + self.Sid + '/Applications/' + self.AppSid + '.json'
             r2 = requests.delete(Url, auth=(self.Sid, self.AuthToken))
 
             if r2.status_code == 401:
@@ -94,7 +94,7 @@ class DeleteApplication(object):
             elif r2.status_code == 404:
                 return "Base Url or Application Sid is Incorrect! Please verify and try again"
             else:
-                content = json.loads(r2.text)
+                content = "Deleted"
                 return content
 
         except requests.HTTPError:
@@ -120,7 +120,7 @@ class UpdateApplication(object):
 
         try:
 
-            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/' + self.AppSid
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications/' + self.AppSid+'.json'
             data = {'FriendlyName': self.FriendlyName}
             r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
 
@@ -153,7 +153,7 @@ class GetApplicationList(object):
 
         try:
 
-            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json/'
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Applications.json'
             r4 = requests.get(Url, auth = (self.Sid, self.AuthToken))
 
             if r4.status_code == 401:

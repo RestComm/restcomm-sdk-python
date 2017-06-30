@@ -29,7 +29,6 @@ import vcr
 
 from Restcomm_Python_SDk.Restcomm.Sms import Sms
 
-
 class TestSendSms(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
@@ -37,19 +36,17 @@ class TestSendSms(unittest.TestCase):
 
         try:
 
-                file = open("SmsData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                To = file.readline()
-                From = file.readline()
-                Body = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                To = '9840254165'
+                From = '5065'
+                Body = 'hey! its a dummy message. Please ignore it.'
 
-                data = Sms.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Sms.SendSms(To.strip(), From.strip(), Body.strip(), data).Send()
+                data = Sms.client(Sid, AuthToken, BaseUrl)
+                content = Sms.SendSms(To, From, Body, data).Send()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -67,16 +64,14 @@ class TestSmsList(unittest.TestCase):
 
         try:
 
-                file = open("SmsData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                data = Sms.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
+                data = Sms.client(Sid, AuthToken, BaseUrl)
                 content = Sms.SmsList(data).GetList()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -95,20 +90,15 @@ class TestFilterSmsList(unittest.TestCase):
 
         try:
 
-                file = open("SmsData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                FilterNumber = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                FilterNumber = '+918282900654'
 
-                data = Sms.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Sms.FilterSmsList(FilterNumber.strip(), data).GetFilterlist()
+                data = Sms.client(Sid, AuthToken, BaseUrl)
+                content = Sms.FilterSmsList(FilterNumber, data).GetFilterlist()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -119,7 +109,6 @@ class TestFilterSmsList(unittest.TestCase):
         except IndexError:
             print("Index Error: list Index out of range")
 
-
 class TestSmsPagingInfo(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
@@ -127,21 +116,15 @@ class TestSmsPagingInfo(unittest.TestCase):
 
         try:
 
-                file = open("SmsData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                PageSize = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                PageSize = '1'
 
-                data = Sms.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Sms.SmsPagingInformation(PageSize.strip(), data).PageInfo()
+                data = Sms.client(Sid, AuthToken, BaseUrl)
+                content = Sms.SmsPagingInformation(PageSize, data).PageInfo()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")

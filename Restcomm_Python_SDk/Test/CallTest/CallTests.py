@@ -37,20 +37,18 @@ class TestMakeCall(unittest.TestCase):
 
         try:
 
-                file = open("CallData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                From = file.readline()
-                To = file.readline()
-                Url = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                From = '5065'
+                To = 'client:sam'
+                Url = 'https://mockServer.com/mock/demos/hello-play.xml'
 
-                data = call.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = call.Makecall(From.strip(), To.strip(), Url.strip(), data).Call()
+                data = call.client(Sid, AuthToken, BaseUrl)
+                content = call.Makecall(From, To, Url, data).Call()
 
                 self.assertIsNotNone(content)
-                file.close()
-
+                self.assertNotEqual(Sid, content["sid"])
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -68,16 +66,14 @@ class TestGetCallDetails(unittest.TestCase):
 
         try:
 
-                file = open("CallData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                data = call.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
+                data = call.client(Sid, AuthToken, BaseUrl)
                 content = call.GetCallDetail(data).GetDetails()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -94,22 +90,17 @@ class TestRedirectCall(unittest.TestCase):
     def test_Redirect(self):
 
         try:
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                Url = 'https://mockServer.com/mock/demos/dial­alice.xml'
+                SubSid = 'RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR'
 
-                file = open("CallData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                Url = file.readline()
-                SubSid = file.readline()
-
-                data = call.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = call.RedirectCall(Url.strip(), SubSid.strip(), data).Redirect()
+                data = call.client(Sid, AuthToken, BaseUrl)
+                content = call.RedirectCall(Url, SubSid, data).Redirect()
 
                 self.assertIsNotNone(content)
-                file.close()
+                self.assertNotEqual(Sid, content["sid"])
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -126,22 +117,17 @@ class TestConferenceCall(unittest.TestCase):
     def test_Conference(self):
 
         try:
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                Url = 'https://mockServer.com/mock/demos/dial­alice.xml'
+                SubSid = 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'
 
-                file = open("CallData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                Url = file.readline()
-                SubSid = file.readline()
-
-                data = call.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = call.ConferenceCall(Url.strip(), SubSid.strip(), data).Conference()
+                data = call.client(Sid, AuthToken, BaseUrl)
+                content = call.ConferenceCall(Url, SubSid, data).Conference()
 
                 self.assertIsNotNone(content)
-                file.close()
+                self.assertNotEqual(content["sid"], Sid)
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -158,24 +144,16 @@ class TestMuteCall(unittest.TestCase):
     def test_Mute(self):
 
         try:
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                PartSid = 'RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR'
+                ConSid = 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'
 
-                file = open("CallData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                PartSid = file.readline()
-                ConSid = file.readline()
-
-                data = call.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = call.MuteParticipant(PartSid.strip(), ConSid.strip(), data).Mute()
+                data = call.client(Sid, AuthToken, BaseUrl)
+                content = call.MuteParticipant(PartSid, ConSid, data).Mute()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -190,27 +168,95 @@ class TestMuteCall(unittest.TestCase):
 class TestUnMuteCall(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_Mute(self):
+    def test_UnMute(self):
+
+        try:
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                PartSid = 'RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR'
+                ConSid = 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'
+
+                data = call.client(Sid, AuthToken, BaseUrl)
+                content = call.UnMuteParticipant(PartSid, ConSid, data).UnMute()
+
+                self.assertIsNotNone(content)
+
+        except FileNotFoundError:
+            print("FileNotFound Error: File not found. please check and try again!")
+        except ImportError:
+            print("Import Error: Please Import proper library!")
+        except TypeError:
+            print("Type Error: the value is of wrong type")
+        except IndexError:
+            print("Index Error: list Index out of range")
+
+class TestTerminateCall(unittest.TestCase):
+
+    @vcr.use_cassette(record_mode='new_episodes')
+    def test_Terminate(self):
 
         try:
 
-                file = open("CallData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                PartSid = file.readline()
-                ConSid = file.readline()
+            Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+            SubSid = 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'
+            status = 'canceled'
+            data = call.client(Sid, AuthToken, BaseUrl)
+            content = call.TerminateCall(status, SubSid, data).Terminate()
 
-                data = call.client(Sid.strip(), AuthToken.strip())
-                content = call.UnMuteParticipant(PartSid.strip(), ConSid.strip(), data).UnMute()
+            self.assertIsNotNone(content)
 
-                self.assertIsNotNone(content)
-                file.close()
+        except FileNotFoundError:
+            print("FileNotFound Error: File not found. please check and try again!")
+        except ImportError:
+            print("Import Error: Please Import proper library!")
+        except TypeError:
+            print("Type Error: the value is of wrong type")
+        except IndexError:
+            print("Index Error: list Index out of range")
+
+class TestCallFilter(unittest.TestCase):
+
+    @vcr.use_cassette(record_mode='new_episodes')
+    def test_FilterCall(self):
+
+        try:
+
+            Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+            FromParam = '5065'
+
+            data = call.client(Sid, AuthToken, BaseUrl)
+            content = call.CallFilter(FromParam, data).FilterFrom()
+
+            self.assertIsNotNone(content)
+
+        except FileNotFoundError:
+            print("FileNotFound Error: File not found. please check and try again!")
+        except ImportError:
+            print("Import Error: Please Import proper library!")
+        except TypeError:
+            print("Type Error: the value is of wrong type")
+        except IndexError:
+            print("Index Error: list Index out of range")
+
+    @vcr.use_cassette(record_mode='new_episodes')
+    def test_FilterPage(self):
+
+        try:
+
+            Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+            PageSize = '1'
+
+            data = call.client(Sid, AuthToken, BaseUrl)
+            content = call.CallFilter(PageSize, data).FilterPage()
+
+            self.assertIsNotNone(content)
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")

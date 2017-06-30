@@ -22,6 +22,8 @@ Restcomm_Python_SDk is a module for using the *Restcomm Rest API*. This Document
 **** Make Conference Call +
 **** Mute a Participant +
 **** UnMute a Participant +
+**** Terminate a Call +
+**** Filter Call list +
 *** Sms +
 **** Send Sms +
 **** Get Sms List +
@@ -299,6 +301,27 @@ To Mute a participant during a conference call, you need to have the Participant
 
 To UnMute a participant during a conference call, you need to have the participant sid and conference sid +
 `Unmute = UnMuteParticipant(PARTICIPANTSID, CONFERENCESID, client).UnMute()` +
+
+=== Terminate a call
+
+`from Restcomm_Python_SDk import TerminateCall` +
+
+To Terminate an Ongoing call, you need to provide user authentication data with status detail as completed and Participant Sid and call the 'TerminateCall' class and pass these data to the 'Terminate' function. +
+To Terminate a ringing call, you need to do the above said process with only one modification. Instead of status as completed, provid status as canceled and call the same class and function and pass the data's. +
+
+Ongoing call +
+`terminatecall = TerminateCall(PARTICIPANT SID, "completed", client).Terminate()` +
+Ringing call +
+`terminatecall = TerminateCall(PARTICIPANT SID, "canceled", client).Terminate()` +
+
+=== Filter Call List
+
+To filter the list of incoming and outgoing calls, you have two options. Either you can filter the list according to the page numbers or you can filter the list according the Sender data. To filter the list, you need to provide user authentication data to the client class along with filter option data for example Page no. 1 and call the 'CallFilter' class and call 'FilterFrom' or 'FilterPage' function and pass these data's to the respective class and call the functions. For example, To filter the list according to the page no. +
+
+`from Restcomm_Python_SDk import CallFilter` +
+
+`filterpage = CallFilter("1", client).FilterPage()` +
+`filterfrom = CallFilter("9038455021", client).FilterPage()` +
 
 == *Sms*
 
@@ -1137,6 +1160,29 @@ This will store the details of all the send USSD messages in `sendsms`.
 |(optional) Set to true to get an array of live calls. Default value *false*
 
 |===
+
+The Supervisor API will provide the following metrics: +
+
+* Real Time metrics
+** Live incoming calls
+** Live outgoing calls
+** Live calls (total)
+** Live call details array. An array with call details for each of the live calls
+** Registered users
+* Accumulated metrics
+** Total calls since uptime
+** Incoming calls since uptime
+** Outgoing calls since uptime
+** No Answered calls
+** Busy calls
+** Failed calls
+** Not found calls
+** Canceled calls
+** Inbound Text messages to RMCL applications
+** Inbound Text messages to Restcomm clients
+** Inbound Text messages to outbound proxy
+** Inbound Text messages with Not Found error
+** Outgoing Text messages
 
 === Get Metric
 

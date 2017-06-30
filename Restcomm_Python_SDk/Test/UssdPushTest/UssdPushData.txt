@@ -1,6 +1,0 @@
-"Enter the Account Sid here"
-"Enter the Authentication Token here"
-"Enter the BaseUrl here"
-"Enter the Sender data here"
-"Enter the receiver Data here"
-"Enter the USSD App Name here"

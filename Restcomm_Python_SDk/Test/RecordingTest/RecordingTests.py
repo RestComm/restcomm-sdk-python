@@ -37,16 +37,14 @@ class TestRecordingList(unittest.TestCase):
 
         try:
 
-                file = open("RecordingData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                data = Recording.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
+                data = Recording.client(Sid, AuthToken, BaseUrl)
                 content = Recording.RecordingList(data).GetList()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -65,17 +63,15 @@ class TestRecordingFilter(unittest.TestCase):
 
         try:
 
-                file = open("RecordingData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                CallSid = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                CallSid = 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'
 
-                data = Recording.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Recording.RecordingFilter(CallSid.strip(), data).FilterCallSid()
+                data = Recording.client(Sid, AuthToken, BaseUrl)
+                content = Recording.RecordingFilter(CallSid, data).FilterCallSid()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -91,18 +87,15 @@ class TestRecordingFilter(unittest.TestCase):
 
         try:
 
-                file = open("RecordingData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                PageInfo = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                PageInfo = '1'
 
-                data = Recording.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Recording.RecordingFilter(PageInfo.strip(), data).FilterPage()
+                data = Recording.client(Sid, AuthToken, BaseUrl)
+                content = Recording.RecordingFilter(PageInfo, data).FilterPage()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")

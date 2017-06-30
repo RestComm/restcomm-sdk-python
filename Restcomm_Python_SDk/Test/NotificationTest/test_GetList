@@ -1,0 +1,184 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.9.1]
+    method: GET
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json
+  response:
+    body: {string: "{\n  \"page\": 0,\n  \"num_pages\": 0,\n  \"page_size\": 50,\n
+        \ \"total\": 18,\n  \"start\": \"0\",\n  \"end\": \"18\",\n  \"uri\": \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json\",\n
+        \ \"first_page_uri\": \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json?Page\\u003d0\\u0026PageSize\\u003d50\",\n
+        \ \"previous_page_uri\": \"null\",\n  \"next_page_uri\": \"null\",\n  \"last_page_uri\":
+        \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json?Page\\u003d0\\u0026PageSize\\u003d50\",\n
+        \ \"notifications\": [\n    {\n      \"sid\": \"NO679deb42a7f14899aeef1c98d52ced46\",\n
+        \     \"date_created\": \"Thu, 18 May 2017 05:47:33 +0000\",\n      \"date_updated\":
+        \"Thu, 18 May 2017 05:47:33 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:paras is not registered or does not exist\",\n      \"message_date\":
+        \"2017-05-18T05:47:33.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO679deb42a7f14899aeef1c98d52ced46.json\"\n
+        \   },\n    {\n      \"sid\": \"NObed94a3e77b24fce9aeb1bd92d187fea\",\n      \"date_created\":
+        \"Thu, 18 May 2017 05:50:37 +0000\",\n      \"date_updated\": \"Thu, 18 May
+        2017 05:50:37 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:nukles1.07 is not registered or does not exist\",\n
+        \     \"message_date\": \"2017-05-18T05:50:37.000Z\",\n      \"request_url\":
+        \"\",\n      \"request_method\": \"\",\n      \"request_variables\": \"\",\n
+        \     \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NObed94a3e77b24fce9aeb1bd92d187fea.json\"\n
+        \   },\n    {\n      \"sid\": \"NO1dc723ff76934eecb4b149efab8ad243\",\n      \"date_created\":
+        \"Fri, 19 May 2017 05:29:23 +0000\",\n      \"date_updated\": \"Fri, 19 May
+        2017 05:29:23 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 120048334457019cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-05-19T05:29:23.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO1dc723ff76934eecb4b149efab8ad243.json\"\n
+        \   },\n    {\n      \"sid\": \"NOe8541f60ec3844a9beddf36c7cd6b7b5\",\n      \"date_created\":
+        \"Fri, 19 May 2017 05:34:12 +0000\",\n      \"date_updated\": \"Fri, 19 May
+        2017 05:34:12 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 1201148334457019cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-05-19T05:34:12.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NOe8541f60ec3844a9beddf36c7cd6b7b5.json\"\n
+        \   },\n    {\n      \"sid\": \"NO93abaf661ec64c72b6357de05c057a13\",\n      \"date_created\":
+        \"Fri, 19 May 2017 05:40:13 +0000\",\n      \"date_updated\": \"Fri, 19 May
+        2017 05:40:13 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 12348334457019cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-05-19T05:40:13.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO93abaf661ec64c72b6357de05c057a13.json\"\n
+        \   },\n    {\n      \"sid\": \"NObc24d9738d634235a01259c9fb5c0058\",\n      \"date_created\":
+        \"Fri, 19 May 2017 05:45:29 +0000\",\n      \"date_updated\": \"Fri, 19 May
+        2017 05:45:29 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 1230048334457019cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-05-19T05:45:29.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NObc24d9738d634235a01259c9fb5c0058.json\"\n
+        \   },\n    {\n      \"sid\": \"NO1aee5e0db9fc459f989a0bc7a9a6d4ea\",\n      \"date_created\":
+        \"Fri, 19 May 2017 05:50:58 +0000\",\n      \"date_updated\": \"Fri, 19 May
+        2017 05:50:58 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 12301148334457019cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-05-19T05:50:58.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO1aee5e0db9fc459f989a0bc7a9a6d4ea.json\"\n
+        \   },\n    {\n      \"sid\": \"NO9494bb3836d242f8a648c5008e9caa6a\",\n      \"date_created\":
+        \"Fri, 19 May 2017 05:56:20 +0000\",\n      \"date_updated\": \"Fri, 19 May
+        2017 05:56:20 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 123448334457019cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-05-19T05:56:20.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO9494bb3836d242f8a648c5008e9caa6a.json\"\n
+        \   },\n    {\n      \"sid\": \"NO6a8f334a6a314ffda9f3d1337add6cd4\",\n      \"date_created\":
+        \"Thu, 25 May 2017 09:04:53 +0000\",\n      \"date_updated\": \"Thu, 25 May
+        2017 09:04:53 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:nukles1.07 is not registered or does not exist\",\n
+        \     \"message_date\": \"2017-05-25T09:04:53.000Z\",\n      \"request_url\":
+        \"\",\n      \"request_method\": \"\",\n      \"request_variables\": \"\",\n
+        \     \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO6a8f334a6a314ffda9f3d1337add6cd4.json\"\n
+        \   },\n    {\n      \"sid\": \"NOc349b0b3db6c4298a8805e17864c755a\",\n      \"date_created\":
+        \"Wed, 7 Jun 2017 11:32:55 +0000\",\n      \"date_updated\": \"Wed, 7 Jun
+        2017 11:32:55 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:nukles1.07 is not registered or does not exist\",\n
+        \     \"message_date\": \"2017-06-07T11:32:55.000Z\",\n      \"request_url\":
+        \"\",\n      \"request_method\": \"\",\n      \"request_variables\": \"\",\n
+        \     \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NOc349b0b3db6c4298a8805e17864c755a.json\"\n
+        \   },\n    {\n      \"sid\": \"NObc5f8a8f5ba345a79b3fe0ee9630dc89\",\n      \"date_created\":
+        \"Wed, 7 Jun 2017 11:36:04 +0000\",\n      \"date_updated\": \"Wed, 7 Jun
+        2017 11:36:04 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:nukles1.07 is not registered or does not exist\",\n
+        \     \"message_date\": \"2017-06-07T11:36:04.000Z\",\n      \"request_url\":
+        \"\",\n      \"request_method\": \"\",\n      \"request_variables\": \"\",\n
+        \     \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NObc5f8a8f5ba345a79b3fe0ee9630dc89.json\"\n
+        \   },\n    {\n      \"sid\": \"NOe97b70bcfea143c69bb134ba574007af\",\n      \"date_created\":
+        \"Fri, 16 Jun 2017 08:54:29 +0000\",\n      \"date_updated\": \"Fri, 16 Jun
+        2017 08:54:29 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 12402455128cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-06-16T08:54:29.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NOe97b70bcfea143c69bb134ba574007af.json\"\n
+        \   },\n    {\n      \"sid\": \"NO9dfacbf361c743d7a378b9c5eaa287c4\",\n      \"date_created\":
+        \"Fri, 16 Jun 2017 08:54:37 +0000\",\n      \"date_updated\": \"Fri, 16 Jun
+        2017 08:54:37 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 12402455128cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-06-16T08:54:37.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO9dfacbf361c743d7a378b9c5eaa287c4.json\"\n
+        \   },\n    {\n      \"sid\": \"NOb8668f1845794010b550f91e27bb7390\",\n      \"date_created\":
+        \"Fri, 16 Jun 2017 08:54:44 +0000\",\n      \"date_updated\": \"Fri, 16 Jun
+        2017 08:54:44 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 12402455128cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-06-16T08:54:44.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NOb8668f1845794010b550f91e27bb7390.json\"\n
+        \   },\n    {\n      \"sid\": \"NOf45fb1b0cde84eb3a54dd49acab1f06a\",\n      \"date_created\":
+        \"Fri, 16 Jun 2017 08:54:59 +0000\",\n      \"date_updated\": \"Fri, 16 Jun
+        2017 08:54:59 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 12402455128cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-06-16T08:54:59.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NOf45fb1b0cde84eb3a54dd49acab1f06a.json\"\n
+        \   },\n    {\n      \"sid\": \"NO42122e1c67a7415db266129350828c97\",\n      \"date_created\":
+        \"Fri, 16 Jun 2017 08:55:07 +0000\",\n      \"date_updated\": \"Fri, 16 Jun
+        2017 08:55:07 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 12402455128cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-06-16T08:55:07.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO42122e1c67a7415db266129350828c97.json\"\n
+        \   },\n    {\n      \"sid\": \"NO9c7ed391378b41bf8d660ba22338e785\",\n      \"date_created\":
+        \"Fri, 16 Jun 2017 08:55:15 +0000\",\n      \"date_updated\": \"Fri, 16 Jun
+        2017 08:55:15 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11005,\n      \"more_info\": \"/restcomm/errors/11005.html\",\n      \"message_text\":
+        \"Restcomm cannot process this call because the destination number 12402455128cannot
+        be found or there is application attached to that\",\n      \"message_date\":
+        \"2017-06-16T08:55:15.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO9c7ed391378b41bf8d660ba22338e785.json\"\n
+        \   },\n    {\n      \"sid\": \"NOcab5875f9fd44b7a9ed986e5cc07ef7e\",\n      \"date_created\":
+        \"Mon, 19 Jun 2017 04:40:01 +0000\",\n      \"date_updated\": \"Mon, 19 Jun
+        2017 04:40:01 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:paras is not registered or does not exist\",\n      \"message_date\":
+        \"2017-06-19T04:40:01.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NOcab5875f9fd44b7a9ed986e5cc07ef7e.json\"\n
+        \   }\n  ]\n}"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Fri, 30 Jun 2017 05:36:55 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

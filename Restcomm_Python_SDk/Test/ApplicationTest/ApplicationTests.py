@@ -37,19 +37,17 @@ class TestCreateApplication(unittest.TestCase):
 
         try:
 
-                file = open("ApplicationData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                FriendlyName = file.readline()
-                kind = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                FriendlyName = 'dummy'
+                kind = 'voice'
 
-
-                data = Applications.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Applications.CreateApplication(FriendlyName.strip(), kind.strip(), data).Create()
+                data = Applications.client(Sid, AuthToken, BaseUrl)
+                content = Applications.CreateApplication(FriendlyName, kind, data).Create()
 
                 self.assertIsNotNone(content)
-                file.close()
+                self.assertNotEqual(Sid, content["sid"])
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -64,18 +62,14 @@ class TestGetApplicationDetail(unittest.TestCase):
     def test_GetDetail(self):
 
         try:
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                file = open("ApplicationData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-
-
-                data = Applications.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
+                data = Applications.client(Sid, AuthToken, BaseUrl)
                 content = Applications.GetApplicationList(data).GetList()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -86,34 +80,6 @@ class TestGetApplicationDetail(unittest.TestCase):
         except TypeError:
             print("Type Error: the value is of wrong type")
 
-class TestDeleteApplication(unittest.TestCase):
-
-    @vcr.use_cassette(record_mode='new_episodes')
-    def test_Delete(self):
-
-        try:
-
-                file = open("ApplicationData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                file.readline()
-                AppSid = file.readline()
-
-                data = Applications.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Applications.DeleteApplication(AppSid.strip(), data)
-
-                self.assertIsNotNone(content)
-                file.close()
-
-        except FileNotFoundError:
-            print("FileNotFound Error: File not found. please check and try again!")
-        except ImportError:
-            print("Import Error: Please Import proper library!")
-        except TypeError:
-            print("Type Error: the value is of wrong type")
-
 class TestUpdateApplication(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
@@ -121,20 +87,16 @@ class TestUpdateApplication(unittest.TestCase):
 
         try:
 
-                file = open("ApplicationData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                file.readline()
-                AppSid = file.readline()
-                FriendlyName = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                FriendlyName = 'dummy21'
+                AppSid = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
 
-                data = Applications.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Applications.UpdateApplication(AppSid.strip(), FriendlyName.strip(), data)
+                data = Applications.client(Sid, AuthToken, BaseUrl)
+                content = Applications.UpdateApplication(AppSid, FriendlyName, data).Update()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -142,6 +104,28 @@ class TestUpdateApplication(unittest.TestCase):
             print("Import Error: Please Import proper library!")
         except TypeError:
             print("Type Error: the value is of wrong type!")
+
+class TestDeleteApplication(unittest.TestCase):
+
+    @vcr.use_cassette(record_mode='new_episodes')
+    def test_Delete(self):
+
+        try:
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                AppSid = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+
+                data = Applications.client(Sid, AuthToken, BaseUrl)
+                content = Applications.DeleteApplication(AppSid, data).Delete()
+                self.assertEqual(content, "Deleted")
+
+        except FileNotFoundError:
+            print("FileNotFound Error: File not found. please check and try again!")
+        except ImportError:
+            print("Import Error: Please Import proper library!")
+        except TypeError:
+            print("Type Error: the value is of wrong type")
 
 if __name__=="__main__":
     unittest.main()

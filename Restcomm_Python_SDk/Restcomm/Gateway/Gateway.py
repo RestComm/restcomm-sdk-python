@@ -122,7 +122,7 @@ class UpdateGateway(object):
 
         try:
 
-            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Management/Gateways.json/'+self.GatewaySid
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Management/Gateways/'+self.GatewaySid+'.json'
             data = {'FriendlyName':self.FriendlyName,'UserName':self.UserName}
             r3 = requests.post(Url,data=data,auth=(self.Sid,self.AuthToken))
 
@@ -156,7 +156,7 @@ class DeleteGateway(object):
 
         try:
 
-            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Management/Gateways.json/'+self.GatewaySid
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Management/Gateways/'+self.GatewaySid+'.json'
             r4 = requests.delete(Url, auth=(self.Sid,self.AuthToken))
 
             if r4.status_code == 401:
@@ -164,7 +164,7 @@ class DeleteGateway(object):
             elif r4.status_code == 404:
                 return "Base Url or Gateway Sid is Incorrect! Please verify and try again"
             else:
-                content = json.loads(r4.text)
+                content = "Deleted"
                 return content
 
         except requests.HTTPError:

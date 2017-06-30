@@ -37,16 +37,14 @@ class TestUsage(unittest.TestCase):
 
         try:
 
-                file = open("UsageData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                data = Usage.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
+                data = Usage.client(Sid, AuthToken, BaseUrl)
                 content = Usage.Usages(data).GetList()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")

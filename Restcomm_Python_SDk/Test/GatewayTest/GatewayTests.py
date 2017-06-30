@@ -37,20 +37,19 @@ class TestCreateGateway(unittest.TestCase):
 
         try:
 
-                file = open("GatewayData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                FriendlyName = file.readline()
-                UserName = file.readline()
-                Password = file.readline()
-                Proxy = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                FriendlyName = 'myDemoGateway'
+                UserName = 'DemoGate'
+                Password = 'dummyPassword56'
+                Proxy = 'my.gateway.com'
 
-                data = Gateway.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Gateway.CreateGateway(FriendlyName.strip(), UserName.strip(), Password.strip(), Proxy.strip(), data).Create()
+                data = Gateway.client(Sid, AuthToken, BaseUrl)
+                content = Gateway.CreateGateway(FriendlyName, UserName, Password, Proxy, data).Create()
 
                 self.assertIsNotNone(content)
-                file.close()
+                self.assertNotEqual(Sid, content["sid"])
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -68,16 +67,15 @@ class TestGetListGateway(unittest.TestCase):
 
         try:
 
-                file = open("GatewayData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                data = Gateway.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
+                data = Gateway.client(Sid, AuthToken, BaseUrl)
                 content = Gateway.GetlistGateway(data).GetList()
 
                 self.assertIsNotNone(content)
-                file.close()
+                self.assertNotEqual(content["sid"], Sid)
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -95,21 +93,18 @@ class TestUpdateGateway(unittest.TestCase):
 
         try:
 
-                file = open("GatewayData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                FriendlyName = file.readline()
-                UserName = file.readline()
-                file.readline()
-                file.readline()
-                GatewaySid = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                FriendlyName = 'myDemoGateway1'
+                UserName = 'DemoGate1'
+                GatewaySid = 'PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP'
 
-                data = Gateway.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Gateway.UpdateGateway(GatewaySid.strip(), FriendlyName.strip(), UserName.strip(), data)
+                data = Gateway.client(Sid, AuthToken, BaseUrl)
+                content = Gateway.UpdateGateway(GatewaySid, FriendlyName, UserName, data).Update()
 
                 self.assertIsNotNone(content)
-                file.close()
+                self.assertEqual(content["user_name"], UserName)
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -127,21 +122,16 @@ class TestDeleteGateway(unittest.TestCase):
 
         try:
 
-                file = open("GatewayData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                GatewaySid = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                GatewaySid = 'PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP'
 
-                data = Gateway.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = Gateway.DeleteGateway(GatewaySid.strip(), data).Delete()
+                data = Gateway.client(Sid, AuthToken, BaseUrl)
+                content = Gateway.DeleteGateway(GatewaySid, data).Delete()
 
                 self.assertIsNotNone(content)
-                file.close()
+                self.assertEqual(content, "Deleted")
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")

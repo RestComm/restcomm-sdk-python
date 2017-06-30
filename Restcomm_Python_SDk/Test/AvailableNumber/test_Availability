@@ -1,0 +1,43 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.9.1]
+    method: GET
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/AvailablePhoneNumbers/US/Local.json?AreaCode=305
+  response:
+    body: {string: "[\n  {\n    \"friendlyName\": \"+13053405593\",\n    \"phoneNumber\":
+        \"13053405593\",\n    \"isoCountry\": \"US\",\n    \"cost\": \"0.67\",\n    \"voiceCapable\":
+        true,\n    \"smsCapable\": true\n  },\n  {\n    \"friendlyName\": \"+13053405604\",\n
+        \   \"phoneNumber\": \"13053405604\",\n    \"isoCountry\": \"US\",\n    \"cost\":
+        \"0.67\",\n    \"voiceCapable\": true,\n    \"smsCapable\": true\n  },\n  {\n
+        \   \"friendlyName\": \"+13053406072\",\n    \"phoneNumber\": \"13053406072\",\n
+        \   \"isoCountry\": \"US\",\n    \"cost\": \"0.67\",\n    \"voiceCapable\":
+        true,\n    \"smsCapable\": true\n  },\n  {\n    \"friendlyName\": \"+13053406444\",\n
+        \   \"phoneNumber\": \"13053406444\",\n    \"isoCountry\": \"US\",\n    \"cost\":
+        \"0.67\",\n    \"voiceCapable\": true,\n    \"smsCapable\": true\n  },\n  {\n
+        \   \"friendlyName\": \"+13055013602\",\n    \"phoneNumber\": \"13055013602\",\n
+        \   \"isoCountry\": \"US\",\n    \"cost\": \"0.67\",\n    \"voiceCapable\":
+        true,\n    \"smsCapable\": true\n  },\n  {\n    \"friendlyName\": \"+13055013616\",\n
+        \   \"phoneNumber\": \"13055013616\",\n    \"isoCountry\": \"US\",\n    \"cost\":
+        \"0.67\",\n    \"voiceCapable\": true,\n    \"smsCapable\": true\n  },\n  {\n
+        \   \"friendlyName\": \"+13055013658\",\n    \"phoneNumber\": \"13055013658\",\n
+        \   \"isoCountry\": \"US\",\n    \"cost\": \"0.67\",\n    \"voiceCapable\":
+        true,\n    \"smsCapable\": true\n  },\n  {\n    \"friendlyName\": \"+13055013676\",\n
+        \   \"phoneNumber\": \"13055013676\",\n    \"isoCountry\": \"US\",\n    \"cost\":
+        \"0.67\",\n    \"voiceCapable\": true,\n    \"smsCapable\": true\n  },\n  {\n
+        \   \"friendlyName\": \"+13055013744\",\n    \"phoneNumber\": \"13055013744\",\n
+        \   \"isoCountry\": \"US\",\n    \"cost\": \"0.67\",\n    \"voiceCapable\":
+        true,\n    \"smsCapable\": true\n  },\n  {\n    \"friendlyName\": \"+13055013792\",\n
+        \   \"phoneNumber\": \"13055013792\",\n    \"isoCountry\": \"US\",\n    \"cost\":
+        \"0.67\",\n    \"voiceCapable\": true,\n    \"smsCapable\": true\n  }\n]"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 29 Jun 2017 11:02:51 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

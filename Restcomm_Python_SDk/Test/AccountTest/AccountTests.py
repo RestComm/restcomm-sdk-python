@@ -24,9 +24,7 @@
  '''
 
 import unittest
-
 import vcr
-
 from Restcomm_Python_SDk.Restcomm.Account import AccountInfo
 
 
@@ -37,15 +35,14 @@ class TestAccountDetails(unittest.TestCase):
 
         try:
 
-                file = open("AccountData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                data = AccountInfo.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
+                data = AccountInfo.client(Sid, AuthToken, BaseUrl)
                 content = AccountInfo.AccountDetails(data).Details()
                 self.assertIsNotNone(content)
-                file.close()
+                self.assertEqual(Sid, content["sid"])
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -62,17 +59,16 @@ class TestChangeAccountPassword(unittest.TestCase):
 
         try:
 
-                file = open("AccountData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                Password = file.readline()
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                Password = 'dummyPassword1234'
 
-                data = AccountInfo.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = AccountInfo.ChangeAccountPassword(Password.strip(), data).ChangePassword()
+                data = AccountInfo.client(Sid, AuthToken, BaseUrl)
+                content = AccountInfo.ChangeAccountPassword(Password, data).ChangePassword()
 
                 self.assertIsNotNone(content)
-                file.close()
+                self.assertNotEqual(AuthToken, content['auth_token'])
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -88,20 +84,19 @@ class TestCreateSubAccount(unittest.TestCase):
 
         try:
 
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                Password = 'dummyPassword345'
+                FriendlyName = 'NoOne'
+                Email = 'NoOne31@gmail.com'
 
-                file = open("AccountData.txt", "r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                Password = file.readline()
-                FriendlyName = file.readline()
-                Email = file.readline()
-
-
-                data = AccountInfo.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-                content = AccountInfo.CreateSubAccount(FriendlyName.strip(), Email.strip(), Password.strip(), data)
+                data = AccountInfo.client(Sid, AuthToken, BaseUrl)
+                content = AccountInfo.CreateSubAccount(FriendlyName, Email, Password, data).Create()
                 self.assertIsNotNone(content)
-                file.close()
+                self.assertEqual(content["status"], "active")
+                self.assertNotEqual(AuthToken, content["auth_token"])
+                self.assertNotEqual(Sid, content["sid"])
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -117,22 +112,16 @@ class TestCloseSubAccount(unittest.TestCase):
 
         try:
 
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                SubSid = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
 
-                file = open("AccountData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-                file.readline()
-                file.readline()
-                file.readline()
-                SubSid = file.readline()
-
-
-                data = AccountInfo.client(Sid.strip(), AuthToken.strip(), BaseUrl)
-                content = AccountInfo.CloseSubAccount(SubSid.strip(), data).Close()
+                data = AccountInfo.client(Sid, AuthToken, BaseUrl)
+                content = AccountInfo.CloseSubAccount(SubSid, data).Close()
 
                 self.assertIsNotNone(content)
-                file.close()
+                self.assertEqual(content["status"], 'closed')
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -147,17 +136,14 @@ class TestSubAccountDetails(unittest.TestCase):
     def test_Details(self):
 
         try:
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                file = open("AccountData.txt","r")
-                Sid = file.readline()
-                AuthToken = file.readline()
-                BaseUrl = file.readline()
-
-                data = AccountInfo.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
+                data = AccountInfo.client(Sid, AuthToken, BaseUrl)
                 content = AccountInfo.SubAccountDetails(data).Details()
 
                 self.assertIsNotNone(content)
-                file.close()
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")

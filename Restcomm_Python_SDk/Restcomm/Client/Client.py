@@ -84,7 +84,7 @@ class DeleteClient(object):
 
         try:
 
-            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Clients.json/'+self.ClientSid
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Clients/'+self.ClientSid+'.json'
             r2 = requests.delete(Url, auth=(self.Sid, self.AuthToken))
 
             if r2.status_code == 401:
@@ -92,7 +92,7 @@ class DeleteClient(object):
             elif r2.status_code == 404:
                 return "Base Url or client Sid is Incorrect! Please verify and try again"
             else:
-                content = json.loads(r2.text)
+                content = "Deleted"
                 return content
 
         except requests.HTTPError:
@@ -118,7 +118,7 @@ class ChangeClientPassword(object):
 
         try:
 
-            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Clients.json/'+self.ClientSid
+            Url = self.BaseUrl+'/Accounts/' + self.Sid + '/Clients/'+self.ClientSid+'.json'
             data = {'Password': self.Password}
             r3 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
 
