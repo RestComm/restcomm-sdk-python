@@ -24,7 +24,7 @@
  '''
 
 import unittest
-
+import nose
 import vcr
 
 from Restcomm_Python_SDk.Restcomm.call import call
@@ -269,3 +269,4 @@ class TestCallFilter(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    nose.main()

@@ -38,7 +38,7 @@ Report any feedback or problems with this Release Candidate to the *_Github Issu
 
 # Running Tests
 
-To run the tests, you need to enter all your credentials like Account Sid, Authentication token etc in the text file. Each module has its own text file. you can run each module test individually or can use *nose* to run it together through terminal
+To run the tests in the terminal, go to the *restcomm-sdk-python* directory. For example: *$ cd restcomm-sdk-python* and then by using *nose* you can run all the test files at a time. Simply, write *nosetests* in the terminal. 
 
 # Python Version
 

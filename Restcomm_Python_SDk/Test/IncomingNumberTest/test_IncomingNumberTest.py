@@ -24,13 +24,13 @@
  '''
 
 import unittest
-
+import nose
 import vcr
 
-from Restcomm_Python_SDk.Restcomm.Transcription import Transcription
+from Restcomm_Python_SDk.Restcomm.IncomingNumber import IncomingNumber
 
 
-class TestTranscriptionList(unittest.TestCase):
+class TestPhoneNumberList(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
     def test_GetList(self):
@@ -41,8 +41,8 @@ class TestTranscriptionList(unittest.TestCase):
                 AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                data = Transcription.client(Sid, AuthToken, BaseUrl)
-                content = Transcription.TranscriptionList(data).GetList()
+                data = IncomingNumber.client(Sid, AuthToken, BaseUrl)
+                content = IncomingNumber.PhoneNumberList(data).GetList()
 
                 self.assertIsNotNone(content)
 
@@ -52,26 +52,24 @@ class TestTranscriptionList(unittest.TestCase):
             print("Import Error: Please Import proper library!")
         except TypeError:
             print("Type Error: the value is of wrong type")
-        except IndexError:
-            print("Index Error: list Index out of range")
 
-
-class TestTranscriptionFilter(unittest.TestCase):
+class TestAttachPhoneNumber(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_FilterText(self):
+    def test_Attach(self):
 
         try:
 
-                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-                TransText = 'Restcomm'
+            Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+            phNumber = '5065'
+            VoiceUrl = 'https://mockServer.com/mock/demos/hello-play.xml'
 
-                data = Transcription.client(Sid, AuthToken, BaseUrl)
-                content = Transcription.TranscriptionFilter(TransText, data).FilterText()
+            data = IncomingNumber.client(Sid, AuthToken, BaseUrl)
+            content = IncomingNumber.AttachPhoneNumber(phNumber, VoiceUrl, data).Attach()
 
-                self.assertIsNotNone(content)
+            self.assertIsNotNone(content)
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -79,23 +77,25 @@ class TestTranscriptionFilter(unittest.TestCase):
             print("Import Error: Please Import proper library!")
         except TypeError:
             print("Type Error: the value is of wrong type")
-        except IndexError:
-            print("Index Error: list Index out of range")
+
+
+class TestDeletePhoneNumber(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_FilterPage(self):
+    def test_Delete(self):
 
         try:
 
-                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-                Page = '1'
+            Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+            CallSid = 'PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP'
 
-                data = Transcription.client(Sid, AuthToken, BaseUrl)
-                content = Transcription.TranscriptionFilter(Page, data).FilterPage()
+            data = IncomingNumber.client(Sid, AuthToken, BaseUrl)
+            content = IncomingNumber.DeletePhoneNumber(CallSid, data).Delete()
 
-                self.assertIsNotNone(content)
+            self.assertIsNotNone(content)
+            self.assertEqual(content, "Deleted")
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -103,8 +103,7 @@ class TestTranscriptionFilter(unittest.TestCase):
             print("Import Error: Please Import proper library!")
         except TypeError:
             print("Type Error: the value is of wrong type")
-        except IndexError:
-            print("Index Error: list Index out of range")
 
 if __name__ == '__main__':
     unittest.main()
+    nose.main()

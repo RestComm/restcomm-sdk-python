@@ -24,43 +24,13 @@
  '''
 
 import unittest
-
+import nose
 import vcr
 
-from Restcomm_Python_SDk.Restcomm.Gateway import Gateway
+from Restcomm_Python_SDk.Restcomm.Recording import Recording
 
 
-class TestCreateGateway(unittest.TestCase):
-
-    @vcr.use_cassette(record_mode='new_episodes')
-    def test_Create(self):
-
-        try:
-
-                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-                FriendlyName = 'myDemoGateway'
-                UserName = 'DemoGate'
-                Password = 'dummyPassword56'
-                Proxy = 'my.gateway.com'
-
-                data = Gateway.client(Sid, AuthToken, BaseUrl)
-                content = Gateway.CreateGateway(FriendlyName, UserName, Password, Proxy, data).Create()
-
-                self.assertIsNotNone(content)
-                self.assertNotEqual(Sid, content["sid"])
-
-        except FileNotFoundError:
-            print("FileNotFound Error: File not found. please check and try again!")
-        except ImportError:
-            print("Import Error: Please Import proper library!")
-        except TypeError:
-            print("Type Error: the value is of wrong type")
-        except IndexError:
-            print("Index Error: list Index out of range")
-
-class TestGetListGateway(unittest.TestCase):
+class TestRecordingList(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
     def test_GetList(self):
@@ -71,11 +41,10 @@ class TestGetListGateway(unittest.TestCase):
                 AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                data = Gateway.client(Sid, AuthToken, BaseUrl)
-                content = Gateway.GetlistGateway(data).GetList()
+                data = Recording.client(Sid, AuthToken, BaseUrl)
+                content = Recording.RecordingList(data).GetList()
 
                 self.assertIsNotNone(content)
-                self.assertNotEqual(content["sid"], Sid)
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -86,25 +55,23 @@ class TestGetListGateway(unittest.TestCase):
         except IndexError:
             print("Index Error: list Index out of range")
 
-class TestUpdateGateway(unittest.TestCase):
+
+class TestRecordingFilter(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_Update(self):
+    def test_FilterCallSid(self):
 
         try:
 
                 Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-                FriendlyName = 'myDemoGateway1'
-                UserName = 'DemoGate1'
-                GatewaySid = 'PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP'
+                CallSid = 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'
 
-                data = Gateway.client(Sid, AuthToken, BaseUrl)
-                content = Gateway.UpdateGateway(GatewaySid, FriendlyName, UserName, data).Update()
+                data = Recording.client(Sid, AuthToken, BaseUrl)
+                content = Recording.RecordingFilter(CallSid, data).FilterCallSid()
 
                 self.assertIsNotNone(content)
-                self.assertEqual(content["user_name"], UserName)
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -115,23 +82,20 @@ class TestUpdateGateway(unittest.TestCase):
         except IndexError:
             print("Index Error: list Index out of range")
 
-class TestDeleteGateway(unittest.TestCase):
-
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_Delete(self):
+    def test_FilterPage(self):
 
         try:
 
                 Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-                GatewaySid = 'PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP'
+                PageInfo = '1'
 
-                data = Gateway.client(Sid, AuthToken, BaseUrl)
-                content = Gateway.DeleteGateway(GatewaySid, data).Delete()
+                data = Recording.client(Sid, AuthToken, BaseUrl)
+                content = Recording.RecordingFilter(PageInfo, data).FilterPage()
 
                 self.assertIsNotNone(content)
-                self.assertEqual(content, "Deleted")
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -144,3 +108,4 @@ class TestDeleteGateway(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    nose.main()

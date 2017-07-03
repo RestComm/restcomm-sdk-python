@@ -24,27 +24,30 @@
  '''
 
 import unittest
-
+import nose
 import vcr
 
-from Restcomm_Python_SDk.Restcomm.IncomingNumber import IncomingNumber
+from Restcomm_Python_SDk.Restcomm.Client import Client
 
 
-class TestPhoneNumberList(unittest.TestCase):
+class TestCreateClient(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_GetList(self):
+    def test_Create(self):
 
         try:
 
-                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+            Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+            Login = 'noOne'
+            Password = 'dummyPassword321'
 
-                data = IncomingNumber.client(Sid, AuthToken, BaseUrl)
-                content = IncomingNumber.PhoneNumberList(data).GetList()
+            data = Client.client(Sid, AuthToken, BaseUrl)
+            content = Client.CreateClient(Login, Password, data).Create()
 
-                self.assertIsNotNone(content)
+            self.assertIsNotNone(content)
+            self.assertNotEqual(content["sid"], Sid)
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -53,21 +56,21 @@ class TestPhoneNumberList(unittest.TestCase):
         except TypeError:
             print("Type Error: the value is of wrong type")
 
-class TestAttachPhoneNumber(unittest.TestCase):
+class TestChangePassword(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_Attach(self):
+    def test_Change(self):
 
         try:
 
             Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
             AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
             BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-            phNumber = '5065'
-            VoiceUrl = 'https://mockServer.com/mock/demos/hello-play.xml'
+            ClientSid = 'PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP'
+            Password = 'dummyPassword123'
 
-            data = IncomingNumber.client(Sid, AuthToken, BaseUrl)
-            content = IncomingNumber.AttachPhoneNumber(phNumber, VoiceUrl, data).Attach()
+            data = Client.client(Sid, AuthToken, BaseUrl)
+            content = Client.ChangeClientPassword(ClientSid, Password, data).ChangePassword()
 
             self.assertIsNotNone(content)
 
@@ -79,7 +82,32 @@ class TestAttachPhoneNumber(unittest.TestCase):
             print("Type Error: the value is of wrong type")
 
 
-class TestDeletePhoneNumber(unittest.TestCase):
+class TestClientList(unittest.TestCase):
+
+    @vcr.use_cassette(record_mode='new_episodes')
+    def test_list(self):
+
+        try:
+
+            Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+
+            data = Client.client(Sid, AuthToken, BaseUrl)
+            content = Client.ClientList(data).GetList()
+
+            self.assertIsNotNone(content)
+
+        except FileNotFoundError:
+            print("FileNotFound Error: File not found. please check and try again!")
+        except ImportError:
+            print("Import Error: Please Import proper library!")
+        except TypeError:
+            print("Type Error: the value is of wrong type")
+        except IndexError:
+            print("Index Error: list Index out of range")
+
+class DeleteClient(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
     def test_Delete(self):
@@ -89,13 +117,13 @@ class TestDeletePhoneNumber(unittest.TestCase):
             Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
             AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
             BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-            CallSid = 'PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP'
+            ClientSid = 'PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP'
 
-            data = IncomingNumber.client(Sid, AuthToken, BaseUrl)
-            content = IncomingNumber.DeletePhoneNumber(CallSid, data).Delete()
+            data = Client.client(Sid, AuthToken, BaseUrl)
+            content = Client.DeleteClient(ClientSid, data).Delete()
 
             self.assertIsNotNone(content)
-            self.assertEqual(content, "Deleted")
+            self.assertEqual(content, 'Deleted')
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -106,3 +134,4 @@ class TestDeletePhoneNumber(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    nose.main()

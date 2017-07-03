@@ -24,13 +24,61 @@
  '''
 
 import unittest
-
+import nose
 import vcr
+from Restcomm_Python_SDk.Restcomm.Account import AccountInfo
 
-from Restcomm_Python_SDk.Restcomm.Applications import Applications
+
+class TestAccountDetails(unittest.TestCase):
+
+    @vcr.use_cassette(record_mode='new_episodes')
+    def test_details(self):
+
+        try:
+
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+
+                data = AccountInfo.client(Sid, AuthToken, BaseUrl)
+                content = AccountInfo.AccountDetails(data).Details()
+                self.assertIsNotNone(content)
+                self.assertEqual(Sid, content["sid"])
+
+        except FileNotFoundError:
+            print("FileNotFound Error: File not found. please check and try again!")
+        except ImportError:
+            print("Import Error: Please Import proper library!")
+        except TypeError:
+            print("Type Error: the value is of wrong type")
 
 
-class TestCreateApplication(unittest.TestCase):
+class TestChangeAccountPassword(unittest.TestCase):
+
+    @vcr.use_cassette(record_mode='new_episodes')
+    def test_Password(self):
+
+        try:
+
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                Password = 'dummyPassword1234'
+
+                data = AccountInfo.client(Sid, AuthToken, BaseUrl)
+                content = AccountInfo.ChangeAccountPassword(Password, data).ChangePassword()
+
+                self.assertIsNotNone(content)
+                self.assertNotEqual(AuthToken, content['auth_token'])
+
+        except FileNotFoundError:
+            print("FileNotFound Error: File not found. please check and try again!")
+        except ImportError:
+            print("Import Error: Please Import proper library!")
+        except TypeError:
+            print("Type Error: the value is of wrong type")
+
+class TestCreateSubAccount(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
     def test_Create(self):
@@ -40,13 +88,15 @@ class TestCreateApplication(unittest.TestCase):
                 Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-                FriendlyName = 'dummy'
-                kind = 'voice'
+                Password = 'dummyPassword345'
+                FriendlyName = 'NoOne'
+                Email = 'NoOne31@gmail.com'
 
-                data = Applications.client(Sid, AuthToken, BaseUrl)
-                content = Applications.CreateApplication(FriendlyName, kind, data).Create()
-
+                data = AccountInfo.client(Sid, AuthToken, BaseUrl)
+                content = AccountInfo.CreateSubAccount(FriendlyName, Email, Password, data).Create()
                 self.assertIsNotNone(content)
+                self.assertEqual(content["status"], "active")
+                self.assertNotEqual(AuthToken, content["auth_token"])
                 self.assertNotEqual(Sid, content["sid"])
 
         except FileNotFoundError:
@@ -56,18 +106,43 @@ class TestCreateApplication(unittest.TestCase):
         except TypeError:
             print("Type Error: the value is of wrong type")
 
-class TestGetApplicationDetail(unittest.TestCase):
+class TestCloseSubAccount(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_GetDetail(self):
+    def test_Close(self):
 
         try:
+
                 Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+                SubSid = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
 
-                data = Applications.client(Sid, AuthToken, BaseUrl)
-                content = Applications.GetApplicationList(data).GetList()
+                data = AccountInfo.client(Sid, AuthToken, BaseUrl)
+                content = AccountInfo.CloseSubAccount(SubSid, data).Close()
+
+                self.assertIsNotNone(content)
+                self.assertEqual(content["status"], 'closed')
+
+        except FileNotFoundError:
+            print("FileNotFound Error: File not found. please check and try again!")
+        except ImportError:
+            print("Import Error: Please Import proper library!")
+        except TypeError:
+            print("Type Error: the value is of wrong type")
+
+class TestSubAccountDetails(unittest.TestCase):
+
+    @vcr.use_cassette(record_mode='new_episodes')
+    def test_Details(self):
+
+        try:
+                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+
+                data = AccountInfo.client(Sid, AuthToken, BaseUrl)
+                content = AccountInfo.SubAccountDetails(data).Details()
 
                 self.assertIsNotNone(content)
 
@@ -75,57 +150,13 @@ class TestGetApplicationDetail(unittest.TestCase):
             print("FileNotFound Error: File not found. please check and try again!")
         except ImportError:
             print("Import Error: Please Import proper library!")
+        except TypeError:
+            print("Type Error: the value is of wrong type")
         except IndexError:
             print("Index Error: list Index out of range")
-        except TypeError:
-            print("Type Error: the value is of wrong type")
-
-class TestUpdateApplication(unittest.TestCase):
-
-    @vcr.use_cassette(record_mode='new_episodes')
-    def test_Update(self):
-
-        try:
-
-                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-                FriendlyName = 'dummy21'
-                AppSid = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
-
-                data = Applications.client(Sid, AuthToken, BaseUrl)
-                content = Applications.UpdateApplication(AppSid, FriendlyName, data).Update()
-
-                self.assertIsNotNone(content)
-
-        except FileNotFoundError:
-            print("FileNotFound Error: File not found. please check and try again!")
-        except ImportError:
-            print("Import Error: Please Import proper library!")
-        except TypeError:
-            print("Type Error: the value is of wrong type!")
-
-class TestDeleteApplication(unittest.TestCase):
-
-    @vcr.use_cassette(record_mode='new_episodes')
-    def test_Delete(self):
-
-        try:
-                Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-                BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-                AppSid = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
-
-                data = Applications.client(Sid, AuthToken, BaseUrl)
-                content = Applications.DeleteApplication(AppSid, data).Delete()
-                self.assertEqual(content, "Deleted")
-
-        except FileNotFoundError:
-            print("FileNotFound Error: File not found. please check and try again!")
-        except ImportError:
-            print("Import Error: Please Import proper library!")
-        except TypeError:
-            print("Type Error: the value is of wrong type")
 
 if __name__=="__main__":
     unittest.main()
+    nose.main()
+
+

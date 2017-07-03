@@ -24,7 +24,7 @@
  '''
 
 import unittest
-
+import nose
 import vcr
 
 from Restcomm_Python_SDk.Restcomm.Usage import Usage
@@ -58,3 +58,4 @@ class TestUsage(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    nose.main()

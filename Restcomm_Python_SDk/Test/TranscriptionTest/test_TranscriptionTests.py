@@ -24,24 +24,25 @@
  '''
 
 import unittest
-
+import nose
 import vcr
 
-from Restcomm_Python_SDk.Restcomm.Notification import Notification
+from Restcomm_Python_SDk.Restcomm.Transcription import Transcription
 
 
-class TestNotificationList(unittest.TestCase):
+class TestTranscriptionList(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
     def test_GetList(self):
+
         try:
 
                 Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 BaseUrl = 'https://mockServer.com/mock/2012-04-24'
 
-                data = Notification.client(Sid, AuthToken, BaseUrl)
-                content = Notification.NotificationList(data).GetList()
+                data = Transcription.client(Sid, AuthToken, BaseUrl)
+                content = Transcription.TranscriptionList(data).GetList()
 
                 self.assertIsNotNone(content)
 
@@ -55,19 +56,20 @@ class TestNotificationList(unittest.TestCase):
             print("Index Error: list Index out of range")
 
 
-class TestNotificationFilter(unittest.TestCase):
+class TestTranscriptionFilter(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_FilterErrorCode(self):
+    def test_FilterText(self):
 
         try:
+
                 Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-                ErrorCode = '11008'
+                TransText = 'Restcomm'
 
-                data = Notification.client(Sid, AuthToken, BaseUrl)
-                content = Notification.NotificationFilter(ErrorCode, data).FilterErrorCode()
+                data = Transcription.client(Sid, AuthToken, BaseUrl)
+                content = Transcription.TranscriptionFilter(TransText, data).FilterText()
 
                 self.assertIsNotNone(content)
 
@@ -88,10 +90,10 @@ class TestNotificationFilter(unittest.TestCase):
                 Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-                PageSize = '1'
+                Page = '1'
 
-                data = Notification.client(Sid, AuthToken, BaseUrl)
-                content = Notification.NotificationFilter(PageSize, data).FilterPage()
+                data = Transcription.client(Sid, AuthToken, BaseUrl)
+                content = Transcription.TranscriptionFilter(Page, data).FilterPage()
 
                 self.assertIsNotNone(content)
 
@@ -106,3 +108,4 @@ class TestNotificationFilter(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    nose.main()

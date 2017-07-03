@@ -24,22 +24,27 @@
  '''
 
 import unittest
+import nose
 import vcr
-from Restcomm_Python_SDk.Restcomm.Supervisor import Supervisor
+from Restcomm_Python_SDk.Restcomm.UssdPush import UssdPush
 
-class TestMonitoring(unittest.TestCase):
+class TestUssdPush(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_GetMetric(self):
+    def test_Push(self):
 
         try:
 
             Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
             AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
             BaseUrl = 'https://mockServer.com/mock/2012-04-24'
+            From = 'friendlyName'
+            To = 'mygateway'
+            AppName = 'yes'
 
-            data = Supervisor.client(Sid, AuthToken, BaseUrl)
-            content = Supervisor.Monitoring(data).GetMetric()
+            data = UssdPush.client(Sid, AuthToken, BaseUrl)
+            content = UssdPush.UssdPush(From, To, AppName, data).Push()
+
             self.assertIsNotNone(content)
 
         except FileNotFoundError:
@@ -48,6 +53,9 @@ class TestMonitoring(unittest.TestCase):
             print("Import Error: Please import proper library!")
         except TypeError:
             print("Type Error: The value is of wrong type!")
+        except IndexError:
+            print("Index Error: List index out of range!")
 
-if __name__ == "__main__":
+if __name__=="__main__":
     unittest.main()
+    nose.main()

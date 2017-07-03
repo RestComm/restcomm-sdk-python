@@ -24,28 +24,29 @@
  '''
 
 import unittest
-
+import nose
 import vcr
 
-from Restcomm_Python_SDk.Restcomm.AvailableNumber import AvailableNumber
+from Restcomm_Python_SDk.Restcomm.Email import Email
 
 
-class TestAvailableNumber(unittest.TestCase):
+class TestEmail(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_Availability(self):
+    def test_SendMail(self):
 
         try:
                 Sid = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 BaseUrl = 'https://mockServer.com/mock/2012-04-24'
-                AreaCode = '305'
+                To = 'sma23ze@gmail.com'
+                From = 'hunwqqd@gmail.com'
+                Subject = 'Demo'
+                Body = 'Hey! how r u?'
 
-                data = AvailableNumber.client(Sid, AuthToken, BaseUrl)
-                content = AvailableNumber.NumberAvailablity(AreaCode, data).Availability()
-
+                data = Email.client(Sid, AuthToken, BaseUrl)
+                content = Email.SendEmail(To, From, Subject, Body, data).Send()
                 self.assertIsNotNone(content)
-
 
         except FileNotFoundError:
             print("FileNotFound Error: File not found. please check and try again!")
@@ -53,8 +54,8 @@ class TestAvailableNumber(unittest.TestCase):
             print("Import Error: Please Import proper library!")
         except TypeError:
             print("Type Error: the value is of wrong type")
-        except IndexError:
-            print("Index Error: list Index out of range")
 
 if __name__=="__main__":
+
     unittest.main()
+    nose.main()

@@ -24,7 +24,7 @@
  '''
 
 import unittest
-
+import nose
 import vcr
 
 from Restcomm_Python_SDk.Restcomm.Sms import Sms
@@ -137,3 +137,4 @@ class TestSmsPagingInfo(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    nose.main()
