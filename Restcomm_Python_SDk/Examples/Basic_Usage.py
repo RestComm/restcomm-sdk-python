@@ -105,7 +105,9 @@ def AvailableNumberExample():
     #to get the list of number availability, call 'NumberAvailablity' class and then call 'Availability' function
 
     AreaCode = input("Enter the Area Code")
-    Avail = Restcomm_Python_SDk.NumberAvailablity(AreaCode, client).Availability()
+    IsoCode = input("Enter the Iso Code")
+    Instance = input("Enter the Address requirement")
+    Avail = Restcomm_Python_SDk.NumberAvailablity(IsoCode, Instance, AreaCode, client).Availability()
     print(Avail)
 
 def callExample():
@@ -323,6 +325,83 @@ def SupervisorExample():
     getinfo = Restcomm_Python_SDk.Monitoring(client).GetMetric()
     print(getinfo)
 
+def conferenceExample():
+
+    # Returns the representation of a Conference resource, including the properties above.
+
+    ConfSid = input("Enter the conference Sid")
+    getlist = Restcomm_Python_SDk.Conferences(ConfSid, client).GetConference()
+    print(getlist)
+
+    # <Participants> represent set/list of in-progress calls in a running conference room.
+
+    getlist1 = Restcomm_Python_SDk.Conferences(ConfSid, client).InProgressCall()
+    print(getlist1)
+
+def IncomingNumberExample():
+
+    getlist = Restcomm_Python_SDk.PhoneNumberList(client).GetList()
+    print(getlist)
+
+    phNumber = input('Enter the phone nukles1.07')
+    VoiceUrl = input("Enter the Voice Url")
+    attach = Restcomm_Python_SDk.AttachPhoneNumber(phNumber, VoiceUrl, client).Attach()
+    print(attach)
+
+    CallSid = input("Enter th Calling Sid")
+    delete = Restcomm_Python_SDk.DeletePhoneNumber(CallSid, client).Delete()
+    print("Delete")
+
+def GeolocationExample():
+
+    DIdentifier1 = input("Enter the Device Identifier")
+    CallBack1 = input("Enter the StatusCallBack Url")
+    location = Restcomm_Python_SDk.IPLocation(DIdentifier1, CallBack1, client).locate()
+    print(location)
+
+    GeoSid1 = input("Enter the GeoLocation Sid")
+    update = Restcomm_Python_SDk.UpdateGeo(GeoSid1, client).Update()
+    print(update)
+
+    GeoSid2 = input("Enter the Geolocation Sid")
+    getinfo = Restcomm_Python_SDk.GetGeolocation(GeoSid2, client).GetInfo()
+    print(getinfo)
+
+    DIdentifier2 = input("Enter the Device Identifier")
+    GeoLatitude2 = input("Enter the GeoLocation Latitude")
+    GeoLongitude2 = input("Enter the GeoLocation Longitude")
+    GeoRange2 = input("Enter the Range of GeoLocation")
+    GeoEvent2 = input("Enter the Geolocation Event")
+
+    notify = Restcomm_Python_SDk.NotifyGeolocation(DIdentifier2, GeoLatitude2, GeoLongitude2, GeoRange2, GeoEvent2, client).Notify()
+    print(notify)
+
+    Source = input("Enter the Source")
+    DIdentifier3 = input("Enter the Device Identifier")
+    GeoLatitude3 = input("Enter the GeoLocation Latitude")
+    GeoLongitude3 = input("Enter the GeoLocation Longitude")
+    GeoRange3 = input("Enter the Range of Geolocation")
+    GeoEvent3 = input("Enter the Geolocation Event")
+    Accuracy = input("Enter the Accuracy")
+    notify2 = Restcomm_Python_SDk.NotifyHighAccuracy(Source, DIdentifier3, GeoLatitude3, GeoLongitude3, GeoRange3, GeoEvent3, Accuracy, client).NotifyLocate()
+    print(notify2)
+
+    GeoSid3 = input("Enter the GeoSid")
+    GeoLatitude4 = input("Enter the GeoLocation Latitude")
+    GeoLongitude4 = input("Enter the GeoLocation Longitude")
+    GeoEvent4 = input("Enter the Event")
+
+    UpdateExit = Restcomm_Python_SDk.UpdateExitRange(GeoSid3, GeoLatitude4, GeoLongitude4, GeoEvent4, client).UpdateRange()
+    print(UpdateExit)
+
+    GeoSid4 = input("Enter the GeoLocation Sid")
+    retrieve = Restcomm_Python_SDk.RetrieveGeoRequest(GeoSid4, client).Retrieve()
+    print(retrieve)
+
+    GeoSid5 = input("Enter the GeoSid")
+    stop = Restcomm_Python_SDk.StopGeoNotify(GeoSid5).Stop()
+    print(stop)
+
 if __name__ == '__main__':
 
     AccountExamples()
@@ -330,6 +409,7 @@ if __name__ == '__main__':
     AvailableNumberExample()
     callExample()
     clientExample()
+    conferenceExample()
     EmailExample()
     GatewayExample()
     NotificationExample()
@@ -339,3 +419,5 @@ if __name__ == '__main__':
     UsageExample()
     UssdPushExample()
     SupervisorExample()
+    GeolocationExample()
+    IncomingNumberExample()

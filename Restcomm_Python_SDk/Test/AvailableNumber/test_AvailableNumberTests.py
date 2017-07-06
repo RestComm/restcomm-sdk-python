@@ -40,9 +40,11 @@ class TestAvailableNumber(unittest.TestCase):
                 AuthToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
                 BaseUrl = 'https://mockServer.com/mock/2012-04-24'
                 AreaCode = '305'
+                IsoCode = 'US'
+                Instance = 'Local'
 
                 data = AvailableNumber.client(Sid, AuthToken, BaseUrl)
-                content = AvailableNumber.NumberAvailablity(AreaCode, data).Availability()
+                content = AvailableNumber.NumberAvailablity(IsoCode, Instance, AreaCode, data).Availability()
 
                 self.assertIsNotNone(content)
 

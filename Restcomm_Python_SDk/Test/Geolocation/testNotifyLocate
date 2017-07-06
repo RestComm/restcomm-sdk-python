@@ -1,0 +1,44 @@
+interactions:
+- request:
+    body: EventGeofenceLatitude=-34.541078&EventGeofenceLongitude=-56.061600&DesiredAccuracy=High&StatusCallback=https%3A%2F%2Fcloud.restcomm.com%2FAC43b4d94a9b2b1862583c8638b70d26f2&DeviceIdentifier=56790122158&Source=59897018375&GeofenceRange=300&GeofenceEvent=in
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      Content-Length: ['255']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.9.1]
+    method: POST
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Geolocation/Notification.json
+  response:
+    body:  {string: "{\n  \"sid\": \"PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP\",\n  \"date_created\":
+        \"Thu, 29 Jun 2017 11:06:58 +0000\",\n  \"date_updated\": \"Thu, 29 Jun 2017
+        11:06:58 +0000\",\n  \"date_executed\":
+        \"Thu, 29 Jun 2017 11:06:58 +0000\",\n  \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \"device_identifier\": \"client:david\",\n  \"geolocation_type\": \"notification\",\n  \"response_status\": \"successful\",\n
+        \"device_latitude\": \"33.770002\",\n
+        \"cell_id\": \"908\",\n
+        \"location_area_code\": \"751\",\n
+        \"mobile_country_code\": \"748\",\n
+        \"mobile_network_code\": \"1\",\n
+        \"network_entity_address\": \"59800023041\",\n
+        \"location_age\": \"0\",\n
+        \"device_longitude\": \"84.5200998\",\n
+        \"accuracy\": \"5\",\n
+        \"physical_address\": \"00-41-76-C0-00-D1\",\n
+        \"internet_address\": \"65.17.21.37\",\n
+        \"formatted_address\": \"Avenida Italia 2552, 11500, Montevideo, Uruguay\",\n
+        \"location_timestamp\": \"Mon, 25 Jan 2016 16:36:25 -0500\",\n
+        \"event_geofence_latitude\": \"-34.551098\",\n
+        \"event_geofence_longitude\": \"-70.601700\",\n
+        \"radius\":\"115.24\",\n
+        \"geolocation_position_type\": \"GPS\",\n  \"last_geolocation_response\": \"true\",\n  \"api_version\": \"2012-04-24\",\n  \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Geolocation/Notification/PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP.json\"\n}"}
+    headers:
+      Content-Length: ['1072']
+      Content-Type: [application/json]
+      Date: ['Thu, 29 Jun 2017 11:34:56 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

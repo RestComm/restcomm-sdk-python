@@ -34,35 +34,293 @@ class client(object):
         self.AuthToken = AuthToken
         self.BaseUrl = BaseUrl
 
-class IPDevice(object):
+class IPLocation(object):
 
-    def __init__(self, DIdentifier, IPAddress, client):
+    def __init__(self, DIdentifier, CallBack, client):
 
+        self.DIdentifier = DIdentifier
         self.Sid = client.Sid
         self.AuthToken = client.AuthToken
         self.BaseUrl = client.BaseUrl
+        self.CallBack = CallBack
+
+    def locate(self):
+
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Geolocation/Immediate.json'
+            Status = self.CallBack+self.Sid
+            data = {'DeviceIdentifier': self.DIdentifier, 'StatusCallback': Status}
+            head = {'Content-Type': 'application/json'}
+            r1 = requests.post(Url, data=data, headers=head, auth=(self.Sid, self.AuthToken))
+
+            if r1.status_code == 401:
+                return "Authentication Error! Please Enter Valid Account Sid and Authentication Token"
+            elif r1.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
+            else:
+                content = json.loads(r1.text)
+                return content
+
+        except requests.HTTPError:
+            return ("HTTP ERROR")
+        except requests.ConnectionError:
+            return ("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            return ("TIMEOUT ERROR")
+        except requests.RequestException:
+            return ("Invalid Url! Please check and try again")
+
+class UpdateGeo(object):
+
+    def __init__(self, GeoSid, client):
+
+        self.GeoSid = GeoSid
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+
+    def Update(self):
+
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Geolocation/Immediate/'+self.GeoSid+'.json'
+            head = {'Content-Type': 'application/json'}
+            data = {'DeviceLatitude': '43.257134', 'DeviceLongitude': '-3.496932', 'LocationTimestamp': '2016-01-17T20:32:28.488-04:00', 'PhysicalAddress': 'D8-97-BA-19-02-D8', 'InternetAddress': '2001:0:9d38:6ab8:30a5:1c9d:58c6:5898', 'LastGeolocationResponse': 'false', 'GeolocationPositioningType': 'last-known'}
+            r2 = requests.put(Url, data=data, headers=head, auth=(self.Sid, self.AuthToken))
+
+            if r2.status_code == 401:
+                return "Authentication Error! Please Enter Valid Account Sid and Authentication Token"
+            elif r2.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
+            else:
+                content = json.loads(r2.text)
+                return content
+
+        except requests.HTTPError:
+            return ("HTTP ERROR")
+        except requests.ConnectionError:
+            return ("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            return ("TIMEOUT ERROR")
+        except requests.RequestException:
+            return ("Invalid Url! Please check and try again")
+
+class GetGeolocation(object):
+
+    def __init__(self, GeoSid, client):
+
+        self.GeoSid = GeoSid
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+
+    def GetInfo(self):
+
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Geolocation/Immediate/'+self.GeoSid+'.json'
+            r3 = requests.get(Url, auth=(self.Sid, self.AuthToken))
+
+            if r3.status_code == 401:
+                return "Authentication Error! Please Enter Valid Account Sid and Authentication Token"
+            elif r3.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
+            else:
+                content = json.loads(r3.text)
+                return content
+
+        except requests.HTTPError:
+            return ("HTTP ERROR")
+        except requests.ConnectionError:
+            return ("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            return ("TIMEOUT ERROR")
+        except requests.RequestException:
+            return ("Invalid Url! Please check and try again")
+
+class NotifyGeolocation(object):
+
+    def __init__(self, DIdentifier, GeoLatitude, GeoLongitude, GeoRange, GeoEvent, client):
+
         self.DIdentifier = DIdentifier
-        self.IPAddress = IPAddress
+        self.GeoLatitude = GeoLatitude
+        self.GeoLongitude = GeoLongitude
+        self.GeoRange = GeoRange
+        self.GeoEvent = GeoEvent
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
 
-    def GetLocation(self):
+    def Notify(self):
 
-        Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Geolocation/Immediate.json'
-        address = self.IPAddress+'/'+self.Sid
-        data = {'DeviceIdentifier': self.DIdentifier, 'StatusCallback': address}
+        try:
 
-        r1 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
-        print(r1.status_code)
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Geolocation/Notification.json'
+            Status = 'https://cloud.restcomm.com/'+self.Sid
+            data = {'DeviceIdentifier': self.DIdentifier, 'EventGeofenceLatitude': self.GeoLatitude, 'EventGeofenceLongitude': self.GeoLongitude, 'GeofenceRange': self.GeoRange, 'GeofenceEvent': self.GeoEvent, 'StatusCallback': Status}
+            head = {'Content-Type': 'application/json'}
+            r4 = requests.post(Url, data=data, headers=head, auth=(self.Sid, self.AuthToken))
 
-def main():
+            if r4.status_code == 401:
+                return "Authentication Error! Please Enter Valid Account Sid and Authentication Token"
+            elif r4.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
+            else:
+                content = json.loads(r4.text)
+                return content
 
-    Sid = 'AC43b4d94a9b2b1862583c8638b70d26f2'
-    AuthToken = '0cfe8579a1faace43ae968b33f9d45f0'
-    BaseUrl = 'https://cloud.restcomm.com/restcomm/2012-04-24'
-    DIdentifier = 'client:nukles1.07'
-    IPAddress = 'https://192.16.1.19:8080'
+        except requests.HTTPError:
+            return ("HTTP ERROR")
+        except requests.ConnectionError:
+            return ("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            return ("TIMEOUT ERROR")
+        except requests.RequestException:
+            return ("Invalid Url! Please check and try again")
 
-    data = client(Sid, AuthToken, BaseUrl)
-    content = IPDevice(DIdentifier, IPAddress, data).GetLocation()
+class NotifyHighAccuracy(object):
 
-if __name__ == '__main__':
-    main()
+    def __init__(self, Source, DIdentifier, GeoLatitude, GeoLongitude, GeoRange, GeoEvent, Accuracy, client):
+
+        self.Source = Source
+        self.DIdentifier = DIdentifier
+        self.GeoLatitude = GeoLatitude
+        self.GeoLongitude = GeoLongitude
+        self.GeoRange = GeoRange
+        self.GeoEvent = GeoEvent
+        self.Accuracy = Accuracy
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+
+    def NotifyLocate(self):
+
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Geolocation/Notification.json'
+            Status = 'https://cloud.restcomm.com/'+self.Sid
+            head = {'Content-Type': 'application/json'}
+            data = {'Source': self.Source, 'DeviceIdentifier': self.DIdentifier, 'EventGeofenceLatitude': self.GeoLatitude, 'EventGeofenceLongitude': self.GeoLongitude, 'GeofenceRange': self.GeoRange, 'GeofenceEvent': self.GeoEvent, 'DesiredAccuracy': self.Accuracy, 'StatusCallback': Status}
+            r5 = requests.post(Url, data=data, headers=head, auth=(self.Sid, self.AuthToken))
+
+            if r5.status_code == 401:
+                return "Authentication Error! Please Enter Valid Account Sid and Authentication Token"
+            elif r5.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
+            else:
+                content = json.loads(r5.text)
+                return content
+
+        except requests.HTTPError:
+            return ("HTTP ERROR")
+        except requests.ConnectionError:
+            return ("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            return ("TIMEOUT ERROR")
+        except requests.RequestException:
+            return ("Invalid Url! Please check and try again")
+
+class UpdateExitRange(object):
+
+    def __init__(self, GeoSid, GeoLatitude, GeoLongitude, GeoEvent, client):
+
+        self.GeoSid = GeoSid
+        self.GeoLatitude = GeoLatitude
+        self.GeoLongitude = GeoLongitude
+        self.GeoEvent = GeoEvent
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+
+    def UpdateRange(self):
+
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Geolocation/Notification/'+self.GeoSid+'.json'
+            head = {'Content-Type': 'application/json'}
+            data = {'EventGeofenceLatitude': self.GeoLatitude, 'EventGeofenceLongitude': self.GeoLongitude, 'GeofenceEvent': self.GeoEvent}
+            r6 = requests.put(Url, data=data, headers=head, auth=(self.Sid, self.AuthToken))
+
+            if r6.status_code == 401:
+                return "Authentication Error! Please Enter Valid Account Sid and Authentication Token"
+            elif r6.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
+            else:
+                content = json.loads(r6.text)
+                return content
+
+        except requests.HTTPError:
+            return ("HTTP ERROR")
+        except requests.ConnectionError:
+            return ("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            return ("TIMEOUT ERROR")
+        except requests.RequestException:
+            return ("Invalid Url! Please check and try again")
+
+class RetrieveGeoRequest(object):
+
+    def __init__(self, GeoSid, client):
+
+        self.GeoSid = GeoSid
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+
+    def Retrieve(self):
+
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Geolocation/Notification/'+self.GeoSid+'.json'
+            r7 = requests.get(Url, auth=(self.Sid, self.AuthToken))
+
+            if r7.status_code == 401:
+                return "Authentication Error! Please Enter Valid Account Sid and Authentication Token"
+            elif r7.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
+            else:
+                content = json.loads(r7.text)
+                return content
+
+        except requests.HTTPError:
+            return ("HTTP ERROR")
+        except requests.ConnectionError:
+            return ("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            return ("TIMEOUT ERROR")
+        except requests.RequestException:
+            return ("Invalid Url! Please check and try again")
+
+class StopGeoNotify(object):
+
+    def __init__(self, GeoSid, client):
+
+        self.GeoSid = GeoSid
+        self.Sid= client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+
+    def Stop(self):
+
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Geolocation/Notification/'+self.GeoSid+'.json'
+            r8 = requests.delete(Url, auth=(self.Sid, self.AuthToken))
+
+            if r8.status_code == 401:
+                return "Authentication Error! Please Enter Valid Account Sid and Authentication Token"
+            elif r8.status_code == 404:
+                return "Base Url is Incorrect! Please verify and try again"
+            else:
+                content = 'Deleted'
+                return content
+
+        except requests.HTTPError:
+            return ("HTTP ERROR")
+        except requests.ConnectionError:
+            return ("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            return ("TIMEOUT ERROR")
+        except requests.RequestException:
+            return ("Invalid Url! Please check and try again")
