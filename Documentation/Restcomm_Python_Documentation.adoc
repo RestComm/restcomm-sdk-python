@@ -66,6 +66,18 @@ Restcomm_Python_SDk is a module for using the *Restcomm Rest API*. This Document
 **** Push Ussd Message +
 *** Supervisor/Monitoring Service +
 **** Get Metric +
+*** Conference +
+**** Get Conference Details +
+**** Inprogress Call +
+*** Geolocation
+**** Access Location using IP
+**** Update Geolocation
+**** Get Geolocation Info
+**** GeoLocation Notification
+**** Notification with high precision
+**** Update the Exit Range
+**** Retrieve Geo Request
+**** Stop Geo Notification
 
 == *Installation*
 
@@ -1194,4 +1206,257 @@ This will store all the details of the metrics in `getMetric`. To access it, sim
 `InstanceId = getMetric['InstanceId']` +
 `Revision = getMetric['Revision']` +
 
+== *Conference*
 
+|===
+|Property |Description
+
+|Sid
+|A string that uniquely identifies this conference
+
+|FriendlyName
+|A user provided string that identifies this conference room
+
+|Status
+|A string representing the status of the conference. Possible values are RUNNING_MODERATOR_PRESENT, RUNNING_MODERATOR_ABSENT and COMPLETED.
+
+|DateCreated
+|The date that this conference was created
+
+|DateUpdated
+|The date that this conference was last updated
+
+|AccountSid
+|The unique id of the Account that created this conference
+
+|ApiVersion
+|Displays the current API version
+
+|Uri
+|The URI for this account, relative to https://localhost:port/restcomm
+
+|===
+
+=== Get Conference Details
+
+To get the representation of a Conference resource, including the properties above, call Conferences class and pass Conference Sid along with user Authentication to the GetConference function. +
+`from Restcomm_Python_SDk import Conferences` +
+
+`getdetails = Conferences(CONF_SID, client).GetConference()` +
+This will store all the details in `getdetails` variable. To access it, simply type +
+`sid = getdetails['sid']` +
+
+=== InProgress Call
+
+To get set/list of in-progress calls in a running conference room, Simply call Conferences class and pass Conference Sid and user Authentication to the InProgressCall function. +
+`from Restcomm_Python_SDk import Conferences` +
+
+`getlist = Conferences(CONF_SID, client).InProgressCall()` +
+This will store all the details of  in-progress calls in a running conference room in `getlist` variable. To access it, simply type +
+`sid = getlist['sid']` +
+
+== *GeoLocation*
+
+|===
+|Property |Description
+
+|Sid
+|A string that uniquely identifies this Geolocation service
+
+|DateCreated
+|The date that this Geolocation service was created
+
+|DateUpdated
+|The date that this Geolocation service was last updated
+
+|DateExecuted
+|The date that this Geolocation was sent
+
+|AccountSid
+|A string that uniquely identifies the account that created this Geolocation service
+
+|Source
+|A string that uniquely identifies the Geolocation service client, phone number or device that initiated the Geolocation service.
+
+|DeviceIdentifier
+|A string that uniquely identifies the device target (e.g. phone number, IoT device, ...) of this Geolocation service
+
+|GeolocationType:
+a|The type of location measurement requested, namely:
+
+* *Immediate:* after a successful geolocation attempt has been delivered with its associated timestamp, the location information and timestamp are referred to as the current location at that point in time.
+* *Notification:* location request where the response/s is/are required after a specific event has occurred. Event may or may not occur immediately. In addition, event may occur many times. Examples of these events: when a device is entering or leaving or being in a pre-defined geographical area (geofencing); periodic location; when a device becomes available; when a sensor/beacon detects a threshold surpassed, etc.
+
+|ResponseStatus
+a|A string that uniquely identifies the current state of this Geolocation service. Possible values are:
+
+* *queued:* whenever the location request is buffered due to abnormal causes (e.g. congestion at the GMLC);
+* *sent:* when the location request has already been sent but no response has arrived yet;
+* *processing:* when the location response has been received but being under computational process for delivery to the requesting location client.
+* *successful:* when the location response has been received and processed with complete fulfilment of quality of geolocation information.
+* *partially-successful:* when the location response has been received and processed, but not fulfilled the whole set of geolocation information or desired accuracy, e.g.: geographical coordinates were not possible to retrieve, but at least other location information such as Cell/Service and Location/Service Area identifiers were obtained; location information was retrieved, but the age of location estimate denotes it may be outdated; location information was retrieved, but informed that precision is not reliable due to high error margin.
+* *last-known:* when location information could not be retrieved from the network but there is previous persisted location information for the targeted DeviceIdentifer of this Geolocation service.
+* *failed:* when location information could not be retrieved from the network and there is no previous location information persisted for the targeted DeviceIdentier of this Geolocation service, or when an attempt to update this Geolocation service, or malformed or not API compliant. In the latter situation, the record persists, but previous geolocation information is erased(expecting a correct geolocation update).
+* *unauthorized:* when the location request is or has become disallowed from the network, the location client requesting this service is not authorized for such operation or the target device is marked for not authorizing this kind of location requests. A record is persisted for security and analytics purposes.
+* *rejected:* when the location request does not meet the API's requirements for mandatory parameters(or some of them are missing), or prohibited
+
+|GeolocationData
+a|An array that uniquely identifies the location information that might be obtained by this Geolocation service. The fields of this array are described next:
+
+* *CellId:* an identifier assigned to a specific radio coverage area known as cell or service area;
+* *LocationAreaCode:* an identifier assigned to a group of cells or service area;
+* *MobileCountryCode:* code number of the country of the mobile network.
+* *MobileNetworkCode:* code number of the mobile network in a specific country.
+* *NetworkEntityAddress:* code number of the mobile network entity addressed for this Geolocation service.
+* *LocationAge:* indication of how long ago the network location identifiers were recorded(informed in minutes);
+* *DeviceLatitude:* an estimate of the location of the phone number, device/beacon or closest WiFi Access Point in the geographical coordinate that specifies the north-south position of a point on the Earth's surface. +
+
+WGS84 is used, whose formats for Latitude are described next: +
+
+Latitude valid formats include: +
+
+N43°38'19.39" +
+
+43°38'19.39"N +
+
+43 38 19.39 +
+
+43.63871944444445 +
+
+if expressed in decimal form, northern latitudes are positive, southern latitudes are negative. The following longitude variants are also allowed: +
+
+N43 38 19.39 +
+
+43 38 19.39N +
+
+* *DeviceLongitude:* an estimate of the location of the phone number, device/beacon or closest WiFi Access Point in the geographical coordinate that specifies the north-south position of a point on the Earth's surface. +
+
+WGS84 is used, whose formats for Longitude are described next: +
+
+Longitude valid formats include: +
+
+W116°14'28.86" +
+
+116°14'28.86"W +
+
+-116 14 28.86 +
+
+-116.2413513485235 +
+
+If expressed in decimal form, eastern longitudes are positive, western longitudes are negative. The following longitude variants are also allowed: +
+
+W116 14 28.86 +
+
+116 14 28.86W +
+
+* *Accuracy:* quality of location information or estimated precision for this Geolocation service in meters. This information will be present depending on available location procedures at the radio access network.
+
+* *PhysicalAddress:* MAC address of the device/beacon or closest closest WiFi Access Point.
+
+* *InternetAddress:* IP address of the phone number, device/beacon or closest closest WiFi Access Point.
+
+* *FormattedAddress:* refers to the civic location of the phone number, device/beacon or closest WiFi Access Point, expressed as civic data(e.g. floor, street number, city) It shall be represented in a well-defined universal format, compliant with Google Geolocation API "formatted_address" json/xml field.
+
+* *LocationTimestamp:* indication of when the geolocation information was gathered(informed as a time stamp);
+
+* *EventGeofenceLatitude:* refers to the geographical coordinates latitude of a specific location. Used to notify whan a device is within a certain distance (in meters) from that specific location. Same format used as for DeviceLatitude parameter.
+
+* *EventGeofenceLongitude:* refers to the geographical coordinates longitude of a specific location. Used to notify when a device is within aa certain distance (in meters) from that specific location. Same format used as for DeviceLongitude parameters.
+
+* *Radius:* distance in meters from the Geofence geographic coordinates.
+
+|GeolocationPositionType
+a|Indication of the positioning method used to determine the Geolocation data, either successfully or unsuccessfully. Possible values are:
+
+* *last-known:* last known device location position stored at a database (Location Server, HLR, etc.) from which the information is retrieved.
+
+* *Network:* location information retrieved from improved measurement techniques executed at the radio access network, either for IP or cellular networks (e.g. timing advanced, multilateration, etc).
+
+* *GPS:* location information assisted by the Global Navigation Satellite System (GNSS), which include GPS(as well as GLONASS and Galileo).
+
+|LastGeolocationResponse
+|Indication whether GeolocationData values provided are the last to be gathered in this Geolocation request (true/yes) or further are expected to be sent asynchrounously (false/no) to the StatusCallback URL.
+
+|Cause
+|Reason of an unsuccessful or rejected Geolocation request
+
+|ApiVersion
+|The API version RestComm used to handle the Geolocation service.
+
+|Uri
+|The URI for this account, relative to http://localhost:port/restcomm.
+
+|===
+
+=== Get Location using IP
+
+To get access to Geolocation of a specific IP device associated to a User; Partial and Successful answers, whole Status Callback, call IPLocation class and pass DeviceIdentifier, StatusCallback to it along with User Authentication and call the locate function. +
+`from Restcomm_Python_SDk import IPLocation` +
+
+`getlocate = IPLocation(DEVICE_IDENTIFIER, STATUS_CALLBACK, client).locate()` +
+This will store all the details of the Geo-location in `getlocate` variable. To access it, simply type +
+`geolocation_type = getlocate['geolocation_type']` +
+`Sid = getlocate['sid']` +
+
+=== Update Geolocation
+
+In this case, the last known location is set instead of the empty location data response obtained previously due to a network failure. To access it, call UpdateGeo class and pass Geolocation Sid along with user Authentication data to the Update function. +
+`from Restcomm_Python_SDk import UpdateGeo` +
+
+`data = UpdateGeo(GEO_SID, client).Update()` +
+This will store all the updated data in the `data` variable. To access it, simply type +
+`Sid = data['sid']` +
+`ResponseStatus = data['response_status']` +
+
+=== Get Geolocation Info
+
+To retrieve the information of the Geolocation service request, call GetGeolocation class and pass Geolocation Sid along with user Authentication data to the GetInfo function. +
+`from Restcomm_Python_SDk import GetGeolocation` +
+
+`getinfo = GetGeolocation(GEOLOCATION_SID, client)` +
+This will store all the data in the `getinfo` variable. To access it, simply, +
+`DateCreated = getinfo['date_created']` +
+
+=== GeoLocation Notification
+
+To access GeoLocation of a device under WiFi access whenever its distance to a specific geographic position is 1000 meters(e.g.: the position of a beacon sensing tracking anklets of an offender call NotifyGeolocation class and pass Device Identifier, EventGeofence Latitude, EventGeofence Longitude, Geofence Event, GeofenceRange and statusCallBack along with user Authentication to the Notify function +
+
+`from Restcomm_PythonSDk import NotifyGeolocation` +
+
+`notify = NotifyGeolocation(DEVICE_IDENTIFIER, EVENT_GEOFENCE_LATITUDE, EVENT_GEOFENCE_LONGITUDE, GEO_RANGE, _GEOFENCE_EVENT, STATUSCALLBACK, client).Notify()` +
+This will store all the notifications of the above written `code in notify`variabe +
+`GeolocationType = notify[geolocation_type]`
+
+=== Notification with Highaccuracy
+
+To Get location for a Geolocation request originated from location client within a mobile(iOS or Android) application, that expects to be informed about entering a specific location area, within 300 metres from a specific geographic spot, call NotifyHighAccuracy class and pass the required data along with user Authentication to the NotifyLocate() function. +
+`from Restcomm_Python_SDk import NotifyHighAccuracy`
+
+`notifyAccuracy = NotifyHighAccuracy(SOURCE, DEVICE_IDENTIFIER, EVENT_GEOFENCE_LATITUDE, EVENT_GEOFENCE_LONGITUDE, GEOFENCE_RANGE, GEOFENCE_EVENT, DESIRED_ACCURACY, STATUSCALLBACK, client).NotifyLocate()` +
+This will store all the details in the `notifyAccuracy` variable. To access it, simply type, +
+`DateExecuted = notifyAccuracy['date_executed']` +
+
+=== Update the Exit Range
+
+To update the previous Geolocation request example, where geographic coordinates of the geofence location are modified, as well as the event type, call UpdateExitRange class and pass the required data along with user Authentication data to the UpdateRange function. +
+`from Restcomm_Python_SDk import UpdateExitRange`
+
+`doUpdate = UpdateExitRange(GEOLOCATION SID, EVENT_GEOFENCE_LATITUDE, EVENT_GEOFENCE_LONGITUDE, GEOFENCE_EVENT, client).UpdateRange()` +
+This will store all the details in `doUpdate` variable. To access it, simply type, +
+`ResponseStatus = doUpdate['response_status']` +
+
+=== Retrieve Geo Request
+
+To retrieve the information of the Geolocation service request from the previous example, call RetrieveGeoRequest class and pass Geolocation Sid along with user Authentication to the Retrieve function. +
+`from Restcomm_Python_SDk import RetrieveGeoRequest` +
+
+`retrieve = RetrieveGeoRequest(GEOLOCATION_SID, client).Retrieve()` +
+This will store all the details in the `retrieve` variable. To access it, simply type, +
+`DeviceIdentifier = retrieve['device_identifier']` +
+
+=== Stop Geo Notification
+
+To stop the notifications of a previously created Geolocation request, call StopGeoNotify class and pass Geolocation Sid along with user Authentication data to the Stop funtion. +
+`from Restcomm_Python_SDk import StopGeoNotify`
+
+`stop = StopGeoNotify(GEOLOCATION_SID, client).Stop()` +
