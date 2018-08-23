@@ -1,0 +1,30 @@
+interactions:
+- request:
+    body: Url=https%3A%2F%2FmockServer.com%2Fmock%2Fdemos%2Fhello-play.xml&To=client%3Asam&From=5065
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      Content-Length: ['105']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.9.1]
+    method: POST
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls.json
+  response:
+    body: {string: "{\n  \"sid\": \"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\",\n  \"InstanceId\":
+        \"IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII\",\n  \"date_created\": \"Fri, 30 Jun
+        2017 09:39:16 +0000\",\n  \"date_updated\": \"Fri, 30 Jun 2017 09:39:16 +0000\",\n
+        \ \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n  \"to\": \"sam\",\n
+        \ \"from\": \"5065\",\n  \"status\": \"QUEUED\",\n  \"start_time\": \"2017-06-30T09:39:16.000Z\",\n
+        \ \"price_unit\": \"USD\",\n  \"direction\": \"outbound-api\",\n  \"api_version\":
+        \"2012-04-24\",\n  \"caller_name\": \"5065\",\n  \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls/CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC.json\",\n
+        \ \"subresource_uris\": {\n    \"notifications\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls/CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC/Notifications.json\",\n
+        \   \"recordings\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls/CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC/Recordings.json\"\n
+        \ }\n}"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Fri, 30 Jun 2017 09:39:16 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

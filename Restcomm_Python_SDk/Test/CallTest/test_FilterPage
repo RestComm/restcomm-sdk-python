@@ -1,0 +1,36 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.9.1]
+    method: GET
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls.json?PageSize=1
+  response:
+    body: {string: "{\n  \"page\": 0,\n  \"num_pages\": 51,\n  \"page_size\": 1,\n
+        \ \"total\": 51,\n  \"start\": \"0\",\n  \"end\": \"0\",\n  \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls.json\",\n
+        \ \"first_page_uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls.json?Page\\u003d0\\u0026PageSize\\u003d1\",\n
+        \ \"previous_page_uri\": \"null\",\n  \"next_page_uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls.json?Page\\u003d1\\u0026PageSize\\u003d1\\u0026AfterSid\\u003dCA086046818b434224a31fcc15eb1e2574\",\n
+        \ \"last_page_uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls.json?Page\\u003d51\\u0026PageSize\\u003d1\",\n
+        \ \"calls\": [\n    {\n      \"sid\": \"CA086046818b434224a31fcc15eb1e2574\",\n
+        \     \"InstanceId\": \"ID1f2d67b716b34162954fbfc7d7d50b89\",\n      \"date_created\":
+        \"Tue, 16 May 2017 10:16:44 +0000\",\n      \"date_updated\": \"Tue, 16 May
+        2017 10:16:51 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"to\": \"5065\",\n      \"from\": \"nukles1.07\",\n      \"phone_number_sid\":
+        \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n      \"status\": \"completed\",\n
+        \     \"start_time\": \"2017-05-16T10:16:45.000Z\",\n      \"end_time\": \"2017-05-16T10:16:51.000Z\",\n
+        \     \"duration\": 6,\n      \"price_unit\": \"USD\",\n      \"direction\":
+        \"inbound\",\n      \"api_version\": \"2012-04-24\",\n      \"caller_name\":
+        \"Unknown\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls/CA086046818b434224a31fcc15eb1e2574.json\",\n
+        \     \"subresource_uris\": {\n        \"notifications\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls/CA086046818b434224a31fcc15eb1e2574/Notifications.json\",\n
+        \       \"recordings\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls/CA086046818b434224a31fcc15eb1e2574/Recordings.json\"\n
+        \     }\n    }\n  ]\n}"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Fri, 30 Jun 2017 10:43:54 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

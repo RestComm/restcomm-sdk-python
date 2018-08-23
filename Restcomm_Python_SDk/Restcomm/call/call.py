@@ -139,6 +139,40 @@ class RedirectCall(object):
         except requests.RequestException:
             return ("Invalid Url! Please check and try again")
 
+class TerminateCall(object):
+
+    def __init__(self, status, SubSid, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.SubSid = SubSid
+        self.status = status
+
+    def Terminate(self):
+
+        try:
+
+            Url = self.BaseUrl + '/Accounts/' + self.Sid + '/Calls.json/' + self.SubSid
+            data = {'Status': self.status}
+            r7 = requests.post(Url, data= data, auth=(self.Sid, self.AuthToken))
+            if r7.status_code == 401:
+                return ("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            elif r7.status_code == 404:
+                return "Base Url or Sub Sid is Incorrect! Please verify and try again"
+            else:
+                content = json.loads(r7.text)
+                return content
+
+        except requests.HTTPError:
+            return ("HTTP ERROR")
+        except requests.ConnectionError:
+            return ("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            return ("TIMEOUT ERROR")
+        except requests.RequestException:
+            return ("Invalid Url! Please check and try again")
+
 class ConferenceCall(object):
 
     def __init__(self, sig_Url, SubSid, client):
@@ -243,3 +277,63 @@ class UnMuteParticipant(object):
             return ("TIMEOUT ERROR")
         except requests.RequestException:
             return ("Invalid Url! Please check and try again")
+
+class CallFilter(object):
+
+    def __init__(self, FromParam, client):
+
+        self.Sid = client.Sid
+        self.AuthToken = client.AuthToken
+        self.BaseUrl = client.BaseUrl
+        self.FromParam = FromParam
+
+    def FilterFrom(self):
+
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Calls.json?'
+            param = {'From': self.FromParam}
+
+            r8 = requests.get(Url, params=param, auth=(self.Sid, self.AuthToken))
+            if r8.status_code == 401:
+                return ("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            elif r8.status_code == 404:
+                return "Base Url/Participant Sid/Conference Sid is Incorrect! Please verify and try again"
+            else:
+                content = json.loads(r8.text)
+                return content
+
+        except requests.HTTPError:
+            return ("HTTP ERROR")
+        except requests.ConnectionError:
+            return ("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            return ("TIMEOUT ERROR")
+        except requests.RequestException:
+            return ("Invalid Url! Please check and try again")
+
+    def FilterPage(self):
+
+        try:
+
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/Calls.json?'
+            param = {'PageSize': self.FromParam}
+
+            r9 = requests.get(Url, params=param, auth=(self.Sid, self.AuthToken))
+            if r9.status_code == 401:
+                return ("Authentication Error! Please Enter Valid Account Sid and Authentication Token")
+            elif r9.status_code == 404:
+                return "Base Url/Participant Sid/Conference Sid is Incorrect! Please verify and try again"
+            else:
+                content = json.loads(r9.text)
+                return content
+
+        except requests.HTTPError:
+            return ("HTTP ERROR")
+        except requests.ConnectionError:
+            return ("CONNECTION ERROR! Please check and try again")
+        except requests.Timeout:
+            return ("TIMEOUT ERROR")
+        except requests.RequestException:
+            return ("Invalid Url! Please check and try again")
+

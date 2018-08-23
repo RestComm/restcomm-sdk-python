@@ -72,3 +72,9 @@ from Restcomm_Python_SDk.Restcomm.call.call import MuteParticipant
 from Restcomm_Python_SDk.Restcomm.call.call import RedirectCall
 from Restcomm_Python_SDk.Restcomm.call.call import UnMuteParticipant
 from Restcomm_Python_SDk.Restcomm.call.call import client
+from Restcomm_Python_SDk.Restcomm.call.call import TerminateCall
+from Restcomm_Python_SDk.Restcomm.call.call import CallFilter
+from Restcomm_Python_SDk.Restcomm.Supervisor.Supervisor import client
+from Restcomm_Python_SDk.Restcomm.Supervisor.Supervisor import Monitoring
+from Restcomm_Python_SDk.Restcomm.Geolocation.Geolocation import client
+from Restcomm_Python_SDk.Restcomm.Geolocation.Geolocation import IPDevice

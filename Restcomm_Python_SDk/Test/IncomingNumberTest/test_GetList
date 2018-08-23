@@ -1,0 +1,57 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.9.1]
+    method: GET
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/IncomingPhoneNumbers.json
+  response:
+    body: {string: "{\n  \"page\": 0,\n  \"num_pages\": 0,\n  \"page_size\": 50,\n
+        \ \"total\": 2,\n  \"start\": \"0\",\n  \"end\": \"2\",\n  \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/IncomingPhoneNumbers.json\",\n
+        \ \"first_page_uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/IncomingPhoneNumbers.json?Page\\u003d0\\u0026PageSize\\u003d50\",\n
+        \ \"previous_page_uri\": \"null\",\n  \"next_page_uri\": \"null\",\n  \"last_page_uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/IncomingPhoneNumbers.json?Page\\u003d0\\u0026PageSize\\u003d50\",\n
+        \ \"incomingPhoneNumbers\": [\n    {\n      \"sid\": \"PN653d478ce59943e2a0e735032c7e417a\",\n
+        \     \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n      \"friendly_name\":
+        \"NO1\",\n      \"phone_number\": \"+154623\",\n      \"voice_url\": null,\n
+        \     \"voice_method\": \"POST\",\n      \"voice_fallback_url\": null,\n      \"voice_fallback_method\":
+        \"POST\",\n      \"status_callback\": null,\n      \"status_callback_method\":
+        \"POST\",\n      \"voice_caller_id_lookup\": false,\n      \"voice_application_sid\":
+        null,\n      \"date_created\": \"Wed, 17 May 2017 05:49:13 +0000\",\n      \"date_updated\":
+        \"Wed, 17 May 2017 05:49:13 +0000\",\n      \"sms_url\": null,\n      \"sms_method\":
+        \"POST\",\n      \"sms_fallback_url\": null,\n      \"sms_fallback_method\":
+        \"POST\",\n      \"sms_application_sid\": null,\n      \"ussd_url\": null,\n
+        \     \"ussd_method\": \"POST\",\n      \"ussd_fallback_url\": null,\n      \"ussd_fallback_method\":
+        \"POST\",\n      \"ussd_application_sid\": null,\n      \"refer_url\": null,\n
+        \     \"refer_method\": \"POST\",\n      \"refer_application_sid\": null,\n
+        \     \"capabilities\": {\n        \"voice_capable\": false,\n        \"sms_capable\":
+        false,\n        \"mms_capable\": false,\n        \"fax_capable\": false\n
+        \     },\n      \"api_version\": \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/IncomingPhoneNumbers/PN653d478ce59943e2a0e735032c7e417a.json\"\n
+        \   },\n    {\n      \"sid\": \"PN545a330412a84e39af8796cc904fd131\",\n      \"account_sid\":
+        \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n      \"friendly_name\": \"no\",\n
+        \     \"phone_number\": \"5065\",\n      \"voice_url\": null,\n      \"voice_method\":
+        \"POST\",\n      \"voice_fallback_url\": null,\n      \"voice_fallback_method\":
+        \"POST\",\n      \"status_callback\": null,\n      \"status_callback_method\":
+        \"POST\",\n      \"voice_caller_id_lookup\": false,\n      \"voice_application_sid\":
+        \"APd9e9548a4764438994ba9789f94b175a\",\n      \"voice_application_name\":
+        null,\n      \"date_created\": \"Tue, 16 May 2017 09:04:32 +0000\",\n      \"date_updated\":
+        \"Tue, 16 May 2017 09:04:32 +0000\",\n      \"sms_url\": null,\n      \"sms_method\":
+        \"POST\",\n      \"sms_fallback_url\": null,\n      \"sms_fallback_method\":
+        \"POST\",\n      \"sms_application_sid\": null,\n      \"ussd_url\": null,\n
+        \     \"ussd_method\": \"POST\",\n      \"ussd_fallback_url\": null,\n      \"ussd_fallback_method\":
+        \"POST\",\n      \"ussd_application_sid\": null,\n      \"refer_url\": null,\n
+        \     \"refer_method\": \"POST\",\n      \"refer_application_sid\": null,\n
+        \     \"capabilities\": {\n        \"voice_capable\": false,\n        \"sms_capable\":
+        false,\n        \"mms_capable\": false,\n        \"fax_capable\": false\n
+        \     },\n      \"api_version\": \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/AC43b4d94a9b2b1862583c8638b70d26f2/IncomingPhoneNumbers/PN545a330412a84e39af8796cc904fd131.json\"\n
+        \   }\n  ]\n}"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 29 Jun 2017 12:11:53 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

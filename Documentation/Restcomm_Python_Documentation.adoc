@@ -22,6 +22,8 @@ Restcomm_Python_SDk is a module for using the *Restcomm Rest API*. This Document
 **** Make Conference Call +
 **** Mute a Participant +
 **** UnMute a Participant +
+**** Terminate a Call +
+**** Filter Call list +
 *** Sms +
 **** Send Sms +
 **** Get Sms List +
@@ -60,6 +62,10 @@ Restcomm_Python_SDk is a module for using the *Restcomm Rest API*. This Document
 **** Filter Transcription List +
 *** Usage +
 **** Get Usage List +
+*** UssdPush +
+**** Push Ussd Message +
+*** Supervisor/Monitoring Service +
+**** Get Metric +
 
 == *Installation*
 
@@ -109,6 +115,32 @@ The `Restcomm` needs your `Restcomm credentials` to use its API. If you don’t 
 == *Examples*
 
 == *Accounts*
+
+|===
+|Property |Description
+
+|Sid
+|A string that uniquely identifies this account.
+
+|DateCreated
+|The date that this account was created.
+
+|DateUpdated
+|The date that this account was last updated.
+
+|FriendlyName
+|A description of this account, up to 64 characters long. By default the FriendlyName is your email address.
+
+|Status
+|The status of this account. Possible values are active, suspended, and closed.
+
+|AuthToken
+|The authorization token for this account. This should not be shared.
+
+|Uri
+|The URI for this account, relative to https://localhost:port/restcomm.
+
+|===
 
 === Get Account Details
 
@@ -162,6 +194,68 @@ To get the Details of SubAccount with give Sid +
 
 == *Call*
 
+|===
+|Property |Description
+
+|Sid
+|A string that uniquely identifies this call.
+
+|ParentCallSid
+|A string that uniquely identifies the call that created this leg.
+
+|DateCreated
+|The date that this call was created.
+
+|DateUpdated
+|The date that this call was last updated.
+
+|AccountSid
+|The unique id of the Account that created this call.
+
+|To
+|The phone number or identifier that will be the recipient of this call.
+
+|From
+|The phone number or identifier that originated this call.
+
+|PhoneNumberSid
+|If the call was inbound, this is the Sid of the IncomingPhoneNumber that received the call.
+
+|Status
+|A string representing the status of the call. Possible values are queued, ringing, in-progress, completed, failed, busy and no-answer.
+
+|StartTime
+|The start time of the call. Empty if the call has not yet been started.
+
+|EndTime
+|The end time of the call. Empty if the call has not ended..
+
+|Duration
+|The length of the call in seconds.
+
+|Price
+|The charge for this call, in the currency associated with the account. Populated after the call is completed.
+
+|Direction
+|A string describing the direction of the call. Possible values are inbound, outbound-api, and outbound-dial
+
+|AnsweredBy
+|If this call was initiated with answering machine detection, either human or machine. Empty otherwise.
+
+|ApiVersion
+|Displays the current API version
+
+|ForwardFrom
+|If this call was an incoming call forwarded from another number, the forwarding phone number (depends on carrier supporting forwarding). Empty otherwise.
+
+|CallerName
+|If this call was an incoming call, the caller’s name. Empty otherwise.
+
+|Uri
+|The URI for this account, relative to https://localhost:port/restcomm.
+
+|===
+
 === Make a Call
 
 `from Restcomm_Python_SDk import Makecall` +
@@ -208,7 +302,66 @@ To Mute a participant during a conference call, you need to have the Participant
 To UnMute a participant during a conference call, you need to have the participant sid and conference sid +
 `Unmute = UnMuteParticipant(PARTICIPANTSID, CONFERENCESID, client).UnMute()` +
 
+=== Terminate a call
+
+`from Restcomm_Python_SDk import TerminateCall` +
+
+To Terminate an Ongoing call, you need to provide user authentication data with status detail as completed and Participant Sid and call the 'TerminateCall' class and pass these data to the 'Terminate' function. +
+To Terminate a ringing call, you need to do the above said process with only one modification. Instead of status as completed, provid status as canceled and call the same class and function and pass the data's. +
+
+Ongoing call +
+`terminatecall = TerminateCall(PARTICIPANT SID, "completed", client).Terminate()` +
+Ringing call +
+`terminatecall = TerminateCall(PARTICIPANT SID, "canceled", client).Terminate()` +
+
+=== Filter Call List
+
+To filter the list of incoming and outgoing calls, you have two options. Either you can filter the list according to the page numbers or you can filter the list according the Sender data. To filter the list, you need to provide user authentication data to the client class along with filter option data for example Page no. 1 and call the 'CallFilter' class and call 'FilterFrom' or 'FilterPage' function and pass these data's to the respective class and call the functions. For example, To filter the list according to the page no. +
+
+`from Restcomm_Python_SDk import CallFilter` +
+
+`filterpage = CallFilter("1", client).FilterPage()` +
+`filterfrom = CallFilter("9038455021", client).FilterPage()` +
+
 == *Sms*
+
+|===
+|Property |Description
+
+|Sid
+|A string that uniquely identifies this SMS Message.
+
+|DateCreated
+|The date that this SMS Message was created.
+
+|DateUpdated
+|The date that this SMS Message was last updated.
+
+|DateSent
+|The date that the SMS was sent or received by RestComm.
+
+|AccountSid
+|The unique id of the Account that sent or received this SMS message.
+
+|To
+|The phone number or short code that received the message.
+
+|From
+|The phone number or short code that initiated the message.
+
+|Status
+|The status of this SMS message. Possible values are queued, sending, sent, failed, and received.
+
+|Direction
+|The direction of this SMS message. Possible values are incoming, outbound-api, outbound-call.
+
+|ApiVersion
+|The API version RestComm used to handle the SMS message.
+
+|Uri
+|The URI for this account, relative to https://localhost:port/restcomm.
+
+|===
 
 === Send Sms
 
@@ -245,6 +398,41 @@ To view Sms according to the number of page +
 `smsSid = filterinfo['Sid']` +
 
 == *Applications*
+
+|===
+|Property |Description
+
+|Sid
+|A string that uniquely identifies this Application.
+
+|DateCreated
+|The date when this Application was created.
+
+|DateUpdated
+|The date wher this Application was last updated.
+
+|FriendlyName
+|A friendly name for this Application.
+
+|AccountSid
+|The unique ID of the Account that owns this Application.
+
+|ApiVersion
+|Version of the API applied to this Application.
+
+|HasVoiceCallerIdLookup
+|Look up the caller’s caller-ID name from the CNAM database. Either true or false.
+
+|Uri
+|The URI for this Application, relative to https://localhost:port/restcomm.
+
+|RcmlUrl
+|The HTTP address that RestComm will use to get the RCML of this Application.
+
+|Kind
+|The kind of this Application. (Supported values: voice, sms or ussd)
+
+|===
 
 === Create an Application
 
@@ -290,6 +478,60 @@ getinfo will contain all the data of the applications. you can simply get your d
 
 == *Available Phone Number* 
 
+|===
+|Property |Description
+
+|FriendlyName
+|A nice-formatted version of the phone number
+
+|PhoneNumber
+|The phone number, in E.164 (i.e. "+1") format
+
+|Lata
+|The LATA of this phone number
+
+|RateCenter
+|The rate center of this phone number
+
+|Latitude
+|The latitude coordinate of this phone number
+
+|Longitude
+|The Longitude coordinate of this phone number
+
+|Region
+|The two-letter state or province abbreviation of this phone number.
+
+|PostalCode
+|The postal(zip) code of this phone number
+
+|IsoCountry
+|The ISO country code of this phone number
+
+|Capabilities
+|This is a set of boolean properties that indicate whether a phone number can receive calls or messages. Possible capabilities are Voice, SMS, and MMS with each having a value of either true or false.
+
+|===
+
+The following properties are available for phone numbers outside the US and Canada:
+
+|===
+|Property |Description
+
+|FriendlyName
+|A nicely-formatted version of the phone number.
+
+|PhoneNumber
+|The phone number, in[E.164] (i.e. "+44") format
+
+|IsoCountry
+|The ISO country code of this phone number
+
+|Capabilites
+|This is a set of boolean properties that indicate whether a phone number can receive calls or messages. Possible capabilities are Voice, Sms, and MMS with each having a value of either true or false
+
+|===
+
 === Number Availability
 
 To get the list of all the numbers available, you need to provide the area code for which you need to check the availability of the number +
@@ -302,6 +544,56 @@ This will give the list of all the numbers available. To check +
 `smsCapable = getlist['smsCapable']` +
 
 == *Client*
+
+|===
+|Property |Description
+
+|Sid
+|A string that uniquely identifies this client
+
+|DateCreated
+|The date that this client was created
+
+|DateUpdated
+|The date that this client was last updated
+
+|FriendlyName
+|A friendly name for this client
+
+|AccountSid
+|The unique id of the Account that owns this phone number
+
+|ApiVersion
+|Calls to this phone number will create a new RCML session with this API version
+
+|Login
+|The name that is used inside the <Client> noun. This is also used by the user agent as the user name used for registration and outbound dialing
+
+|Password
+|The password used by the user agent during registration and outbound dialing
+
+|Status
+|The client status the possible values are 0 for disabled and 1 for enabled
+
+|VoiceUrl
+|The URL Restcomm will request when this client makes an outbound call.
+
+|VoiceMethod
+|The HTTP method RestComm will use when requesting the above Url.Either GET or POST
+
+|VoiceFallbackUrl
+|The URL that Restcomm will request if execution of VoiceUrl fails for any reason
+
+|VoiceFallbackMethod
+|The HTTP method RestComm will use when requesting the VoiceFallbackUrl. Either GET or POST
+
+|VoiceApplicationSid
+|If this entry contains an Sid to a voice application then Restcomm will ignore these voice URLs and use the voice URLs specified by the voice application
+
+|Uri
+|The URI for this Client, relative to https://localhost:port/restcomm
+
+|===
 
 === Create a Client
 
@@ -345,6 +637,29 @@ This will store all the information of the clients in `getinfo` and you can acce
 
 == *Email*
 
+|===
+|Property |Description
+
+|DateSent
+|The date that this Email Message was send
+
+|AccountSid
+|The unique id of the Account that sent this Email message
+
+|From
+|The Email address that initiated the message
+
+|To
+|The Email address of the recipient
+
+|Body
+|The text body of the email message
+
+|Subject
+|The subject of the email message
+
+|===
+
 === Send an Email
 
 To send an Email, you need to provide the sender and receivers email address and pass it to SendEmail class along with user Authentication +
@@ -356,6 +671,29 @@ This will send the Email to the respective person and the details are stored in 
 `Date_Sent = sendmail['DateSent']` +
 
 == *Gateway*
+
+|===
+|Property |Description
+
+|FriendlyName
+|A friendly version of the gateway
+
+|UserName
+|The username that will be used to register to this gateway
+
+|Password
+|The password that will be used to register to this gateway
+
+|Proxy
+|The proxy address of the gateway
+
+|Register
+|Boolean flag to register or not the gateway
+
+|TTL
+|Time to live for the Register
+
+|===
 
 === Create Gateway
 
@@ -394,6 +732,113 @@ To Delete the Gateway, you need to provide the Gateway Sid and pass it to the De
 
 == *Incoming Number*
 
+|===
+|Property |Description
+
+|Sid
+|A 34 character string that uniquely identifies this resource
+
+|DateCreated
+|The date that this resource was created, given as GMT http://www.ietf.org/rfc/rfc2822.txt[RFC 2822] format.
+
+|DateUpdated
+|The date that this resource was last updated, given as GMT http://www.ietf.org/rfc/rfc2822.txt[RFC 2822] format
+
+|FriendlyName
+|A human readable descriptive text for this resource, up to 64 characters long. By default, the FriendlyName is a nicely formatted version of the phone number
+
+|AccountSid
+|The unique id of the Account responsible for this phone number.
+
+|PhoneNumber
+|The incoming phone number. e.g., +16175551212 (E.164 format)
+
+|ApiVersion
+|Calls to this phone number will start a new RCML session with this API version
+
+|VoiceCallerIdLookup
+|Look up the caller's caller-ID name from the CNAM database($0.01 per look up). Either true or false
+
+|VoiceUrl
+|The URL Restcomm will request when this phone number receives a call
+
+|VoiceMethod
+|The HTTP method Restcomm will use when requesting the above Url. Either GET or POST
+
+|VoiceFallbackUrl
+|The URL that Restcomm will request if an error occurs retrieving or executing the RCML requested by Url
+
+|VoiceFallbackMethod
+|The HTTP method Restcomm will use when requesting the VoiceFallbackUrl. Either GET or POST
+
+|StatusCallback
+|The URL that Restcomm will request to pass status parameters(such as call ended) to your application
+
+|StatusCallbackMethod
+|The HTTP method Restcomm will use to make requests to the StatusCallback URL. Either GET or POST
+
+|VoiceApplicationSid
+|The 34 character sid of the application Restcomm should use to handle phone calls to this number. If a VoiceApplicationSid is present, Restcomm will ignore all of the voice urls above and use those set on the application
+
+|VoiceApplicationName
+|The application name
+
+|SmsUrl
+|The URL Restcomm will request when receiving an incoming SMS message to this number
+
+|SmsMethod
+|The HTTP method Restcomm will use when making requests to the SmsUrl. Either GET or POST
+
+|SmsFallbackUrl
+|The URL that Restcomm will request if an error occurs retrieving or executing the RCML from SmsUrl
+
+|SmsFallbackMethod
+|The HTTP method Restcomm will use when requesting the above URL. Either GET or POST
+
+|SmsApplicationSid
+|The 34 character sid of the application Restcomm should use to handle SMSs sent to this number. If a SmsApplicationSid is present, Restcomm will ignore all of the SMS urlsabove and use those set on the application
+
+|SmsApplicationName
+|The Application name
+
+|UssdUrl
+|The URL Restcomm will request when receiving an incoming USSD request to this number
+
+|UssdMethod
+|The HTTP method Restcomm will use when making requests to the UssdUrl. Either GET or POST
+
+|UssdFallbackUrl
+|The URL that Restcomm will request if an error occurs retrieving or executing the RCML from UssdUrl
+
+|UssdFallbackMethod
+|The HTTP method Restcomm will use when requesting the above URL. Either GET or POST
+
+|UssdApplicationSid
+|The 34 character sid of the application Restcomm should use to handle USSD requests to this number. If a UssdApplicationSid is present, Restcomm will ignore all of the Ussd urls above and use those set on the application
+
+|UssdApplicationName
+|The application name
+
+|ReferUrl
+|The URL Restcomm will request when receiving a SIP Refer request to this number
+
+|ReferMethod
+|The HTTP method Restcomm will use when making requests to the ReferUrl. Either GET or POST
+
+|ReferApplicationSid
+|The 34 character sid of the application Restcomm should use to handle SIP Refer requests to this number. If a ReferApplicationSid is present, Restcomm will ignore all of the Refer urls above and use those set on the application.
+
+|ReferApplicationName
+|The application name
+
+|Capabilities
+|This is a set of boolean properties that indicate whether a phone number can receive calls or messages. Possible capabilities are Voice, SMS, and MMS with each having a value of either true or false
+
+|Uri
+|The URI for this resource, relative to https://api.Restcomm.com
+
+|===
+
 === Get Incoming Number List
 
 To get the list of all Incoming Numbers, you need to pass user Authentication to PhoneNumberList class +
@@ -422,6 +867,62 @@ To delete a phone Number, you need to provide the calling sid and pass it to the
 
 == *Notifications*
 
+|===
+|Property |Description
+
+|Sid
+|A string that uniquely identifies this transcription.
+
+|DateCreated
+|The date that this transcription was created
+
+|DateUpdated
+|The date that this transcription was last updated
+
+|AccountSid
+|The unique id of the Account that created this transcription
+
+|CallSid
+|CallSid is the unique id of the call during which the notification was generated. Empty if the notification was generated by the Restful APIs without regard to a specific phone call
+
+|ApiVersion
+|The RestComm API version in use when this notification was generated. May be empty for events that don't have a specific API version
+
+|Log
+|An integer log level corresponding to the type of notification:0 is ERROR, 1 is WARNING.
+
+|ErrorCode
+|A unique error code for the error condition. You can lookup errors, in our Error Dictionary.
+
+|MoreInfo
+|A URL for more information about the error condition. The URL is a page in our Error Dictionary
+
+|MessageText
+|The text for the notification
+
+|MessageDate
+|The date the notification was actually generated.
+
+|RequestUrl
+|The URL of the resource that caused the notification to be generated
+
+|RequestMethod
+|The HTTP method in use for the request that caused the notification to be generated.
+
+|RequestVariables
+|The HTTP GET or POST variables that RestComm generated and sent to your server. Also, if the notification was generated by the Restful APIs, this field will include any HTTP POST or PUT variables you sent.
+
+|ResponseHeaders
+|The HTTP headers returned by your server
+
+|ResponseBody
+|The HTTP body returned by your server
+
+|Uri
+|The URI for this account, relative to https://localhost/restcomm.
+
+|===
+
 === Get Notification List
 
 To get list of Notifications, call the NotificationList class and pass user Authentication +
@@ -445,6 +946,41 @@ These will store the details as per filter option in `getlist`. You can access i
 `notificationsid = getlist['sid']` +
 
 == *Recordings*
+
+|===
+|Property |Description
+
+|Sid
+|A string that uniquely identifies this recording
+
+|DateCreated
+|The date that this recording was created
+
+|DateUpdated
+|The date that this recording was last updated
+
+|AccountSid
+|The unique id of the Account that created this recording
+
+|CallSid
+|The unique id of the call during which the recording was made
+
+|Duration
+|The length of the recording, in seconds
+
+|ApiVersion
+|The API version in use during the recording
+
+|Uri
+|The URI for this account, relative to https://localhost:restcomm.
+
+|FileUri
+|The File URI for this recording, relative to https://localhost:restcomm. It can be used to access the WAV file
+
+|S3Uri
+|The S3 URI for this recording-Exists ONLY IF Amazon S3 integration is enabled and security level is NONE-
+
+|===
 
 === Get Recording List
 
@@ -470,6 +1006,38 @@ These will store the details as per filter option in `getlist`. You can access i
 
 == *Transcriptions*
 
+|===
+|Property |Description
+
+|Sid
+|A string that uniquely identifies this transcription
+
+|DateCreated
+|The date that this transcription was created
+
+|DateUpdated
+|The date that this transcription was last updated
+
+|AccountSid
+|The unique id of the Account that created this transcription
+
+|Status
+|A string representing the status of the transcription. Possible values are in-progress, completed, and failed.
+
+|RecordingSid
+|The unique id of the Recording this Transcription was made of.
+
+|Duration
+|The duration of the transcribed audio, in seconds
+
+|TranscriptionText
+|The text content of the transcription
+
+|Uri
+|The URI for this account, relative to https://localhost/restcomm.
+
+|===
+
 === Get Transcription List
 
 To get list of Transcriptions, call the TranscriptionList class and pass user Authentication +
@@ -494,6 +1062,75 @@ These will store the details as per filter option in `getlist`. You can access i
 
 == *Usage*
 
+|===
+|Property |Description
+
+|Category
+|The category of usage. See Usage Categories below
+
+|Description
+|A humble-readable description of the usage category
+
+|AccountSid
+|The Account that accrued the usage
+
+|StartDate
+|The first date for which usage is included in this UsageRecord, formatted as YYYY-MM-DD. All dates are in GMT.
+
+|EndDate
+|The last date for which usage is included in this UsageRecord, formatted as YYYY-MM-DD. All dates are in GMT.
+
+|Usage
+|The Amount of usage(e.g. the number of call minutes). This is frequently the same as Count, but may be different for certain usage categories like calls, where Count represents the number of calls and Usage represents the number of minutes
+
+|UsageUnit
+|The units in which Usage is measured. For example minutes for calls, messages for SMS.
+
+|Count
+|The number of usage events(e.g. the number of calls).
+
+|CountUnit
+|The units in which Count is measured. For example calls for calls, messages for SMS\
+
+|Price
+|The total price of the usage, in the currency associated with the account.
+
+|PriceUnit
+|The currency in which Price is measured, in ISO 4127 format(e.g. usd, eur, jpy).
+
+|Uri
+|The URI that returns only this UsageRecord, relative to https://Restcomm_IP_ADDRESS
+
+|SubresourceUris
+|Subresource Uris for this UsageRecord. See List Subresources.
+
+|===
+
+A Usage Record's Category defines the type of usage it represents. The full list of all categories is here, but you'll usually focus on just a few common categories
+
+|===
+|Category |Description
+
+|calls
+|All voice calls. Count is the number of calls and Usage is the number of minutes.
+
+|sms
+|All SMS messages. Count and Usage are both the number of message sent
+
+|phonenumbers
+|All phone numbers owned by the account
+
+|recordings
+|Recordings of voice calls. Count is the number of recordings and Usage is the number of recorded minutes. Note that Restcomm doesn't charge for making recordings(only storing them long term) so price will always be 0.
+
+|transcriptions
+|Transcriptions of voice calls. Count is the number of transcriptions and Usage is the number of transcribed minutes
+
+|totalprice
+|Total price of all usage. Usage will be the same as Price, and Count will be empty. Note that because some Restcomm costs may not be included in any usage category, the sum of the Price of all UsageRecords may not be equal to the Price of TotalPrice
+
+|===
+
 === Get Usage List
 
 To get list of Usage, you need to pass user authentications to the Usages class +
@@ -502,3 +1139,59 @@ To get list of Usage, you need to pass user authentications to the Usages class 
 `getinfo = Usages(client).GetList()` +
 This will store the details of all usages in `getinfo`. To access it, simply type +
 `sid = getinfo['sid']`
+
+== *UssdPush*
+
+=== Push Ussd Message
+
+The USSD gateway to which Restcomm must send the UssdMessage must be configured in the restcomm.xml file. IP address and port must be configured. Username/password for the USSD are optional. +
+To send a Ussd message to the configured USSD Gateway, call UssdPush class and pass all the required data with user Authentication +
+`from Restcomm_Python_SDk import UssdPush` +
+
+`sendsms = UssdPush("Restcomm", "123", YOUR_USSD_APP, client).Push()` +
+This will store the details of all the send USSD messages in `sendsms`.
+
+== *Supervisor/Monitoring Service*
+
+|===
+|Property |Description
+
+|LiveCallDetails
+|(optional) Set to true to get an array of live calls. Default value *false*
+
+|===
+
+The Supervisor API will provide the following metrics: +
+
+* Real Time metrics
+** Live incoming calls
+** Live outgoing calls
+** Live calls (total)
+** Live call details array. An array with call details for each of the live calls
+** Registered users
+* Accumulated metrics
+** Total calls since uptime
+** Incoming calls since uptime
+** Outgoing calls since uptime
+** No Answered calls
+** Busy calls
+** Failed calls
+** Not found calls
+** Canceled calls
+** Inbound Text messages to RMCL applications
+** Inbound Text messages to Restcomm clients
+** Inbound Text messages to outbound proxy
+** Inbound Text messages with Not Found error
+** Outgoing Text messages
+
+=== Get Metric
+
+To get the monitoring service metrics, call the Monitoring class and pass the user Authentication +
+`from Restcomm_Python_SDk import Monitoring` +
+
+`getMetric = Monitoring(client).GetMetric()` +
+This will store all the details of the metrics in `getMetric`. To access it, simply type +
+`InstanceId = getMetric['InstanceId']` +
+`Revision = getMetric['Revision']` +
+
+

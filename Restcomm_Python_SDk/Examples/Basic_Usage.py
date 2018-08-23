@@ -130,6 +130,18 @@ def callExample():
     RedirectCall = Restcomm_Python_SDk.RedirectCall(Url, SubSid, client).Redirect()
     print(RedirectCall)
 
+    #To terminate a ringing call, call 'TerminateCall' class and then call 'Terminate' function
+
+    SubSid2 = input("Enter the Sid of the client to Terminate the call")
+    TerminateCall1 = Restcomm_Python_SDk.TerminateCall("canceled", SubSid2, client).Terminate()
+    print(TerminateCall1)
+
+    #To terminate a Ongoing Call, call 'TerminateCall' class and then call 'Terminate' function
+
+    SubSid2 = input("Enter the Sid of the client to Terminate the call")
+    TerminateCall2 = Restcomm_Python_SDk.TerminateCall("completed", SubSid2, client).Terminate()
+    print(TerminateCall2)
+
     #To make a conference Call, call 'ConferenceCall' class and then call 'Conference' function
 
     sig_Url = input("Enter the value")
@@ -150,6 +162,18 @@ def callExample():
     ConfSid2 = input("Enter the Conference Sid")
     UnMute = Restcomm_Python_SDk.UnMuteParticipant(PartSid2, ConfSid2, client).UnMute()
     print(UnMute)
+
+    #To filter the call list according to sender, call 'CallFilter' class and then call 'FilterFrom' function
+
+    FromParam = input("Enter the From data to filter")
+    filterdata = Restcomm_Python_SDk.CallFilter(FromParam, client).FilterFrom()
+    print(filterdata)
+
+    # To filter the call list according to page number, call 'CallFilter' class and then call 'Filterpage' function
+
+    PageSize = input("enter the Page no. to filter the call list")
+    filterdata2 = Restcomm_Python_SDk.CallFilter(PageSize, client).FilterPage()
+    print(filterdata2)
 
 def clientExample():
 
@@ -282,7 +306,25 @@ def UsageExample():
     getInfo = Restcomm_Python_SDk.Usages(client).GetList()
     print(getInfo)
 
+def UssdPushExample():
+
+    #To send a USSD message to USSD gateway, call 'UssdPush' class and then call 'Push' function
+
+    From = input("Enter the From Data")
+    To = input("Enter the To Data")
+    AppName = input("Enter the USSD App Name")
+    sendMessage = Restcomm_Python_SDk.UssdPush(From, To, AppName, client).Push()
+    print(sendMessage)
+
+def SupervisorExample():
+
+    #To get the monitoring service metrics, call 'Monitoring' class and then call 'GetMetrics' function
+
+    getinfo = Restcomm_Python_SDk.Monitoring(client).GetMetric()
+    print(getinfo)
+
 if __name__ == '__main__':
+
     AccountExamples()
     ApplicationExample()
     AvailableNumberExample()
@@ -295,3 +337,5 @@ if __name__ == '__main__':
     SmsExample()
     TranscriptionExample()
     UsageExample()
+    UssdPushExample()
+    SupervisorExample()

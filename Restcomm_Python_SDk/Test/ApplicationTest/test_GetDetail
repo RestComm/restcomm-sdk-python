@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.9.1]
+    method: GET
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications.json
+  response:
+    body: {string: "[\n  {\n    \"sid\": \"AP11ccf67a8bd344278cba9ccbd8f9bdb7\",\n
+        \   \"date_created\": \"Fri, 16 Jun 2017 09:27:32 +0000\",\n    \"date_updated\":
+        \"Fri, 16 Jun 2017 09:27:32 +0000\",\n    \"friendly_name\": \"demoapp\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"api_version\":
+        \"2012-04-24\",\n    \"voice_caller_id_lookup\": false,\n    \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/AP11ccf67a8bd344278cba9ccbd8f9bdb7.json\"\n
+        \ },\n  {\n    \"sid\": \"AP3116e399549d40c385db1037d596b5a6\",\n    \"date_created\":
+        \"Fri, 16 Jun 2017 09:27:57 +0000\",\n    \"date_updated\": \"Fri, 16 Jun
+        2017 09:27:57 +0000\",\n    \"friendly_name\": \"demoapp\",\n    \"account_sid\":
+        \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"api_version\": \"2012-04-24\",\n
+        \   \"voice_caller_id_lookup\": false,\n    \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/AP3116e399549d40c385db1037d596b5a6.json\"\n
+        \ },\n  {\n    \"sid\": \"AP36bf2447b8c942e1a540e75bb2238dec\",\n    \"date_created\":
+        \"Fri, 16 Jun 2017 09:40:10 +0000\",\n    \"date_updated\": \"Fri, 16 Jun
+        2017 09:40:10 +0000\",\n    \"friendly_name\": \"testapps\",\n    \"account_sid\":
+        \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"api_version\": \"2012-04-24\",\n
+        \   \"voice_caller_id_lookup\": false,\n    \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/AP36bf2447b8c942e1a540e75bb2238dec.json\"\n
+        \ },\n  {\n    \"sid\": \"AP4914ba6642f04703ba5fb28cd7363df4\",\n    \"date_created\":
+        \"Fri, 16 Jun 2017 09:41:30 +0000\",\n    \"date_updated\": \"Fri, 16 Jun
+        2017 09:41:30 +0000\",\n    \"friendly_name\": \"testappps\",\n    \"account_sid\":
+        \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"api_version\": \"2012-04-24\",\n
+        \   \"voice_caller_id_lookup\": false,\n    \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/AP4914ba6642f04703ba5fb28cd7363df4.json\"\n
+        \ },\n  {\n    \"sid\": \"AP49eeaa3cb6b945b985c8e636c388f8f4\",\n    \"date_created\":
+        \"Fri, 16 Jun 2017 09:44:02 +0000\",\n    \"date_updated\": \"Fri, 16 Jun
+        2017 09:44:02 +0000\",\n    \"friendly_name\": \"testappps\",\n    \"account_sid\":
+        \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"api_version\": \"2012-04-24\",\n
+        \   \"voice_caller_id_lookup\": false,\n    \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/AP49eeaa3cb6b945b985c8e636c388f8f4.json\"\n
+        \ },\n  {\n    \"sid\": \"AP58159ef58a1f4a4182432a70b3b12979\",\n    \"date_created\":
+        \"Fri, 16 Jun 2017 09:49:01 +0000\",\n    \"date_updated\": \"Fri, 16 Jun
+        2017 09:49:01 +0000\",\n    \"friendly_name\": \"testappps\",\n    \"account_sid\":
+        \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"api_version\": \"2012-04-24\",\n
+        \   \"voice_caller_id_lookup\": false,\n    \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/AP58159ef58a1f4a4182432a70b3b12979.json\"\n
+        \ },\n  {\n    \"sid\": \"AP98472e9dba50458cb057ceb487c0e2c6\",\n    \"date_created\":
+        \"Thu, 8 Jun 2017 09:04:58 +0000\",\n    \"date_updated\": \"Thu, 8 Jun 2017
+        09:04:59 +0000\",\n    \"friendly_name\": \"app\",\n    \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \   \"api_version\": \"2012-04-24\",\n    \"voice_caller_id_lookup\": false,\n
+        \   \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/AP98472e9dba50458cb057ceb487c0e2c6.json\",\n
+        \   \"rcml_url\": \"/restcomm-rvd/services/apps/AP98472e9dba50458cb057ceb487c0e2c6/controller\",\n
+        \   \"kind\": \"ussd\"\n  },\n  {\n    \"sid\": \"APae3528d5fdf743c69012e0ebae480254\",\n
+        \   \"date_created\": \"Fri, 16 Jun 2017 09:30:31 +0000\",\n    \"date_updated\":
+        \"Fri, 16 Jun 2017 09:30:31 +0000\",\n    \"friendly_name\": \"demoapp\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"api_version\":
+        \"2012-04-24\",\n    \"voice_caller_id_lookup\": false,\n    \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/APae3528d5fdf743c69012e0ebae480254.json\"\n
+        \ },\n  {\n    \"sid\": \"APaf19c0f76efb4fb9bd77e30286fb75a9\",\n    \"date_created\":
+        \"Fri, 16 Jun 2017 09:32:30 +0000\",\n    \"date_updated\": \"Fri, 16 Jun
+        2017 09:32:30 +0000\",\n    \"friendly_name\": \"demoapps\",\n    \"account_sid\":
+        \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"api_version\": \"2012-04-24\",\n
+        \   \"voice_caller_id_lookup\": false,\n    \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/APaf19c0f76efb4fb9bd77e30286fb75a9.json\"\n
+        \ },\n  {\n    \"sid\": \"APbdd55582e2ce479ba56d2be99106c28c\",\n    \"date_created\":
+        \"Fri, 16 Jun 2017 09:39:04 +0000\",\n    \"date_updated\": \"Fri, 16 Jun
+        2017 09:39:04 +0000\",\n    \"friendly_name\": \"demoapps\",\n    \"account_sid\":
+        \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"api_version\": \"2012-04-24\",\n
+        \   \"voice_caller_id_lookup\": false,\n    \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/APbdd55582e2ce479ba56d2be99106c28c.json\"\n
+        \ },\n  {\n    \"sid\": \"APc6d06842a2c54f7aa2962641e10afdcf\",\n    \"date_created\":
+        \"Mon, 5 Jun 2017 08:30:10 +0000\",\n    \"date_updated\": \"Mon, 5 Jun 2017
+        08:30:11 +0000\",\n    \"friendly_name\": \"yes\",\n    \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \   \"api_version\": \"2012-04-24\",\n    \"voice_caller_id_lookup\": false,\n
+        \   \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/APc6d06842a2c54f7aa2962641e10afdcf.json\",\n
+        \   \"rcml_url\": \"/restcomm-rvd/services/apps/APc6d06842a2c54f7aa2962641e10afdcf/controller\",\n
+        \   \"kind\": \"ussd\"\n  },\n  {\n    \"sid\": \"APdb12dfe7961d4a1b8e6bbd11d277ab12\",\n
+        \   \"date_created\": \"Mon, 19 Jun 2017 20:45:35 +0000\",\n    \"date_updated\":
+        \"Mon, 19 Jun 2017 20:45:35 +0000\",\n    \"friendly_name\": \"testappps\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"api_version\":
+        \"2012-04-24\",\n    \"voice_caller_id_lookup\": false,\n    \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/APdb12dfe7961d4a1b8e6bbd11d277ab12.json\"\n
+        \ },\n  {\n    \"sid\": \"APfc96c438a8a046029216997dc10c1be1\",\n    \"date_created\":
+        \"Fri, 16 Jun 2017 09:51:30 +0000\",\n    \"date_updated\": \"Fri, 16 Jun
+        2017 09:51:30 +0000\",\n    \"friendly_name\": \"testappps\",\n    \"account_sid\":
+        \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"api_version\": \"2012-04-24\",\n
+        \   \"voice_caller_id_lookup\": false,\n    \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Applications/APfc96c438a8a046029216997dc10c1be1.json\"\n
+        \ }\n]"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 29 Jun 2017 10:55:41 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

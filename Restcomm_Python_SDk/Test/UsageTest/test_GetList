@@ -1,0 +1,79 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.9.1]
+    method: GET
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily.json
+  response:
+    body: {string: "[\n  {\n    \"category\": \"calls\",\n    \"description\": \"Total
+        Calls\",\n    \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"start_date\":
+        \"2017-05-16\",\n    \"end_date\": \"2017-05-17\",\n    \"usage\": \"1\",\n
+        \   \"usage_unit\": \"minutes\",\n    \"count\": \"2\",\n    \"count_unit\":
+        \"calls\",\n    \"price\": \"0\",\n    \"price_unit\": \"USD\",\n    \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily.json?Category=calls&StartDate=2017-05-16&EndDate=2017-05-17\"\n
+        \ },\n  {\n    \"category\": \"calls\",\n    \"description\": \"Total Calls\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"start_date\":
+        \"2017-05-17\",\n    \"end_date\": \"2017-05-18\",\n    \"usage\": \"2\",\n
+        \   \"usage_unit\": \"minutes\",\n    \"count\": \"5\",\n    \"count_unit\":
+        \"calls\",\n    \"price\": \"0\",\n    \"price_unit\": \"USD\",\n    \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily.json?Category=calls&StartDate=2017-05-17&EndDate=2017-05-18\"\n
+        \ },\n  {\n    \"category\": \"calls\",\n    \"description\": \"Total Calls\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"start_date\":
+        \"2017-05-19\",\n    \"end_date\": \"2017-05-20\",\n    \"usage\": \"0\",\n
+        \   \"usage_unit\": \"minutes\",\n    \"count\": \"1\",\n    \"count_unit\":
+        \"calls\",\n    \"price\": \"0\",\n    \"price_unit\": \"USD\",\n    \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily.json?Category=calls&StartDate=2017-05-19&EndDate=2017-05-20\"\n
+        \ },\n  {\n    \"category\": \"calls\",\n    \"description\": \"Total Calls\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"start_date\":
+        \"2017-05-25\",\n    \"end_date\": \"2017-05-26\",\n    \"usage\": \"0\",\n
+        \   \"usage_unit\": \"minutes\",\n    \"count\": \"3\",\n    \"count_unit\":
+        \"calls\",\n    \"price\": \"0\",\n    \"price_unit\": \"USD\",\n    \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily.json?Category=calls&StartDate=2017-05-25&EndDate=2017-05-26\"\n
+        \ },\n  {\n    \"category\": \"calls\",\n    \"description\": \"Total Calls\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"start_date\":
+        \"2017-05-29\",\n    \"end_date\": \"2017-05-30\",\n    \"usage\": \"0\",\n
+        \   \"usage_unit\": \"minutes\",\n    \"count\": \"2\",\n    \"count_unit\":
+        \"calls\",\n    \"price\": \"0\",\n    \"price_unit\": \"USD\",\n    \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily.json?Category=calls&StartDate=2017-05-29&EndDate=2017-05-30\"\n
+        \ },\n  {\n    \"category\": \"calls\",\n    \"description\": \"Total Calls\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"start_date\":
+        \"2017-05-30\",\n    \"end_date\": \"2017-05-31\",\n    \"usage\": \"0\",\n
+        \   \"usage_unit\": \"minutes\",\n    \"count\": \"7\",\n    \"count_unit\":
+        \"calls\",\n    \"price\": \"0\",\n    \"price_unit\": \"USD\",\n    \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily.json?Category=calls&StartDate=2017-05-30&EndDate=2017-05-31\"\n
+        \ },\n  {\n    \"category\": \"calls\",\n    \"description\": \"Total Calls\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"start_date\":
+        \"2017-06-06\",\n    \"end_date\": \"2017-06-07\",\n    \"usage\": \"0\",\n
+        \   \"usage_unit\": \"minutes\",\n    \"count\": \"8\",\n    \"count_unit\":
+        \"calls\",\n    \"price\": \"0\",\n    \"price_unit\": \"USD\",\n    \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily.json?Category=calls&StartDate=2017-06-06&EndDate=2017-06-07\"\n
+        \ },\n  {\n    \"category\": \"calls\",\n    \"description\": \"Total Calls\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"start_date\":
+        \"2017-06-07\",\n    \"end_date\": \"2017-06-08\",\n    \"usage\": \"1\",\n
+        \   \"usage_unit\": \"minutes\",\n    \"count\": \"3\",\n    \"count_unit\":
+        \"calls\",\n    \"price\": \"0\",\n    \"price_unit\": \"USD\",\n    \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily.json?Category=calls&StartDate=2017-06-07&EndDate=2017-06-08\"\n
+        \ },\n  {\n    \"category\": \"calls\",\n    \"description\": \"Total Calls\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"start_date\":
+        \"2017-06-16\",\n    \"end_date\": \"2017-06-17\",\n    \"usage\": \"2\",\n
+        \   \"usage_unit\": \"minutes\",\n    \"count\": \"3\",\n    \"count_unit\":
+        \"calls\",\n    \"price\": \"0\",\n    \"price_unit\": \"USD\",\n    \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily.json?Category=calls&StartDate=2017-06-16&EndDate=2017-06-17\"\n
+        \ },\n  {\n    \"category\": \"calls\",\n    \"description\": \"Total Calls\",\n
+        \   \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n    \"start_date\":
+        \"2017-06-19\",\n    \"end_date\": \"2017-06-20\",\n    \"usage\": \"5\",\n
+        \   \"usage_unit\": \"minutes\",\n    \"count\": \"16\",\n    \"count_unit\":
+        \"calls\",\n    \"price\": \"0\",\n    \"price_unit\": \"USD\",\n    \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily.json?Category=calls&StartDate=2017-06-19&EndDate=2017-06-20\"\n
+        \ }\n]"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Fri, 30 Jun 2017 07:02:55 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

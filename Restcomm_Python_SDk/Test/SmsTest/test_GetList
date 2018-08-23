@@ -1,0 +1,102 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.9.1]
+    method: GET
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages.json
+  response:
+    body: {string: "{\n  \"page\": 0,\n  \"num_pages\": 0,\n  \"page_size\": 50,\n
+        \ \"total\": 11,\n  \"start\": \"0\",\n  \"end\": \"11\",\n  \"uri\": \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages.json\",\n
+        \ \"first_page_uri\": \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages.json?Page\\u003d0\\u0026PageSize\\u003d50\",\n
+        \ \"previous_page_uri\": \"null\",\n  \"next_page_uri\": \"null\",\n  \"last_page_uri\":
+        \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages.json?Page\\u003d0\\u0026PageSize\\u003d50\",\n
+        \ \"messages\": [\n    {\n      \"sid\": \"SM1ff219c3b3f2466b93083b3657a966a8\",\n
+        \     \"date_created\": \"Wed, 17 May 2017 05:17:07 +0000\",\n      \"date_updated\":
+        \"Wed, 17 May 2017 05:17:07 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"from\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n      \"to\": \"CAccedd4a21f0d4760be34bfb82bdf42d3\",\n
+        \     \"body\": \"Hey! how are you. hope you are doing wellllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\",\n
+        \     \"status\": \"sending\",\n      \"direction\": \"outbound-reply\",\n
+        \     \"price\": \"0.00\",\n      \"price_unit\": \"USD\",\n      \"api_version\":
+        \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SM1ff219c3b3f2466b93083b3657a966a8.json\"\n
+        \   },\n    {\n      \"sid\": \"SM2c2b20fd8a054e5b97a4b396f776ffc8\",\n      \"date_created\":
+        \"Thu, 18 May 2017 05:35:23 +0000\",\n      \"date_updated\": \"Thu, 18 May
+        2017 05:35:23 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"from\": \"+5065\",\n      \"to\": \"+paras\",\n      \"body\": \"This
+        is a test from RestComm\",\n      \"status\": \"sending\",\n      \"direction\":
+        \"outbound-api\",\n      \"price\": \"0\",\n      \"price_unit\": \"USD\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SM2c2b20fd8a054e5b97a4b396f776ffc8.json\"\n
+        \   },\n    {\n      \"sid\": \"SMa21a06c180434245894bb658afeb514f\",\n      \"date_created\":
+        \"Mon, 29 May 2017 07:52:56 +0000\",\n      \"date_updated\": \"Mon, 29 May
+        2017 07:52:56 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"from\": \"%2B9038488045\",\n      \"to\": \"%2B9840298250\",\n      \"body\":
+        \"This is the test message from restcomm\",\n      \"status\": \"sending\",\n
+        \     \"direction\": \"outbound-api\",\n      \"price\": \"0\",\n      \"price_unit\":
+        \"USD\",\n      \"api_version\": \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SMa21a06c180434245894bb658afeb514f.json\"\n
+        \   },\n    {\n      \"sid\": \"SM9534a1ac41744488a6725550e07106ca\",\n      \"date_created\":
+        \"Mon, 29 May 2017 07:54:43 +0000\",\n      \"date_updated\": \"Mon, 29 May
+        2017 07:54:43 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"from\": \"%2B8240372807\",\n      \"to\": \"%2B9840298250\",\n      \"body\":
+        \"This is the test message from restcomm\",\n      \"status\": \"sending\",\n
+        \     \"direction\": \"outbound-api\",\n      \"price\": \"0\",\n      \"price_unit\":
+        \"USD\",\n      \"api_version\": \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SM9534a1ac41744488a6725550e07106ca.json\"\n
+        \   },\n    {\n      \"sid\": \"SMbdecff233e7d46aa8c1638ff2261c96b\",\n      \"date_created\":
+        \"Mon, 29 May 2017 07:57:54 +0000\",\n      \"date_updated\": \"Mon, 29 May
+        2017 07:57:54 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"from\": \"+5065\",\n      \"to\": \"+9840298250\",\n      \"body\":
+        \"This is a test from RestComm\",\n      \"status\": \"sending\",\n      \"direction\":
+        \"outbound-api\",\n      \"price\": \"0\",\n      \"price_unit\": \"USD\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SMbdecff233e7d46aa8c1638ff2261c96b.json\"\n
+        \   },\n    {\n      \"sid\": \"SMbb618c4af3da4154b411fb38ece67927\",\n      \"date_created\":
+        \"Mon, 29 May 2017 08:00:39 +0000\",\n      \"date_updated\": \"Mon, 29 May
+        2017 08:00:39 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"from\": \"%2B8240372807\",\n      \"to\": \"%2B9840298250\",\n      \"body\":
+        \"This is the test message from restcomm\",\n      \"status\": \"sending\",\n
+        \     \"direction\": \"outbound-api\",\n      \"price\": \"0\",\n      \"price_unit\":
+        \"USD\",\n      \"api_version\": \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SMbb618c4af3da4154b411fb38ece67927.json\"\n
+        \   },\n    {\n      \"sid\": \"SMf347d2cc892548b6ae2c554be533f989\",\n      \"date_created\":
+        \"Tue, 6 Jun 2017 11:50:00 +0000\",\n      \"date_updated\": \"Tue, 6 Jun
+        2017 11:50:00 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"from\": \"918282900654\",\n      \"to\": \"919840265241\",\n      \"body\":
+        \"test Sms. Please ignore it!\",\n      \"status\": \"sending\",\n      \"direction\":
+        \"outbound-api\",\n      \"price\": \"0\",\n      \"price_unit\": \"USD\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SMf347d2cc892548b6ae2c554be533f989.json\"\n
+        \   },\n    {\n      \"sid\": \"SMed443d6662f3434bbb31dc37e34d6591\",\n      \"date_created\":
+        \"Tue, 6 Jun 2017 12:08:12 +0000\",\n      \"date_updated\": \"Tue, 6 Jun
+        2017 12:08:12 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"from\": \"+918282900654\",\n      \"to\": \"+919840265241\",\n      \"body\":
+        \"\",\n      \"status\": \"sending\",\n      \"direction\": \"outbound-api\",\n
+        \     \"price\": \"0\",\n      \"price_unit\": \"USD\",\n      \"api_version\":
+        \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SMed443d6662f3434bbb31dc37e34d6591.json\"\n
+        \   },\n    {\n      \"sid\": \"SMd87b653dcc624aaa8197c26202adf881\",\n      \"date_created\":
+        \"Thu, 8 Jun 2017 06:01:30 +0000\",\n      \"date_updated\": \"Thu, 8 Jun
+        2017 06:01:30 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"from\": \"+918282900654\",\n      \"to\": \"+919840265241\",\n      \"body\":
+        \"this is a test Sms. Please ignore it!\",\n      \"status\": \"sending\",\n
+        \     \"direction\": \"outbound-api\",\n      \"price\": \"0\",\n      \"price_unit\":
+        \"USD\",\n      \"api_version\": \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SMd87b653dcc624aaa8197c26202adf881.json\"\n
+        \   },\n    {\n      \"sid\": \"SM7bce616ba8f3427e9e6ca69aff09e9a3\",\n      \"date_created\":
+        \"Thu, 8 Jun 2017 06:12:08 +0000\",\n      \"date_updated\": \"Thu, 8 Jun
+        2017 06:12:08 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"from\": \"+918282900654\",\n      \"to\": \"+919840265241\",\n      \"body\":
+        \"this is a test Sms. Please ignore it!\",\n      \"status\": \"sending\",\n
+        \     \"direction\": \"outbound-api\",\n      \"price\": \"0\",\n      \"price_unit\":
+        \"USD\",\n      \"api_version\": \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SM7bce616ba8f3427e9e6ca69aff09e9a3.json\"\n
+        \   },\n    {\n      \"sid\": \"SM011bae40d449412c9442e885f5d700b6\",\n      \"date_created\":
+        \"Fri, 30 Jun 2017 06:17:35 +0000\",\n      \"date_updated\": \"Fri, 30 Jun
+        2017 06:17:35 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"from\": \"5065\",\n      \"to\": \"9840254165\",\n      \"body\":
+        \"hey! its a dummy message. Please ignore it.\",\n      \"status\": \"sending\",\n
+        \     \"direction\": \"outbound-api\",\n      \"price\": \"0\",\n      \"price_unit\":
+        \"USD\",\n      \"api_version\": \"2012-04-24\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SM011bae40d449412c9442e885f5d700b6.json\"\n
+        \   }\n  ]\n}"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Fri, 30 Jun 2017 06:17:40 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

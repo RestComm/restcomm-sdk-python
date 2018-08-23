@@ -54,7 +54,6 @@ class AccountDetails(object):
                 return "Base Url is Incorrect! Please verify and try again"
             else:
                 content = json.loads(r1.text)
-                print(content)
                 return content
 
         except requests.HTTPError:
