@@ -25,26 +25,22 @@
 
 import unittest
 import vcr
-from Restcomm_Python_SDk.Restcomm.UssdPush import UssdPush
+from Restcomm_Python_SDk.Restcomm.Supervisor import Supervisor
 
-class TestUssdPush(unittest.TestCase):
+class TestMonitoring(unittest.TestCase):
 
     @vcr.use_cassette(record_mode='new_episodes')
-    def test_Push(self):
+    def test_GetMetric(self):
 
         try:
 
-            file = open("UssdPushData.txt", "r")
+            file = open("SupervisorData.txt", "r")
             Sid = file.readline()
             AuthToken = file.readline()
             BaseUrl = file.readline()
-            From = file.readline()
-            To = file.readline()
-            AppName = file.readline()
 
-            data = UssdPush.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
-            content = UssdPush.UssdPush(From.strip(), To.strip(), AppName.strip(), data).Push()
-
+            data = Supervisor.client(Sid.strip(), AuthToken.strip(), BaseUrl.strip())
+            content = Supervisor.Monitoring(data).GetMetric()
             self.assertIsNotNone(content)
             file.close()
 
@@ -54,8 +50,6 @@ class TestUssdPush(unittest.TestCase):
             print("Import Error: Please import proper library!")
         except TypeError:
             print("Type Error: The value is of wrong type!")
-        except IndexError:
-            print("Index Error: List index out of range!")
 
-if __name__=="__main__":
+if __name__ == "__main__":
     unittest.main()
