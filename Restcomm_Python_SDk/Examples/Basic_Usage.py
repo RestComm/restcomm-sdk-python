@@ -105,7 +105,9 @@ def AvailableNumberExample():
     #to get the list of number availability, call 'NumberAvailablity' class and then call 'Availability' function
 
     AreaCode = input("Enter the Area Code")
-    Avail = Restcomm_Python_SDk.NumberAvailablity(AreaCode, client).Availability()
+    IsoCode = input("Enter the Iso Code")
+    Instance = input("Enter the Address requirement")
+    Avail = Restcomm_Python_SDk.NumberAvailablity(IsoCode, Instance, AreaCode, client).Availability()
     print(Avail)
 
 def callExample():
@@ -130,6 +132,18 @@ def callExample():
     RedirectCall = Restcomm_Python_SDk.RedirectCall(Url, SubSid, client).Redirect()
     print(RedirectCall)
 
+    #To terminate a ringing call, call 'TerminateCall' class and then call 'Terminate' function
+
+    SubSid2 = input("Enter the Sid of the client to Terminate the call")
+    TerminateCall1 = Restcomm_Python_SDk.TerminateCall("canceled", SubSid2, client).Terminate()
+    print(TerminateCall1)
+
+    #To terminate a Ongoing Call, call 'TerminateCall' class and then call 'Terminate' function
+
+    SubSid2 = input("Enter the Sid of the client to Terminate the call")
+    TerminateCall2 = Restcomm_Python_SDk.TerminateCall("completed", SubSid2, client).Terminate()
+    print(TerminateCall2)
+
     #To make a conference Call, call 'ConferenceCall' class and then call 'Conference' function
 
     sig_Url = input("Enter the value")
@@ -150,6 +164,18 @@ def callExample():
     ConfSid2 = input("Enter the Conference Sid")
     UnMute = Restcomm_Python_SDk.UnMuteParticipant(PartSid2, ConfSid2, client).UnMute()
     print(UnMute)
+
+    #To filter the call list according to sender, call 'CallFilter' class and then call 'FilterFrom' function
+
+    FromParam = input("Enter the From data to filter")
+    filterdata = Restcomm_Python_SDk.CallFilter(FromParam, client).FilterFrom()
+    print(filterdata)
+
+    # To filter the call list according to page number, call 'CallFilter' class and then call 'Filterpage' function
+
+    PageSize = input("enter the Page no. to filter the call list")
+    filterdata2 = Restcomm_Python_SDk.CallFilter(PageSize, client).FilterPage()
+    print(filterdata2)
 
 def clientExample():
 
@@ -282,12 +308,108 @@ def UsageExample():
     getInfo = Restcomm_Python_SDk.Usages(client).GetList()
     print(getInfo)
 
+def UssdPushExample():
+
+    #To send a USSD message to USSD gateway, call 'UssdPush' class and then call 'Push' function
+
+    From = input("Enter the From Data")
+    To = input("Enter the To Data")
+    AppName = input("Enter the USSD App Name")
+    sendMessage = Restcomm_Python_SDk.UssdPush(From, To, AppName, client).Push()
+    print(sendMessage)
+
+def SupervisorExample():
+
+    #To get the monitoring service metrics, call 'Monitoring' class and then call 'GetMetrics' function
+
+    getinfo = Restcomm_Python_SDk.Monitoring(client).GetMetric()
+    print(getinfo)
+
+def conferenceExample():
+
+    # Returns the representation of a Conference resource, including the properties above.
+
+    ConfSid = input("Enter the conference Sid")
+    getlist = Restcomm_Python_SDk.Conferences(ConfSid, client).GetConference()
+    print(getlist)
+
+    # <Participants> represent set/list of in-progress calls in a running conference room.
+
+    getlist1 = Restcomm_Python_SDk.Conferences(ConfSid, client).InProgressCall()
+    print(getlist1)
+
+def IncomingNumberExample():
+
+    getlist = Restcomm_Python_SDk.PhoneNumberList(client).GetList()
+    print(getlist)
+
+    phNumber = input('Enter the phone nukles1.07')
+    VoiceUrl = input("Enter the Voice Url")
+    attach = Restcomm_Python_SDk.AttachPhoneNumber(phNumber, VoiceUrl, client).Attach()
+    print(attach)
+
+    CallSid = input("Enter th Calling Sid")
+    delete = Restcomm_Python_SDk.DeletePhoneNumber(CallSid, client).Delete()
+    print("Delete")
+
+def GeolocationExample():
+
+    DIdentifier1 = input("Enter the Device Identifier")
+    CallBack1 = input("Enter the StatusCallBack Url")
+    location = Restcomm_Python_SDk.IPLocation(DIdentifier1, CallBack1, client).locate()
+    print(location)
+
+    GeoSid1 = input("Enter the GeoLocation Sid")
+    update = Restcomm_Python_SDk.UpdateGeo(GeoSid1, client).Update()
+    print(update)
+
+    GeoSid2 = input("Enter the Geolocation Sid")
+    getinfo = Restcomm_Python_SDk.GetGeolocation(GeoSid2, client).GetInfo()
+    print(getinfo)
+
+    DIdentifier2 = input("Enter the Device Identifier")
+    GeoLatitude2 = input("Enter the GeoLocation Latitude")
+    GeoLongitude2 = input("Enter the GeoLocation Longitude")
+    GeoRange2 = input("Enter the Range of GeoLocation")
+    GeoEvent2 = input("Enter the Geolocation Event")
+
+    notify = Restcomm_Python_SDk.NotifyGeolocation(DIdentifier2, GeoLatitude2, GeoLongitude2, GeoRange2, GeoEvent2, client).Notify()
+    print(notify)
+
+    Source = input("Enter the Source")
+    DIdentifier3 = input("Enter the Device Identifier")
+    GeoLatitude3 = input("Enter the GeoLocation Latitude")
+    GeoLongitude3 = input("Enter the GeoLocation Longitude")
+    GeoRange3 = input("Enter the Range of Geolocation")
+    GeoEvent3 = input("Enter the Geolocation Event")
+    Accuracy = input("Enter the Accuracy")
+    notify2 = Restcomm_Python_SDk.NotifyHighAccuracy(Source, DIdentifier3, GeoLatitude3, GeoLongitude3, GeoRange3, GeoEvent3, Accuracy, client).NotifyLocate()
+    print(notify2)
+
+    GeoSid3 = input("Enter the GeoSid")
+    GeoLatitude4 = input("Enter the GeoLocation Latitude")
+    GeoLongitude4 = input("Enter the GeoLocation Longitude")
+    GeoEvent4 = input("Enter the Event")
+
+    UpdateExit = Restcomm_Python_SDk.UpdateExitRange(GeoSid3, GeoLatitude4, GeoLongitude4, GeoEvent4, client).UpdateRange()
+    print(UpdateExit)
+
+    GeoSid4 = input("Enter the GeoLocation Sid")
+    retrieve = Restcomm_Python_SDk.RetrieveGeoRequest(GeoSid4, client).Retrieve()
+    print(retrieve)
+
+    GeoSid5 = input("Enter the GeoSid")
+    stop = Restcomm_Python_SDk.StopGeoNotify(GeoSid5).Stop()
+    print(stop)
+
 if __name__ == '__main__':
+
     AccountExamples()
     ApplicationExample()
     AvailableNumberExample()
     callExample()
     clientExample()
+    conferenceExample()
     EmailExample()
     GatewayExample()
     NotificationExample()
@@ -295,3 +417,7 @@ if __name__ == '__main__':
     SmsExample()
     TranscriptionExample()
     UsageExample()
+    UssdPushExample()
+    SupervisorExample()
+    GeolocationExample()
+    IncomingNumberExample()

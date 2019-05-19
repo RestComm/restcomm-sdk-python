@@ -36,18 +36,20 @@ class client(object):
 
 class NumberAvailablity(object):
 
-    def __init__(self, AreaCode, client):
+    def __init__(self,IsoCode, Instance, AreaCode, client):
 
         self.Sid = client.Sid
         self.AuthToken = client.AuthToken
         self.BaseUrl = client.BaseUrl
         self.AreaCode = AreaCode
+        self.IsoCode = IsoCode
+        self.Instance = Instance
 
     def Availability(self):
 
         try:
 
-            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/AvailablePhoneNumbers/US/Local.json'
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/AvailablePhoneNumbers/'+self.IsoCode+'/'+self.Instance+'.json'
             param = {'AreaCode':self.AreaCode}
             r1 = requests.get(Url, params=param, auth=(self.Sid, self.AuthToken))
 

@@ -1,0 +1,28 @@
+interactions:
+- request:
+    body: FriendlyName=myDemoGateway1&UserName=DemoGate1
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      Content-Length: ['44']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.9.1]
+    method: POST
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Management/Gateways/PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP.json
+  response:
+    body: {string: "{\n  \"sid\": \"PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP\",\n  \"date_created\":
+        \"Thu, 29 Jun 2017 11:06:58 +0000\",\n  \"date_updated\": \"Thu, 29 Jun 2017
+        11:06:58 +0000\",\n  \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \ \"api_version\": \"2012-04-24\",\n  \"friendly_name\": \"myDemoGateway1\",\n  \"user_name\":
+        \"DemoGate1\",\n  \"password\": \"dummyPassword56\",\n  \"status\": \"1\",\n
+        \ \"voice_method\": \"POST\",\n  \"voice_fallback_method\": \"POST\",\n  \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Management/Gateways.json\"\n}"}
+    headers:
+      Content-Length: ['1072']
+      Content-Type: [application/json]
+      Date: ['Thu, 29 Jun 2017 11:34:56 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

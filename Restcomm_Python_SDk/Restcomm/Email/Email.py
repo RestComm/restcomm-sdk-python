@@ -61,7 +61,6 @@ class SendEmail(object):
             elif r1.status_code == 400:
                 return "Invalid Mail Id"
             else:
-                print(r1.status_code)
                 content = json.loads(r1.text)
                 return content
 

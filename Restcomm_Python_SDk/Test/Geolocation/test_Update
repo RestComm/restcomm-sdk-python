@@ -1,0 +1,33 @@
+interactions:
+- request:
+    body: LocationTimestamp=2016-01-17T20%3A32%3A28.488-04%3A00&InternetAddress=2001%3A0%3A9d38%3A6ab8%3A30a5%3A1c9d%3A58c6%3A5898&DeviceLatitude=43.257134&PhysicalAddress=D8-97-BA-19-02-D8&DeviceLongitude=-3.496932&LastGeolocationResponse=false&GeolocationPositioningType=last-known
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      Content-Length: ['273']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.9.1]
+    method: PUT
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Geolocation/Immediate/PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP.json
+  response:
+    body: {string: "{\n  \"sid\": \"PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP\",\n  \"date_created\":
+        \"Thu, 29 Jun 2017 11:06:58 +0000\",\n  \"date_updated\": \"Thu, 29 Jun 2017
+        11:06:58 +0000\",\n  \"date_executed\":
+        \"Thu, 29 Jun 2017 11:06:58 +0000\",\n  \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \"device_identifier\": \"client:david\",\n  \"geolocation_type\": \"immediate\",\n  \"response_status\": \"last-known\",\n
+        \"device_latitude\": \"33.770002\",\n
+        \"device_longitude\": \"84.5200998\",\n
+        \"physical_address\": \"00-41-76-C0-00-D1\",\n
+        \"internet_address\": \"65.17.21.37\",\n
+        \"location_timestamp\": \"Mon, 25 Jan 2016 16:36:25 -0500\",\n
+        \"geolocation_position_type\": \"last-known\",\n  \"last_geolocation_response\": \"false\",\n  \"api_version\": \"2012-04-24\",\n  \"uri\":
+        \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Geolocation/Immediate/PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP.json\"\n}"}
+    headers:
+      Content-Length: ['1072']
+      Content-Type: [application/json]
+      Date: ['Thu, 29 Jun 2017 11:34:56 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

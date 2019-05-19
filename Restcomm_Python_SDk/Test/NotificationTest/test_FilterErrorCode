@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.9.1]
+    method: GET
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json?ErrorCode=11008
+  response:
+    body: {string: "{\n  \"page\": 0,\n  \"num_pages\": 0,\n  \"page_size\": 50,\n
+        \ \"total\": 6,\n  \"start\": \"0\",\n  \"end\": \"6\",\n  \"uri\": \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json\",\n
+        \ \"first_page_uri\": \"/restcomm/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json?Page\\u003d0\\u0026PageSize\\u003d50\",\n
+        \ \"previous_page_uri\": \"null\",\n  \"next_page_uri\": \"null\",\n  \"last_page_uri\":
+        \"/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json?Page\\u003d0\\u0026PageSize\\u003d50\",\n
+        \ \"notifications\": [\n    {\n      \"sid\": \"NO679deb42a7f14899aeef1c98d52ced46\",\n
+        \     \"date_created\": \"Thu, 18 May 2017 05:47:33 +0000\",\n      \"date_updated\":
+        \"Thu, 18 May 2017 05:47:33 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:paras is not registered or does not exist\",\n      \"message_date\":
+        \"2017-05-18T05:47:33.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO679deb42a7f14899aeef1c98d52ced46.json\"\n
+        \   },\n    {\n      \"sid\": \"NObed94a3e77b24fce9aeb1bd92d187fea\",\n      \"date_created\":
+        \"Thu, 18 May 2017 05:50:37 +0000\",\n      \"date_updated\": \"Thu, 18 May
+        2017 05:50:37 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:nukles1.07 is not registered or does not exist\",\n
+        \     \"message_date\": \"2017-05-18T05:50:37.000Z\",\n      \"request_url\":
+        \"\",\n      \"request_method\": \"\",\n      \"request_variables\": \"\",\n
+        \     \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NObed94a3e77b24fce9aeb1bd92d187fea.json\"\n
+        \   },\n    {\n      \"sid\": \"NO6a8f334a6a314ffda9f3d1337add6cd4\",\n      \"date_created\":
+        \"Thu, 25 May 2017 09:04:53 +0000\",\n      \"date_updated\": \"Thu, 25 May
+        2017 09:04:53 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:nukles1.07 is not registered or does not exist\",\n
+        \     \"message_date\": \"2017-05-25T09:04:53.000Z\",\n      \"request_url\":
+        \"\",\n      \"request_method\": \"\",\n      \"request_variables\": \"\",\n
+        \     \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NO6a8f334a6a314ffda9f3d1337add6cd4.json\"\n
+        \   },\n    {\n      \"sid\": \"NOc349b0b3db6c4298a8805e17864c755a\",\n      \"date_created\":
+        \"Wed, 7 Jun 2017 11:32:55 +0000\",\n      \"date_updated\": \"Wed, 7 Jun
+        2017 11:32:55 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:nukles1.07 is not registered or does not exist\",\n
+        \     \"message_date\": \"2017-06-07T11:32:55.000Z\",\n      \"request_url\":
+        \"\",\n      \"request_method\": \"\",\n      \"request_variables\": \"\",\n
+        \     \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NOc349b0b3db6c4298a8805e17864c755a.json\"\n
+        \   },\n    {\n      \"sid\": \"NObc5f8a8f5ba345a79b3fe0ee9630dc89\",\n      \"date_created\":
+        \"Wed, 7 Jun 2017 11:36:04 +0000\",\n      \"date_updated\": \"Wed, 7 Jun
+        2017 11:36:04 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:nukles1.07 is not registered or does not exist\",\n
+        \     \"message_date\": \"2017-06-07T11:36:04.000Z\",\n      \"request_url\":
+        \"\",\n      \"request_method\": \"\",\n      \"request_variables\": \"\",\n
+        \     \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NObc5f8a8f5ba345a79b3fe0ee9630dc89.json\"\n
+        \   },\n    {\n      \"sid\": \"NOcab5875f9fd44b7a9ed986e5cc07ef7e\",\n      \"date_created\":
+        \"Mon, 19 Jun 2017 04:40:01 +0000\",\n      \"date_updated\": \"Mon, 19 Jun
+        2017 04:40:01 +0000\",\n      \"account_sid\": \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n
+        \     \"api_version\": \"2012-04-24\",\n      \"log\": 0,\n      \"error_code\":
+        11008,\n      \"more_info\": \"/restcomm/errors/11008.html\",\n      \"message_text\":
+        \"The SIP Client client:paras is not registered or does not exist\",\n      \"message_date\":
+        \"2017-06-19T04:40:01.000Z\",\n      \"request_url\": \"\",\n      \"request_method\":
+        \"\",\n      \"request_variables\": \"\",\n      \"uri\": \"/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications/NOcab5875f9fd44b7a9ed986e5cc07ef7e.json\"\n
+        \   }\n  ]\n}"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Fri, 30 Jun 2017 05:54:46 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1

@@ -75,13 +75,12 @@ class AttachPhoneNumber(object):
         self.phNumber = phNumber
         self.VoiceUrl = VoiceUrl
 
-
     def Attach(self):
 
         try:
 
             Url = self.BaseUrl+'/Accounts/'+self.Sid+'/IncomingPhoneNumbers.json'
-            data = {'PhoneNumber': self.phNumber, 'VoiceUrl': self.VoiceUrl, 'isSIP': 'true'}
+            data = {'PhoneNumber': self.phNumber, 'VoiceUrl': self.VoiceUrl}
             r2 = requests.post(Url, data=data, auth=(self.Sid, self.AuthToken))
 
             if r2.status_code == 401:
@@ -114,7 +113,7 @@ class DeletePhoneNumber(object):
 
         try:
 
-            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/IncomingPhoneNumbers.json/'+self.CallSid
+            Url = self.BaseUrl+'/Accounts/'+self.Sid+'/IncomingPhoneNumbers/'+self.CallSid+'.json'
             r3 = requests.delete(Url, auth=(self.Sid, self.AuthToken))
 
             if r3.status_code == 401:
@@ -122,7 +121,7 @@ class DeletePhoneNumber(object):
             elif r3.status_code == 404:
                 return "Base Url or Call Sid is Incorrect! Please verify and try again"
             else:
-                content = json.loads(r3.text)
+                content = "Deleted"
                 return content
 
         except requests.HTTPError:

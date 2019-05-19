@@ -1,5 +1,0 @@
-"Enter the Account Sid here"
-"Enter the Authentication Token here"
-"Enter the BaseUrl here"
-"Enter the Caller Sid here"
-"Enter the Page Information for Search"

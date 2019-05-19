@@ -1,0 +1,24 @@
+interactions:
+- request:
+    body: To=sma23ze%40gmail.com&Body=Hey%21+how+r+u%3F&From=hunwqqd%40gmail.com&Subject=Demo
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic QUM0M2I0ZDk0YTliMmIxODYyNTgzYzg2MzhiNzBkMjZmMjowY2ZlODU3OWExZmFhY2U0M2FlOTY4YjMzZjlkNDVmMA==]
+      Connection: [keep-alive]
+      Content-Length: ['88']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.9.1]
+    method: POST
+    uri: https://mockServer.com/mock/2012-04-24/Accounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Email/Messages.json
+  response:
+    body: {string: "{\n  \"date_sent\": \"2017-06-29T11:34:56.425Z\",\n  \"account_sid\":
+        \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n  \"from\": \"hunwqqd@gmail.com\",\n
+        \ \"to\": \"sma23ze@gmail.com\",\n  \"body\": \"Hey! how r u?\",\n  \"subject\":
+        \"Demo\"\n}"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 29 Jun 2017 11:34:56 GMT']
+      Server: [Apache-Coyote/1.1]
+    status: {code: 200, message: OK}
+version: 1
